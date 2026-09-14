@@ -7,7 +7,7 @@ plt.rcParams['font.family']=['Liberation Serif','WenQuanYi Zen Hei','DejaVu Sans
 plt.rcParams['font.size']=8; plt.rcParams['axes.unicode_minus']=False
 plt.rcParams['mathtext.fontset']='stix'
 fig,axes=plt.subplots(1,3,figsize=(17/2.54,6.2/2.54),dpi=600)
-panels=[('N','施N量/(kg·hm⁻²)','a'),('P','施P₂O₅量/(kg·hm⁻²)','b'),('K','施K₂O量/(kg·hm⁻²)','c')]
+panels=[('N','施N量/(kg/hm²)','a'),('P','施P₂O₅量/(kg/hm²)','b'),('K','施K₂O量/(kg/hm²)','c')]
 for ax,(f,xl,tag) in zip(axes,panels):
     s=d['single'][f]; x=np.array(s['x']); y=np.array(s['y']); b=s['coef']
     xx=np.linspace(0,x.max(),200)
@@ -17,7 +17,7 @@ for ax,(f,xl,tag) in zip(axes,panels):
     else:
         l=d[f+'_lin']; ax.plot(xx,l['a']+l['b']*xx,'-',color='k',lw=0.9,label='线性')
     ax.plot(x,y,'o',ms=3.5,mfc='k',mec='k',label='实测值')
-    ax.set_xlabel(xl,fontsize=7.5); ax.set_ylabel('产量/(kg·hm⁻²)',fontsize=7.5)
+    ax.set_xlabel(xl,fontsize=7.5); ax.set_ylabel('产量/(kg/hm²)',fontsize=7.5)
     ax.set_ylim(6000,10800); ax.set_xlim(-0.04*x.max(),1.06*x.max()); ax.set_xticks(x)
     ax.tick_params(labelsize=7,direction='in',length=2.5)
     ax.text(0.03,0.92,f'({tag})',transform=ax.transAxes,fontsize=8)

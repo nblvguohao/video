@@ -28,7 +28,8 @@ function fmt(r) {
     return `${authorsStr(r.authors)}. ${r.title}[M]. ${r.city}: ${r.publisher}, ${r.year}${r.pages ? ': ' + r.pages : ''}.`;
   }
   if (t === 'EB') {
-    return `${r.org || authorsStr(r.authors)}. ${r.title}[EB/OL]. (${r.date || r.year})[${r.cited || ''}]. ${r.url}.`;
+    const upd = r.date ? `(${r.date})` : '';
+    return `${r.org || authorsStr(r.authors)}. ${r.title}[EB/OL]. ${upd}[${r.cited || ''}]. ${r.url}.`;
   }
   throw new Error('unknown type ' + t);
 }

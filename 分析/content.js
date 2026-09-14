@@ -1,8 +1,8 @@
 // 论文文字内容。标记约定：^{..} 上标，_{..} 下标，*{..} 斜体，[[key1,key2]] 文献引用，【..】为需作者补充的黄色高亮占位。
 module.exports = {
   titleCN: '桐城市范岗镇单季稻"3414"肥料效应田间试验',
-  authorsCN: '【作者姓名】^{1}，【作者姓名】^{2}',
-  affilCN: '（1.【作者单位全称】，安徽 桐城 231400；2.【作者单位全称】，安徽 桐城 231400）',
+  authorsCN: '叶四明',
+  affilCN: '（桐城市范岗镇人民政府（农业农村发展中心），安徽 桐城 231400）',
   abstractCN:
     '［目的］初步明确桐城市范岗镇砂壤质稻田单季稻氮、磷、钾肥的适宜施用量，为完善当地水稻测土配方施肥指标体系积累基础数据。' +
     '［方法］2025年以杂交籼稻吨两优900为材料，采用"3414"完全试验设计（N、P_{2}O_{5}、K_{2}O各4个水平，14个处理，不设重复），研究不同施肥处理对水稻经济性状、产量及效益的影响，拟合肥料效应方程，并以缺素区相对产量评价土壤供肥能力。' +
@@ -12,8 +12,8 @@ module.exports = {
   clc: 'S511；S147.2',
   docCode: 'A',
   titleEN: 'Field Experiment on Fertilizer Effects of Single-season Rice Based on "3414" Design in Fangang Town, Tongcheng City',
-  authorsEN: '【AUTHOR Name】^{1}, 【AUTHOR Name】^{2}',
-  affilEN: '(1. 【Affiliation】, Tongcheng, Anhui 231400; 2. 【Affiliation】, Tongcheng, Anhui 231400)',
+  authorsEN: 'YE Si-ming',
+  affilEN: '(Agricultural and Rural Development Center, People\'s Government of Fangang Town, Tongcheng City, Tongcheng, Anhui 231400)',
   abstractEN:
     '[Objective] To preliminarily determine the appropriate application rates of nitrogen (N), phosphorus (P) and potassium (K) fertilizers for single-season rice grown on sandy loam paddy soil in Fangang Town, Tongcheng City, and to accumulate basic data for improving the local index system of soil testing and formulated fertilization. ' +
     '[Method] A "3414" field experiment (three factors, four levels, 14 treatments, without replication) was conducted in 2025 with the hybrid indica rice cultivar Dunliangyou 900. Agronomic traits, grain yield and economic returns were investigated, fertilizer response functions were fitted, and soil nutrient supply capacity was evaluated by the relative yields of nutrient-omission plots. ' +
@@ -21,7 +21,7 @@ module.exports = {
     '[Conclusion] Under the single-site, single-season and unreplicated conditions of this trial, N 270 kg/hm^{2}, P_{2}O_{5} 90–180 kg/hm^{2} and K_{2}O 112.5–225 kg/hm^{2} are proposed for single-season rice on sandy loam paddy soil in Fangang Town, with N split as basal:tillering:panicle = 50%:25%:25%, K split as basal:panicle = 60%:40%, and P applied entirely as basal fertilizer. Because the level-2 rates of this trial were higher than conventional local recommendations and no turning point was reached for P or K, the appropriate rates of these two nutrients require verification by multi-site and multi-year replicated trials.',
   keywordsEN: 'Single-season rice; "3414" experiment; Fertilizer effect; Recommended fertilization rate; Soil testing and formulated fertilization; Tongcheng City',
   fund: '基金项目　【基金项目名称及编号；若无请删除此项】。',
-  bio: '作者简介　【姓名】（出生年—），【性别】，【籍贯】人，【职称】，从事【研究方向】工作。',
+  bio: '作者简介　叶四明（【出生年】—），【性别】，安徽桐城人，【职称】，从事【研究方向】工作。',
   received: '收稿日期　2026-【  】-【  】',
 
   body: [
@@ -29,7 +29,7 @@ module.exports = {
 
     { type: 'h1', text: '1　材料与方法' },
     { type: 'h2', text: '1.1　试验地概况' },
-    { type: 'p', text: '试验于2025年在桐城市范岗镇新西村孙庄组进行。试验田地势平坦、肥力均匀、排灌方便、交通便利，具有代表性，面积约0.11 hm^{2}，前茬为冬闲田。土壤为水稻土，质地砂壤，pH 6.1，耕层土壤有机质含量【  】g/kg、碱解氮【  】mg/kg、有效磷【  】mg/kg、速效钾【  】mg/kg。' },
+    { type: 'p', text: '试验于2025年在桐城市范岗镇新西村孙庄组进行。试验田地势平坦、肥力均匀、排灌方便、交通便利，具有代表性，面积约0.11 hm^{2}，前茬为冬闲田。土壤为水稻土，质地砂壤，pH 6.1，耕层土壤有机质含量【  】g/kg、碱解氮【  】mg/kg、有效磷【  】mg/kg、速效钾【  】mg/kg（供试田块土壤养分测定值，请按化验报告填写；如暂缺，可删去本句，本文土壤供肥能力评价以缺素区相对产量为依据）。' },
     { type: 'h2', text: '1.2　供试材料' },
     { type: 'p', text: '供试水稻品种为杂交籼稻吨两优900。供试肥料：尿素（N 46.3%，安徽昊源化工集团有限公司生产）、颗粒过磷酸钙（P_{2}O_{5}≥12%，铜陵市化学工业集团有限公司生产）、氯化钾（K_{2}O≥60%，俄罗斯乌拉尔钾肥公司生产）。' },
     { type: 'h2', text: '1.3　试验设计' },
@@ -37,9 +37,9 @@ module.exports = {
     { type: 'p', text: '需要说明的是，本试验2水平高于安徽省单季稻常规推荐量（一般N 180～225 kg/hm^{2}、P_{2}O_{5} 60～90 kg/hm^{2}、K_{2}O 120～150 kg/hm^{2}）[[gu2019,anhui_b]]，因此本试验实际考察的是常规推荐量及其以上区间的肥料效应，对低于1水平的施肥量无法提供响应信息。小区面积30 m^{2}（长10 m、宽3 m），14个小区分2排布置、每排7个，随机排列，不设重复；因不设重复，无法通过区组校正可能存在的田间肥力梯度。小区间人工筑埂分隔，田埂宽30 cm、高30 cm，并用塑料薄膜包裹，防止肥水串渗；试验区四周设置保护行和排灌沟，各小区单排单灌。' },
     { type: 'table', id: 't1' },
     { type: 'h2', text: '1.4　田间管理' },
-    { type: 'p', text: '2025年5月2日播种育秧，6月7日人工移栽，栽插规格30 cm×20 cm（约16.7万穴/hm^{2}），每穴2～3苗。氮肥按基肥∶分蘖肥∶穗肥=50%∶25%∶25%分3次施用，磷肥全部作基肥一次性施用，钾肥按基肥∶穗肥=60%∶40%分2次施用；基肥于6月6日移栽前撒施，分蘖肥于6月13日撒施，穗肥于8月10日撒施。7月18日第1次用药防治二化螟、稻纵卷叶螟、白背飞虱和纹枯病，8月23日第2次用药防治二化螟、稻纵卷叶螟、稻飞虱及纹枯病、稻瘟病和稻曲病（药剂种类及用量【请作者补充】）。各小区水分管理等其他措施均与当地常规栽培一致。' },
+    { type: 'p', text: '2025年5月2日播种育秧，6月7日人工移栽，栽插规格30 cm×20 cm（约16.7万穴/hm^{2}），每穴2～3苗。氮肥按基肥∶分蘖肥∶穗肥=50%∶25%∶25%分3次施用，磷肥全部作基肥一次性施用，钾肥按基肥∶穗肥=60%∶40%分2次施用；基肥于6月6日移栽前撒施，分蘖肥于6月13日撒施，穗肥于8月10日撒施。7月18日第1次用药防治二化螟、稻纵卷叶螟、白背飞虱和纹枯病，8月23日第2次用药防治二化螟、稻纵卷叶螟、稻飞虱及纹枯病、稻瘟病和稻曲病，两次施药的药剂种类、用量及施药方式各小区完全一致。各小区水分管理等其他措施均与当地常规栽培一致。' },
     { type: 'h2', text: '1.5　测定项目与方法' },
-    { type: 'p', text: '成熟期每小区选取有代表性稻株10穴，调查单穴有效穗数，按实际栽插密度16.7万穴/hm^{2}折算群体有效穗数，并测定株高、穗长、每穗总粒数、每穗实粒数、结实率和千粒重；各小区（30 m^{2}）全部单收单打，脱粒、晒干扬净后称重，折算成单位面积产量（kg/hm^{2}）。' },
+    { type: 'p', text: '成熟期每小区选取有代表性稻株10穴，调查单穴有效穗数，按实际栽插密度16.7万穴/hm^{2}折算群体有效穗数，并测定株高、穗长、每穗总粒数、每穗实粒数、结实率和千粒重；各小区（30 m^{2}）全部单收单打，脱粒、晒干扬净后称重，折算成单位面积产量（kg/hm^{2}）。试验前采集耕层（0～20 cm）混合土样，按《测土配方施肥技术规程》（NY/T 2911—2016）测定有机质、碱解氮、有效磷和速效钾含量[[std2011]]。' },
     { type: 'h2', text: '1.6　数据处理' },
     { type: 'p', text: '数据采用Microsoft Excel 2019整理，采用Python 3.12（NumPy、SciPy）进行回归拟合和Pearson相关分析，相关系数的显著性采用*{t}检验。' },
     { type: 'p', text: '相对产量（%）=缺素区产量/全肥区（处理6）产量×100；肥料贡献率（%）=（全肥区产量－缺素区产量）/全肥区产量×100；农学效率（kg/kg）=（全肥区产量－缺素区产量）/该养分施用量[[std2011]]。土壤养分丰缺等级按缺素区相对产量划分：<50%为"极低"，50%≤相对产量<75%为"低"，75%≤相对产量<95%为"中"，≥95%为"高"[[std2011]]。' },
@@ -84,7 +84,7 @@ module.exports = {
     { type: 'h1', text: '3　讨论' },
     { type: 'p', text: '本试验中缺氮区相对产量为74.3%，氮肥贡献率达25.7%，氮肥的增产作用远大于磷、钾肥，这与安徽潜山[[gu2019]]、旌德[[liu_jingde]]以及其他稻区[[other_a,yi2023]]的"3414"试验结果一致，表明氮素是该区域砂壤质稻田单季稻产量形成的首要限制因子。潜山试验缺氮区相对产量为75.6%[[gu2019]]，与本试验的74.3%接近。随施氮量增加，水稻有效穗数和每穗总粒数增加，但当施氮量超过270 kg/hm^{2}后，结实率和千粒重下降，产量不再增加，这与前人关于降低施氮量、优化群体仍可维持高产并提高氮素利用率的研究结果相呼应[[nut_n1]]，也与长江流域中稻氮肥增产效应随用量提高而递减的统计特征一致[[nut_n2]]。因此，生产上应将氮肥总量控制在270 kg/hm^{2}左右，并通过氮肥后移等运筹措施进一步提高氮肥利用率[[nut_n2,red2]]。' },
     { type: 'p', text: '"3414"试验三元二次方程拟合失败或出现非典型方程的情况在生产性试验中较为常见[[wang2002,zhang_typ,econ1]]。本试验三元二次方程虽然*{R}^{2}较高，但校正*{R}^{2}仅0.7939，且因磷、钾肥效应在设计范围内未出现拐点，方程的驻点落在试验范围之外或无农艺学意义，不能用于推荐施肥。在这种情况下，将一元二次方程、线性加平台模型和边际分析等方法相结合确定推荐施肥量更为稳妥[[zhang_typ,other_c]]。本试验氮肥的线性加平台模型残差平方和小于一元二次方程，其拐点估计值与处理间直接比较的结果方向一致，说明对于产量已出现平台的养分，线性加平台模型具有更好的适用性；但受试验水平数和重复数限制，该拐点仅为粗略估计。' },
-    { type: 'p', text: '本试验磷、钾肥在设计范围内均表现出持续的增产效应，这在很大程度上是试验设计的结果：本试验2水平高于安徽省单季稻常规推荐量，磷、钾肥效应在试验范围内未出现拐点应部分归因于此，而非土壤磷钾供应的真实响应上限。缺磷区相对产量为85.5%，土壤供磷能力属"中"等水平，这可能与试验田质地砂壤、保肥供肥能力较弱有关；缺钾区相对产量达94.9%、接近"高"水平，说明土壤钾素基础供应较好，但砂壤质土壤保钾能力相对较弱，在高产条件下增施钾肥仍表现出一定的增产效应，施钾提高水稻结实率和千粒重的作用也见于双季稻研究[[nut_k1]]。需要指出的是，本试验推荐的磷、钾用量仍高于潜山（P_{2}O_{5} 54.7 kg/hm^{2}、K_{2}O 122.3 kg/hm^{2}）[[gu2019]]等邻近县区的结果，其绝对水平不宜直接外推；磷素在土壤中易累积，长期大量施用存在环境风险[[red2,soilidx1]]，因此生产上建议以处理6、7、9的施肥量为基础，根据土壤有效磷、速效钾测定值适当调整磷、钾肥用量。此外，本试验为单年单点试验且未设重复，无法进行方差分析和多重比较，部分处理（如K1与K2）产量的波动可能包含田间误差，上述推荐施肥量还需通过多年多点试验和大田示范进一步验证，并结合有机肥与化肥配施、缓控释肥等措施进行优化[[red2]]。' },
+    { type: 'p', text: '本试验磷、钾肥在设计范围内均表现出持续的增产效应，这在很大程度上是试验设计的结果：本试验2水平高于安徽省单季稻常规推荐量，磷、钾肥效应在试验范围内未出现拐点应部分归因于此，而非土壤磷钾供应的真实响应上限。缺磷区相对产量为85.5%，土壤供磷能力属"中"等水平，这可能与试验田质地砂壤、保肥供肥能力较弱有关；邻近的潜山市同为砂壤质水稻土，其耕层碱解氮128 mg/kg、有效磷13.0 mg/kg、速效钾54 mg/kg[[gu2019]]，速效钾水平偏低，与本区域砂壤质稻田钾素易淋失的特点一致；缺钾区相对产量达94.9%、接近"高"水平，说明土壤钾素基础供应较好，但砂壤质土壤保钾能力相对较弱，在高产条件下增施钾肥仍表现出一定的增产效应，施钾提高水稻结实率和千粒重的作用也见于双季稻研究[[nut_k1]]。需要指出的是，本试验推荐的磷、钾用量仍高于潜山（P_{2}O_{5} 54.7 kg/hm^{2}、K_{2}O 122.3 kg/hm^{2}）[[gu2019]]等邻近县区的结果，其绝对水平不宜直接外推；磷素在土壤中易累积，长期大量施用存在环境风险[[red2,soilidx1]]，因此生产上建议以处理6、7、9的施肥量为基础，根据土壤有效磷、速效钾测定值适当调整磷、钾肥用量。此外，本试验为单年单点试验且未设重复，无法进行方差分析和多重比较，部分处理（如K1与K2）产量的波动可能包含田间误差，上述推荐施肥量还需通过多年多点试验和大田示范进一步验证，并结合有机肥与化肥配施、缓控释肥等措施进行优化[[red2]]。' },
 
     { type: 'h1', text: '4　结论' },
     { type: 'p', text: '（1）施肥明显改善水稻经济性状并大幅提高产量（本试验未设重复，未作差异显著性检验）。处理10（N 270 kg/hm^{2}、P_{2}O_{5} 180 kg/hm^{2}、K_{2}O 337.5 kg/hm^{2}）产量最高，为10200.0 kg/hm^{2}，较无肥区增产54.5%，扣除肥料成本后收益22091.4元/hm^{2}。' },

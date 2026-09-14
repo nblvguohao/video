@@ -1,0 +1,175 @@
+# Submission Checklist — Journal of Integrative Agriculture
+
+**Manuscript:** "Who measures what enters the market? Self-organised variety trials and the
+third-party-assayed grain-quality gap in China's rice variety approvals, 2017–2022"
+
+> Checked against `plan/04_format_spec.md`. [x] = done by this automated pipeline and
+> verifiable in the files as they stand. [ ] = requires action by the human author team before
+> submission; this pipeline cannot complete these items.
+
+## 1. Article type and structure
+
+- [x] Article type: Research Article.
+- [x] Section order maps onto the official template (Institutional background nested after
+      Introduction; Mechanism nested after Results, before Discussion) — see
+      `manuscript/manuscript_v2.md` headings.
+- [ ] **Word count** — current draft is approximately 14,500 words (13,900 excluding
+      References), above the 8,000–10,000-word informal target noted in `04_format_spec.md`
+      §1 and flagged as still open in `manuscript/review/final_proof_log.md`. **Author
+      action required**: either further compress the manuscript or confirm with the
+      editorial office (informally, or at submission) that JIA's Research Articles have no
+      hard word-count ceiling before submitting at this length.
+
+## 2. Title, abstract, keywords
+
+- [x] Title uses "gap", not effect/impact/caused by; uses "third-party-assayed" to scope the
+      claim.
+- [x] Abstract: 249 words, under the 250-word structured-abstract limit.
+- [ ] **Structured-abstract formatting** — the abstract is written as an implicitly
+      structured paragraph rather than with explicit Background/Methods/Results/Conclusion
+      labels, because the source material consulted could not confirm whether JIA requires
+      explicit headings (see `manuscript/sections/front_matter.md` note). **Author action
+      required**: confirm against the actual submission template or a recent JIA issue
+      whether explicit headings are mandatory; if so, re-segment the existing 249 words under
+      labels (no further word-cutting needed).
+- [x] Keywords: 6, within the 3–6 range, none containing "and"/"of" as an internal connector.
+
+## 3. Highlights
+
+- [x] 5 bullets, each ≤85 characters including spaces (see `submission/highlights.md`).
+- [ ] **Author action required**: submit `highlights.md` as its own file with "highlights" in
+      the filename, per the journal's Guide for Authors.
+
+## 4. Body-text writing rules
+
+- [x] Estimand consistently described as a "composition effect," never "effect of / caused
+      by / impact of."
+- [x] No "fraud/manipulation" language; "measurement discretion" used throughout.
+- [x] Winall section length checked qualitatively against the ≤15%-of-manuscript guideline
+      (§7 is one of nine main sections and does not dominate the text).
+- [x] Every positive statement about Winall's quality positioning is paired, in the same or
+      an adjacent paragraph, with its negative financial facts (§7).
+- [x] No profit/revenue conversion of regression coefficients (§7 explicitly disclaims this).
+- [x] No "ranked by integration depth" framing (§7 explicitly disclaims this).
+- [x] Non-claims subsection present as its own numbered list at the end of §4 (12 items).
+- [x] Conflicting-evidence items (bacterial-blight reversal, Arm 2 sign flips, R7/R9/R11/R13/
+      R15 qualifying or non-supporting robustness results) are reported in the body, not
+      omitted.
+
+## 5. Figures and tables
+
+- [x] **Figure/table compression to the 6-figure/5-table target — RESOLVED this session.**
+      See `manuscript/figure_table_list.md` for the decision (Table 6/7 → Supplementary
+      Table S1/S2; old Fig. 6 → Supplementary Fig. S1; old Fig. 7 → Fig. 6). Main text now
+      carries exactly Fig. 1–6 and Table 1–5.
+- [x] Every in-text figure/table citation checked against the new numbering by exhaustive
+      grep; no stale reference to the old Table 6/7 or Fig. 7 numbering remains in the main
+      text (one deliberate historical cross-reference in §7 is spelled out explicitly as
+      "Table 7 in the pre-submission working draft").
+- [x] Figures cited in ascending first-mention order matching their published numbers.
+- [ ] **Image format/resolution** — `manuscript/figures/*.png` and `*.pdf` files exist but
+      their resolution and colour-mode (RGB vs. CMYK) have not been verified against the
+      journal's "no low-resolution GIF/BMP/PICT/WPG" requirement. **Author action required**:
+      confirm each figure file meets the journal's minimum-resolution requirement before
+      upload.
+- [ ] **Supplementary Fig. S2 and Fig. S3 are not yet rendered as image files** (Manski
+      bounds; chained-check ladder) — see `submission/supplementary_material.md`. Neither is
+      cited by number in the main text, so this does not block submission, but **author
+      action required** if the journal's submission system requires every named Supplementary
+      figure to be an uploaded image file.
+- [x] Non-linear image adjustments: none used; no gamma-correction disclosure needed.
+
+## 6. References
+
+- [x] Author-date system used throughout; reference list alphabetised; journal names spelled
+      out in full.
+- [ ] **Piepho & Laidig (2024)** reference is missing volume/page numbers — flagged as
+      unresolved in `manuscript/references_verified.md`. **Author action required**: verify
+      against CrossRef/publisher record before submission.
+- [ ] **Gong et al. (2026)** is cited at title-level only; full text was not accessible during
+      drafting (see reference and In-text note). **Author action required**: obtain the full
+      text and confirm no specific figure needs re-attribution (this is also
+      Unresolved-item **P5**, below).
+- [ ] Three format-spec "mandatory" citations — Seck et al. (2023), Burris et al. (2025),
+      Rangnekar (2000) — remain deliberately uncited because no paragraph in the current draft
+      has a genuine point for them (see `manuscript/review/final_proof_log.md` §2, item 3).
+      **Author action required**: either write a paragraph incorporating each, or formally
+      drop them from the citation requirement before submission.
+
+## 7. Units and statistical reporting
+
+- [x] Yield reported in kg/亩 with kg/hm² conversion given at first mention.
+- [x] Percentage-point traits reported as "percentage points (pp)" consistently.
+- [x] Point estimates, 95% CIs, exact p-values, and BH-FDR q-values reported throughout;
+      cluster level and cluster count stated for every clustered SE.
+- [x] No star-only significance reporting; tables carry exact p-values.
+
+## 8. Declarations — author-supplied content still needed
+
+All of the following are placeholders in `manuscript/sections/declarations.md` and
+`submission/declarations.md` and require the author team to fill in before submission:
+
+- [ ] **Acknowledgements** — funding sources, reviewer/colleague thanks, etc.
+- [ ] **CRediT author contributions** — assign each of Conceptualization, Methodology, Formal
+      analysis, Investigation, Data curation, Writing (original draft), Writing (review &
+      editing), Visualization, and Supervision to named authors.
+- [ ] **Author names, order, and affiliations** — not yet fixed anywhere in the manuscript
+      package; `[author names/affiliations]` placeholders throughout.
+- [ ] **ORCID iDs** for all authors.
+- [ ] **Corresponding author contact details** (email, mailing address) — placeholder in
+      `submission/cover_letter.md`.
+- [ ] **Funding/grant numbers**, if applicable, for the Acknowledgements section and any
+      journal funding-disclosure form.
+- [ ] **Data-availability repository link** — the Data Availability Statement currently says
+      "[repository link]" as a placeholder; the actual repository (e.g. GitHub/Zenodo/OSF URL
+      for parsing scripts, field dictionary, and record-ID list) must be created and linked
+      before submission. Note this is contingent on resolving **P3** below (licensing status
+      of the upstream `he-zhui/Rice_QA` compilation), which determines exactly what may be
+      redistributed.
+
+## 9. Submission-system practicalities
+
+- [ ] **Confirm APC** (Article Processing Charge) — see Unresolved item **P12** below; JIA is
+      reported to have moved to a US$1,800 APC as of 2026, which conflicts with earlier
+      "no OA fee" search results. **Author action required**: confirm current fee against the
+      chinaagrisci.com official notice before submission and confirm the budget covers it, or
+      re-evaluate China Agricultural Economic Review / Rice Science as alternatives.
+- [ ] **Confirm actual review timeline** — search results disagreed (12 weeks / 222 days /
+      ~50 weeks); set author-team expectations accordingly (also covered by P6 below).
+- [ ] Create an account and manuscript submission on ChinaAgriSci.com (the journal's own
+      submission platform, not a standard Editorial Manager/EVISE system).
+
+## 10. Unresolved items from `plan/00_decision_log.md` §5 and `plan/03_target_journal.md`
+
+These items require human judgement, external verification, or access this automated
+pipeline could not obtain (a blocked network, a document only a human account can retrieve, a
+judgement call only the author team can make). **None of them can be closed by this
+submission-package assembly step** — they are listed here so the author team has a single
+place to track them before final submission.
+
+| # | Item | Why it needs a human | Blocking level |
+|---|---|---|---|
+| **P1** | Whether the performance-evaluation criterion accepts "Economics" as well as "Agricultural & Forestry Sciences" as the journal's top-level discipline category | Determines whether China Agricultural Economic Review remains a viable fallback journal | High (journal-choice path) |
+| **P2** | JIA's and Rice Science's official 2025 journal-quartile rankings | Can only be confirmed via an institutional account on fenqubiao.com or the official ranking table; this session could only use search-result summaries | High (must confirm before submission) |
+| **P3** | Licensing status of the upstream `he-zhui/Rice_QA` GitHub compilation | Determines whether the Data Availability Statement may redistribute the parsed full table or must stay restricted to scripts/dictionary/ID list (current wording assumes the restrictive case) | High (Methods/Data Availability cannot be finalised without this) |
+| **P4** | Field-by-field agreement rate between a 50-record random sample and the original MARA announcement text | The MARA announcement portal was not reachable from the automated session's network; this is the one step that would upgrade "the source is public MARA announcements" from an assertion to a verified fact — see manuscript §3.4 | High |
+| **P5** | Full text of Gong et al. (2026) | Currently cited at title-level only; needed before attributing any specific figure to it | Medium |
+| **P6** | JIA's actual APC/fee schedule and review-cycle length | Search sources disagreed significantly | Medium (also see item 9 above / P12) |
+| **P7** | Public documentary source for each individual Winall negative fact (fine amount, qualified audit opinion, ST status change, tender-offer stake percentage) | Fine amounts, audit opinions, and equity-stake percentages must each be traceable to a citable public filing before submission, for compliance and libel-avoidance reasons | Medium-high (compliance) |
+| **P8** | Manual spot-check of the 30 unlabelled 2018 announcements | Requires a human to read the original announcement text and judge whether "no channel wording" is a documentation-format quirk rather than a genuine channel omission | Medium |
+| **P9** | Whether to submit this paper alone or alongside a companion paper (Proposal A) | If both are submitted around the same time, the cover letter must disclose the companion relationship to avoid a salami-slicing concern; current cover letter does not mention a companion paper | Medium |
+| **P10** | Whether to fall back to Rice Science (dropping the Winall/company-financials strand) if both JIA and CAER reject the paper | Conflicts with the project's own hard constraint to keep the Winall counter-case; only the author team can authorise this trade-off if triggered | Low (only relevant if triggered) |
+| **P11** | Labelling of imputed ("推算"/estimated) vs. directly observed values in `evidence/05_competitor_financials.csv` | Must be visibly distinguished in any published table drawing on this file; Supplementary Table S1 in this package already carries the `value_type_order_grain`/note flags from the source CSV, but the author team should re-verify this distinction is preserved in any further edits | Medium |
+| **P12** | JIA's APC now reported as US$1,800 from 2026, conflicting with earlier "no OA fee" reports | Budget/cost-structure decision only the author team (or their institution) can make | Medium-high |
+
+## Summary
+
+- **Figure/table compression (the task this package was built to resolve): CLOSED.** Main
+  text is at exactly 6 figures / 5 tables; see `manuscript/figure_table_list.md` for the
+  decision record and `submission/supplementary_material.md` for the moved content.
+- **Manuscript rebuild: DONE.** `submission/manuscript.docx` and `submission/manuscript.pdf`
+  regenerated successfully from the renumbered `manuscript/manuscript_v2.md`.
+- **Everything under "author action required" above is a genuine gap that only the human
+  author team, an institutional account, or a live network connection to MARA/the journal's
+  own site can close** — none of it was skipped by oversight; each is cross-referenced to the
+  specific plan document or review report that first raised it.

@@ -12,7 +12,7 @@ const EV = ROOT + '/evidence'
 
 const ENV_NOTE = `
 工具与环境约束（必须遵守）：
-- 容器内 curl/WebFetch 对几乎所有站点被代理拦截；但 github.com 可访问：可 `git clone --depth 1` 公开仓库、WebFetch raw.githubusercontent.com 文件（已有年报文本仓库 IamBusy/audit、品种审定汇编 he-zhui/Rice_QA 等先例）。
+- 容器内 curl/WebFetch 对几乎所有站点被代理拦截；但 github.com 可访问：可用 "git clone --depth 1" 克隆公开仓库、用 WebFetch 读 raw.githubusercontent.com 文件（已有年报文本仓库 IamBusy/audit、品种审定汇编 he-zhui/Rice_QA 等先例）。
 - WebSearch 可用且结果自带页面摘要，但每个代理会话有配额（约 200 次，且可能提前耗尽）：先列出最有价值的查询再执行，措辞具体（主体+年份+指标），避免重复。
 - 学术工具：mcp__Consensus__search 本月配额已耗尽、mcp__Elicit__* 无 API 权限——不要调用。可用：mcp__Undermind__*（先 get_orientation；search_papers / launch_deep_search / lookup_papers_by_metadata / read_pdfs 读开放获取 PDF）、mcp__Scholar_Gateway__semanticSearch（返回长文本，用 grep/Read 分块）、mcp__PubMed__*、mcp__Amass_Connector__search_amass_biomedcore_records、mcp__bioRxiv__*、mcp__Hugging_Face__hf_fs。用 ToolSearch 按名加载后调用。
 - 严禁编造任何数字、品种名、项目名、文献。找不到就写"未找到/未确认"。每条事实附来源 URL、日期、检索词、置信度（高=原文数字直接出现；中=工具综合表述；低=推断）。文献给完整引文与 DOI。
@@ -54,15 +54,15 @@ const ALL_DIMS = {
 输出：evidence/05_industry_policy.md。` },
   lit_breeding: { file: '06_lit_breeding.md', verify: false, prompt: `维度6：学术文献扫描 A——育种与农艺（英文为主，兼顾中文）。
 主题：(1) 基于品种审定/区试数据分析中国杂交稻遗传增益、产量-品质-抗性演变趋势的论文（方法学范本，如 Rice Science 2026 "Three-Line Hybrid Rice in China: Sustained Improvements…"、Field Crops Research/Crop Journal/JIA 上的 genetic gain 研究）；(2) 企业选育杂交稻品种的表现评价；(3) 再生稻（ratoon rice）农艺、品种适宜性、产量稳定性、经济效益、温室气体等（FCR、Agronomy for Sustainable Development、Frontiers in Plant Science、Rice Science、JIA 近 5 年）；(4) 机械化直播/机插对杂交稻品种选择的影响（Huang M. 等）；(5) 优质稻与稻米品质育种趋势；(6) 谷草兼用/脆秆水稻（brittle culm rice for forage）；(7) 超级稻计划回顾；(8) 稻瘟病抗性基因导入与广谱抗性；(9) 杂交稻制种机械化与第三代技术；(10) 转基因玉米在中国的产业化研究。
-工具：Consensus、Scholar Gateway（自然语言长问句）、Elicit、Undermind（先 get_orientation，再 launch_deep_search 1–2 个主题，如 "genetic gain analysis of Chinese hybrid rice varieties using regional trial / variety approval data"）。每篇给出完整引文（作者、年份、题名、期刊、卷期页、DOI）与 1–2 句核心发现；至少 40 篇；标注可作为方法学范本的论文。
+工具：Scholar Gateway（自然语言长问句）、Undermind（先 get_orientation，再 launch_deep_search 1–2 个主题，如 "genetic gain analysis of Chinese hybrid rice varieties using regional trial / variety approval data"）。每篇给出完整引文（作者、年份、题名、期刊、卷期页、DOI）与 1–2 句核心发现；至少 40 篇；标注可作为方法学范本的论文。
 输出：evidence/06_lit_breeding.md。` },
   lit_seed_industry: { file: '07_lit_seed_industry.md', verify: false, prompt: `维度7：学术文献扫描 B——种业经济、制度与产业组织（英文为主，兼顾中文核心期刊）。
 主题：(1) 中国种业企业创新、商业化育种体系（commercial breeding system）、"育繁推一体化"；(2) 种子企业主导的订单农业/contract farming（例：Agribusiness 期刊 "Contract farming led by a seed enterprise and incentives to produce high quality" DOI 10.1002/agr.21823）、纵向一体化、种粮一体化/value chain integration 的理论与实证；(3) 种业政策与制度改革：Seed Law、PVP/EDV、品种审定改革、licensing fees（例 DOI 10.1002/agr.22020）、种业振兴、biotech commercialization 治理（GM Crops & Food 2026）；(4) 跨国并购与国有种业整合（ChemChina–Syngenta、中种集团）、企业集中度；(5) 品种采纳、农户品种选择、杂交稻面积下降的经济解释；(6) 创新系统/产业链视角的农业技术扩散模型；(7) 中国种业企业 R&D 强度与绩效的实证；(8) 农业龙头企业带动小农的效应（CAER、Food Policy、World Development、JIA、Journal of Rural Studies、Agricultural Systems）。
-工具：Consensus、Scholar Gateway、Elicit、Undermind deep search（如 "vertical integration of seed enterprises into grain production and contract farming in China"）。至少 40 篇，完整引文，标注期刊及其可能的分区。
+工具：Scholar Gateway、Undermind deep search（如 "vertical integration of seed enterprises into grain production and contract farming in China"）。至少 40 篇，完整引文，标注期刊及其可能的分区。
 输出：evidence/07_lit_seed_industry.md。` },
   lit_quanyin: { file: '08_lit_quanyin_mentions.md', verify: false, prompt: `维度8：学术文献中关于荃银高科/Winall/荃银品种的直接记载。
 检索：(1) 英文文献中 "Winall" / "Quanyin" / "Anhui Winall Hi-tech Seed" 作为作者单位、材料来源或案例；(2) 荃银品种在田间试验/农艺研究中的出现：如 Quanyou 822 / 荃优822、Quanliangyou 851/6019/1606、Xinliangyou 6 / 新两优6号、Huiliangyou / 徽两优、Fengliangyou / 丰两优 系列，尤其再生稻（ratoon）试验、直播试验、氮肥试验、品质研究中的产量数据；(3) 中文核心期刊（中国水稻科学、作物学报、杂交水稻、中国稻米、安徽农业科学 等）中荃银品种选育报告（"xx 的选育及栽培技术"）与公司作者论文；(4) 关于荃银高科的案例研究/管理学/经济学论文（企业创新、种粮一体化、并购案例）。
-工具：WebSearch（中文，如 "荃优822 再生稻 产量 试验"）、Consensus、Scholar Gateway、Elicit、PubMed、Amass BiomedCore、Undermind find_papers/深搜。每条记录：引文、荃银品种/公司在文中的角色、可提取的数据（产量、品质等）。目标 ≥30 条。
+工具：WebSearch（中文，如 "荃优822 再生稻 产量 试验"）、Scholar Gateway、PubMed、Amass BiomedCore、Undermind find_papers/深搜。每条记录：引文、荃银品种/公司在文中的角色、可提取的数据（产量、品质等）。目标 ≥30 条。
 输出：evidence/08_lit_quanyin_mentions.md。` },
   data_feasibility: { file: '09_data_feasibility.md', verify: false, prompt: `维度9：数据可行性探针——论文若要有定量核心，数据从哪来？
 请系统测试并记录以下每条渠道的可行性、样例数据和覆盖率估计：

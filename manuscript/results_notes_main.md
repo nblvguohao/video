@@ -188,9 +188,9 @@ that is not simply underpowered.
 
 - `figures/fig2_forest_main.png` / `.pdf` — forest plot, both arms, 17 outcomes, colored by
   measurement party (blue = third-party assayed, red = applicant self-reported). Arm 2's
-  `neck_blast_ok` is marked "not estimable" (zero within-cell variation — `neck_blast_ok` is
-  degenerate for all Arm-2 records, both channels showing 0% "OK" in the raw missingness table,
-  so the FE regression has no variation to fit).
+  `neck_blast_ok` is marked "not estimable" — the field is **100% missing** for all 119 Arm-2
+  records (both channels; 2017-stratum announcements do not populate it), not merely
+  imbalanced, so the FE regression has no rows to fit.
 - `figures/fig6_randomization.png` / `.pdf` — 500-permutation randomization-inference null
   distributions vs observed β, four panels (head rice, chalkiness, yield gain vs check, quality
   top-2). Reproduces the logged RI p-values almost exactly: head_rice RI p=0.002 (null mean

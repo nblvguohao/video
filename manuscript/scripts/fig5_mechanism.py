@@ -152,13 +152,15 @@ ax_c2.plot(cp_fy["year"], cp_fy["rd_intensity_pct"], color="#4C72B0", marker="^"
 ax_c2.set_ylabel("R&D investment\n(% of revenue)", color="#4C72B0")
 ax_c2.tick_params(axis="y", labelcolor="#4C72B0")
 
+ax_c.set_xlim(2014.3, 2027.3)
+
 # annotate 2025 loss and 2026 ST event
 ax_c.axvline(2025, color="red", linestyle=":", linewidth=1.2)
-ax_c.text(2025.05, ax_c.get_ylim()[1] * 0.92, "2025: net loss\n(-212M CNY,\nturned from profit)",
-          color="red", fontsize=7, va="top")
+ax_c.text(2025.15, 8, "2025: net loss\n(-212M CNY,\nturned from profit)",
+          color="red", fontsize=7, va="bottom", ha="left")
 ax_c.axvline(2026.0, color="darkred", linestyle="-.", linewidth=1.2)
-ax_c.text(2026.05, ax_c.get_ylim()[1] * 0.60, "2026-06:\nfined & renamed\nST Winall",
-          color="darkred", fontsize=7, va="top")
+ax_c.text(2026.15, 20, "2026-06: fined &\nrenamed ST Winall",
+          color="darkred", fontsize=7, va="bottom", ha="left")
 
 ax_c.set_title("(c) Order-grain revenue share and R&D intensity, 2015–2025\n"
                 "(hollow markers = estimated/imputed values; vertical lines = 2025 loss and 2026 ST/penalty event)",
@@ -166,7 +168,8 @@ ax_c.set_title("(c) Order-grain revenue share and R&D intensity, 2015–2025\n"
 
 h1, l1 = ax_c.get_legend_handles_labels()
 h2, l2 = ax_c2.get_legend_handles_labels()
-ax_c.legend(h1 + h2, l1 + l2, fontsize=7, loc="upper left", frameon=False)
+ax_c.legend(h1 + h2, l1 + l2, fontsize=7, loc="upper center", frameon=False, ncol=1,
+            bbox_to_anchor=(0.27, 1.02))
 
 fig.suptitle("Figure 5. Winall Hi-tech Seed as a counter-case: channel choice, within-channel trait gap, and financial context\n"
              "Winall enters this paper as a counter-case that rules out an alternative explanation, not as a source of the main result.",

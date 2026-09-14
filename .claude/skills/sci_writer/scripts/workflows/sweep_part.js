@@ -20,7 +20,7 @@ export const meta = {
   ],
 }
 
-const ROOT = '/home/user/video'
+const ROOT = (args && args.root) || '/ABSOLUTE/PATH/TO/YOUR/PROJECT' // set via Workflow({args:{root: ...}}) or edit this default before running
 const EV = ROOT + '/evidence'
 
 const ENV_NOTE = `

@@ -1,9 +1,9 @@
 export const meta = {
-  name: 'quanyin-analysis',
+  name: 'analysis',
   description: 'Run the quantitative analyses of the research route on collected data: scripts, figures, tables, results notes; then independent reproduction check',
   phases: [{ title: 'Analyze' }, { title: 'Reproduce' }],
 }
-const ROOT = '/home/user/video'
+const ROOT = (args && args.root) || '/ABSOLUTE/PATH/TO/YOUR/PROJECT' // set via Workflow({args:{root: ...}}) or edit this default before running
 const NOTE = `工具与规范：Python 3.11，已装 pandas/numpy/scipy/matplotlib（中文字体用 'WenQuanYi Zen Hei'，但论文图表一律用英文标签）；图存 ${ROOT}/figures/（PNG 300 dpi + 同名 PDF），脚本存 ${ROOT}/scripts/analysis/（每个脚本可独立运行：python3 script.py），表格以 Markdown 写入 ${ROOT}/manuscript/tables/。所有数据只能来自 ${ROOT}/evidence/data/ 与 ${ROOT}/evidence/*.csv；严禁伪造或插补数据；样本量、缺失处理、统计检验（含 p 值/置信区间/效应量）必须如实报告。图表遵循期刊规范（读取 ${ROOT}/plan/04_format_spec.md）：无图题在图内、字体≥8pt、色盲友好配色、单栏宽 ~85–90 mm 双栏 ~170–180 mm。`
 const SCHEMA = { type: 'object', properties: { scripts: { type: 'array', items: { type: 'string' } }, figures: { type: 'array', items: { type: 'string' } }, tables: { type: 'array', items: { type: 'string' } }, notes_file: { type: 'string' }, key_results: { type: 'array', items: { type: 'string' } }, caveats: { type: 'array', items: { type: 'string' } } }, required: ['scripts', 'figures', 'tables', 'notes_file', 'key_results', 'caveats'] }
 const blocks = (args && args.blocks) || []

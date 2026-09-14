@@ -1,9 +1,9 @@
 export const meta = {
-  name: 'quanyin-theme-judges',
+  name: 'theme-judges',
   description: 'Judge panel scores proposals from 3 lenses, then a synthesizer writes the final theme, innovation, argument map and research route',
   phases: [{ title: 'Judge' }, { title: 'Synthesize' }],
 }
-const ROOT = '/home/user/video'
+const ROOT = (args && args.root) || '/ABSOLUTE/PATH/TO/YOUR/PROJECT' // set via Workflow({args:{root: ...}}) or edit this default before running
 const EV = ROOT + '/evidence'
 const PL = ROOT + '/plan'
 const ENV_NOTE = `

@@ -1,9 +1,9 @@
 export const meta = {
-  name: 'quanyin-journal-eval',
+  name: 'journal-eval',
   description: 'Evaluate candidate CAS-Q2 agriculture journals against the chosen theme; pick target and write the format spec',
   phases: [{ title: 'Evaluate' }, { title: 'Decide' }],
 }
-const ROOT = '/home/user/video'
+const ROOT = (args && args.root) || '/ABSOLUTE/PATH/TO/YOUR/PROJECT' // set via Workflow({args:{root: ...}}) or edit this default before running
 const EV = ROOT + '/evidence'
 const PL = ROOT + '/plan'
 const ENV_NOTE = `

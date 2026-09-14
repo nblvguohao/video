@@ -1,9 +1,9 @@
 export const meta = {
-  name: 'quanyin-review',
+  name: 'review',
   description: 'Pre-submission review: 3 reviewer reports, format compliance, reference verification, number consistency; then revision, final consistency pass, DOCX/PDF build, submission package',
   phases: [{ title: 'Review' }, { title: 'Revise' }, { title: 'Final' }],
 }
-const ROOT = '/home/user/video'
+const ROOT = (args && args.root) || '/ABSOLUTE/PATH/TO/YOUR/PROJECT' // set via Workflow({args:{root: ...}}) or edit this default before running
 const MS = ROOT + '/manuscript'
 const SUB = ROOT + '/submission'
 const REVIEWERS = [

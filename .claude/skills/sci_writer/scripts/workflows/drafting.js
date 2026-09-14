@@ -1,9 +1,9 @@
 export const meta = {
-  name: 'quanyin-drafting',
+  name: 'drafting',
   description: 'Draft manuscript sections in parallel under section contracts and the target-journal format spec; integrate into manuscript_v1.md; build the reference list',
   phases: [{ title: 'Draft' }, { title: 'Integrate' }, { title: 'References' }],
 }
-const ROOT = '/home/user/video'
+const ROOT = (args && args.root) || '/ABSOLUTE/PATH/TO/YOUR/PROJECT' // set via Workflow({args:{root: ...}}) or edit this default before running
 const MS = ROOT + '/manuscript'
 const STYLE = `写作规范（Nature 系刊风格 + 目标期刊格式）：
 - 先立论点：每段首句为主张句，随后证据（数字+图表/引用），末句给边界或含义；不写空泛过渡句。

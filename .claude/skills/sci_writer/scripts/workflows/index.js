@@ -1,5 +1,5 @@
 export const meta = {
-  name: 'quanyin-evidence-index',
+  name: 'evidence-index',
   description: 'Build evidence/00_INDEX.md summarizing all evidence files, core numbers, datasets, exemplar literature, and contradictions',
   phases: [{ title: 'Index' }],
 }

@@ -141,7 +141,7 @@ ax_c.plot(og.sort_values("x")["x"], og.sort_values("x")["share_clean"], color="#
 ax_c.scatter(obs["x"], obs["share_clean"], marker="o", color="#DD8452", s=40,
              label="Order-grain revenue share (%) — observed", zorder=3)
 ax_c.scatter(est["x"], est["share_clean"], marker="o", facecolors="none", edgecolors="#DD8452",
-             s=60, linewidths=1.5, label="Order-grain revenue share (%) — estimated (推算)", zorder=3)
+             s=60, linewidths=1.5, label="Order-grain revenue share (%) — estimated (imputed)", zorder=3)
 ax_c.set_ylabel("Order-grain revenue\nshare of total revenue (%)", color="#DD8452")
 ax_c.tick_params(axis="y", labelcolor="#DD8452")
 ax_c.set_xlabel("Year")
@@ -154,21 +154,21 @@ ax_c2.tick_params(axis="y", labelcolor="#4C72B0")
 
 # annotate 2025 loss and 2026 ST event
 ax_c.axvline(2025, color="red", linestyle=":", linewidth=1.2)
-ax_c.text(2025.05, ax_c.get_ylim()[1] * 0.92, "2025: net loss\n(−2.12亿 CNY,\nturned from profit)",
+ax_c.text(2025.05, ax_c.get_ylim()[1] * 0.92, "2025: net loss\n(-212M CNY,\nturned from profit)",
           color="red", fontsize=7, va="top")
 ax_c.axvline(2026.0, color="darkred", linestyle="-.", linewidth=1.2)
 ax_c.text(2026.05, ax_c.get_ylim()[1] * 0.60, "2026-06:\nfined & renamed\nST Winall",
           color="darkred", fontsize=7, va="top")
 
 ax_c.set_title("(c) Order-grain revenue share and R&D intensity, 2015–2025\n"
-                "(hollow markers = estimated/推算 values; vertical lines = 2025 loss and 2026 ST/penalty event)",
+                "(hollow markers = estimated/imputed values; vertical lines = 2025 loss and 2026 ST/penalty event)",
                 fontsize=9, loc="left")
 
 h1, l1 = ax_c.get_legend_handles_labels()
 h2, l2 = ax_c2.get_legend_handles_labels()
 ax_c.legend(h1 + h2, l1 + l2, fontsize=7, loc="upper left", frameon=False)
 
-fig.suptitle("Figure 5. Winall (荃银高科) as a counter-case: channel choice, within-channel trait gap, and financial context\n"
+fig.suptitle("Figure 5. Winall Hi-tech Seed as a counter-case: channel choice, within-channel trait gap, and financial context\n"
              "Winall enters this paper as a counter-case that rules out an alternative explanation, not as a source of the main result.",
              fontsize=10, y=0.995)
 

@@ -1,9 +1,9 @@
 export const meta = {
-  name: 'quanyin-data-collect',
+  name: 'data-collect',
   description: 'Collect the datasets named in args.tasks (each a chunk of variety-level / year-level records) via WebSearch and literature tools; write CSV chunks; then a merger validates and consolidates',
   phases: [{ title: 'Collect' }, { title: 'Merge' }],
 }
-const ROOT = '/home/user/video'
+const ROOT = (args && args.root) || '/ABSOLUTE/PATH/TO/YOUR/PROJECT' // set via Workflow({args:{root: ...}}) or edit this default before running
 const DATA = ROOT + '/evidence/data'
 const ENV_NOTE = `
 工具与环境约束（必须遵守）：

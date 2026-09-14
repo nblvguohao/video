@@ -1,5 +1,5 @@
 export const meta = {
-  name: 'quanyin-gapfill',
+  name: 'gapfill',
   description: 'Fill evidence gaps named in args.gaps by targeted searching; append to evidence files',
   phases: [{ title: 'GapFill' }],
 }

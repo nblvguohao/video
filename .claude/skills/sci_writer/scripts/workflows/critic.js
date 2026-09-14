@@ -1,5 +1,5 @@
 export const meta = {
-  name: 'quanyin-critic',
+  name: 'critic',
   description: 'Completeness critic over evidence/: finds the most important gaps for the paper and writes 12_critic_round1.md',
   phases: [{ title: 'Critic' }],
 }

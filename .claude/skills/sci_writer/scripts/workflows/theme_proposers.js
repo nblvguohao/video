@@ -1,9 +1,9 @@
 export const meta = {
-  name: 'quanyin-theme-proposers',
+  name: 'theme-proposers',
   description: 'Independent proposers each draft a paper theme + innovation + data/method plan from the evidence base (angles in args.angles)',
   phases: [{ title: 'Propose' }],
 }
-const ROOT = '/home/user/video'
+const ROOT = (args && args.root) || '/ABSOLUTE/PATH/TO/YOUR/PROJECT' // set via Workflow({args:{root: ...}}) or edit this default before running
 const EV = ROOT + '/evidence'
 const PL = ROOT + '/plan/proposals'
 const ENV_NOTE = `

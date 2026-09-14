@@ -2,7 +2,7 @@
 
 - source rows: 7883 → 国审 rows: 2396 → after dedup by approval number: 2386
 - approval years: 2001–2025 (0 rows without a parsable year)
-- Winall-affiliated records: 139
+- Winall-affiliated records: 139 by applicant field, 238 after adding the pedigree/name rule
 - flagged yield outliers: 0; duration outliers: 0
 
 ## Records per year by applicant type
@@ -76,23 +76,27 @@ blast_index_mean             13.9
 blb_grade                    59.8
 bph_grade                    70.8
 
-## Winall records per year
-approval_year
-2006     1
-2007     2
-2008     1
-2010     3
-2012     2
-2013     3
-2015     2
-2018     1
-2019    16
-2020    49
-2022    26
-2023    18
-2024    15
+## Winall records per year (extended rule)
+winall_source  applicant  applicant+pedigree  pedigree
+approval_year                                         
+2006                   0                   1         0
+2007                   1                   1         0
+2008                   0                   1         0
+2010                   0                   3         0
+2012                   0                   2         0
+2013                   1                   2         0
+2015                   0                   2         0
+2016                   0                   0         1
+2017                   0                   0        15
+2018                   0                   1        23
+2019                   4                  12         0
+2020                  11                  38         0
+2021                   0                   0        60
+2022                   8                  18         0
+2023                   4                  14         0
+2024                   3                  12         0
 
 ## Caveats
-- Applicant fields are absent from the source compilation for 2016, 2017, 2018 and 2021; those years appear entirely as applicant_type = Unknown and Winall records there are not identifiable.
+- Applicant fields are absent from the source compilation for 2016, 2017, 2018 and 2021; those years appear entirely as applicant_type = Unknown. Winall records in those years are recovered by the pedigree/name rule (precision 1.000, recall 0.770 on labelled records), so counts there are lower bounds.
 - Each row is one approval (variety x ecological region), not one variety: a variety approved for several regions contributes several rows, each with its own regional-trial data.
 - All values are parsed verbatim from announcement text; missing values are left empty.

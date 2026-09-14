@@ -74,6 +74,25 @@ d['applicant_type'] = d.applicant.map(org_type)
 # number of co-applicants (separators used in announcements)
 d['n_applicants'] = d.applicant.apply(lambda s: 0 if not s.strip() else len(re.split(r'[、,，;；/]', s)))
 
+# ---- 5b. extended Winall identification ------------------------------------
+# The compilation lacks applicant fields for 2016-2018 and 2021, so applicant-based
+# identification is blind in those years. Winall's proprietary parental lines carry a
+# distinctive nomenclature (sterile lines prefixed 荃, restorer lines coded YR<digits>),
+# and its commercial varieties are branded with the 荃 character. Validated on the 1,426
+# records that do carry applicant information, the combined rule below gives precision
+# 1.000 (0 false positives) and recall 0.770. Records it misses are pooled with "others",
+# which biases any Winall-versus-others contrast towards the null.
+_raw = pd.read_csv('evidence/data/national_rice_varieties_raw.csv', encoding='utf-8-sig', dtype=str).fillna('')
+_src = _raw.set_index('row_index')['品种来源'].astype(str).str.replace(r'\s+', '', regex=True)
+d['pedigree'] = d.row_index.astype(str).map(_src).fillna('')
+_name = d.variety.astype(str).str.replace(r'\s+', '', regex=True)
+d['winall_rule'] = (_name.str.startswith('荃')
+                    | d.pedigree.str.contains('荃')
+                    | d.pedigree.str.contains(r'YR\d'))
+d['winall'] = d.winall_rule | d.is_winall
+d['winall_source'] = np.where(d.is_winall & d.winall_rule, 'applicant+pedigree',
+                      np.where(d.is_winall, 'applicant', np.where(d.winall_rule, 'pedigree', '')))
+
 # ---- 6. quality class -------------------------------------------------------
 # 1-3 = graded under the national/industry standard; NaN = not reported as a grade
 d['quality_top2'] = np.where(d.quality_grade.notna(), (d.quality_grade <= 2).astype(float), np.nan)
@@ -98,7 +117,7 @@ L.append('# analysis_national_rice.csv — build report\n')
 L.append(f'- source rows: {n0} → 国审 rows: {n1} → after dedup by approval number: {n2}')
 L.append(f'- approval years: {int(d.approval_year.min())}–{int(d.approval_year.max())} '
          f'({d.approval_year.isna().sum()} rows without a parsable year)')
-L.append(f'- Winall-affiliated records: {int(d.is_winall.sum())}')
+L.append(f'- Winall-affiliated records: {int(d.is_winall.sum())} by applicant field, {int(d.winall.sum())} after adding the pedigree/name rule')
 L.append(f'- flagged yield outliers: {int(d.flag_yield_outlier.sum())}; duration outliers: {int(d.flag_duration_outlier.sum())}\n')
 L.append('## Records per year by applicant type')
 L.append(pd.crosstab(d.approval_year.astype('Int64'), d.applicant_type).to_string())
@@ -114,11 +133,12 @@ keys = ['yield_2yr_kg_mu', 'yield_gain_pct', 'duration_d', 'plant_height_cm', 'p
         'amylose_pct', 'gel_mm', 'lw_ratio', 'quality_grade', 'neck_blast_loss_max_grade',
         'blast_index_mean', 'blb_grade', 'bph_grade']
 L.append((d[keys].notna().mean() * 100).round(1).to_string())
-L.append('\n## Winall records per year')
-L.append(d[d.is_winall].approval_year.astype('Int64').value_counts().sort_index().to_string())
+L.append('\n## Winall records per year (extended rule)')
+L.append(pd.crosstab(d[d.winall].approval_year.astype('Int64'), d[d.winall].winall_source).to_string())
 L.append('\n## Caveats')
 L.append('- Applicant fields are absent from the source compilation for 2016, 2017, 2018 and 2021; '
-         'those years appear entirely as applicant_type = Unknown and Winall records there are not identifiable.')
+         'those years appear entirely as applicant_type = Unknown. Winall records in those years are recovered '
+         'by the pedigree/name rule (precision 1.000, recall 0.770 on labelled records), so counts there are lower bounds.')
 L.append('- Each row is one approval (variety x ecological region), not one variety: a variety approved '
          'for several regions contributes several rows, each with its own regional-trial data.')
 L.append('- All values are parsed verbatim from announcement text; missing values are left empty.')

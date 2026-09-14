@@ -6,7 +6,14 @@ export const meta = {
 const ROOT = '/home/user/video'
 const EV = ROOT + '/evidence'
 const PL = ROOT + '/plan'
-const ENV_NOTE = `工具约束：WebFetch/curl 几乎全被拦截（github.com 除外）；WebSearch 可用；学术 MCP（Consensus、Scholar Gateway、Elicit、Undermind 等，用 ToolSearch 加载）可用于核实新颖性。严禁编造。`
+const ENV_NOTE = `
+工具与环境约束（必须遵守）：
+- 容器内 curl/WebFetch 对几乎所有站点被代理拦截；但 github.com 可访问：可 `git clone --depth 1` 公开仓库、WebFetch raw.githubusercontent.com 文件（已有年报文本仓库 IamBusy/audit、品种审定汇编 he-zhui/Rice_QA 等先例）。
+- WebSearch 可用且结果自带页面摘要，但每个代理会话有配额（约 200 次，且可能提前耗尽）：先列出最有价值的查询再执行，措辞具体（主体+年份+指标），避免重复。
+- 学术工具：mcp__Consensus__search 本月配额已耗尽、mcp__Elicit__* 无 API 权限——不要调用。可用：mcp__Undermind__*（先 get_orientation；search_papers / launch_deep_search / lookup_papers_by_metadata / read_pdfs 读开放获取 PDF）、mcp__Scholar_Gateway__semanticSearch（返回长文本，用 grep/Read 分块）、mcp__PubMed__*、mcp__Amass_Connector__search_amass_biomedcore_records、mcp__bioRxiv__*、mcp__Hugging_Face__hf_fs。用 ToolSearch 按名加载后调用。
+- 严禁编造任何数字、品种名、项目名、文献。找不到就写"未找到/未确认"。每条事实附来源 URL、日期、检索词、置信度（高=原文数字直接出现；中=工具综合表述；低=推断）。文献给完整引文与 DOI。
+- 输出用 UTF-8 写入指定路径（Bash heredoc / python / Write）。
+`
 const JUDGE = {
   type: 'object',
   properties: {
@@ -20,7 +27,7 @@ const JUDGE = {
 const LENSES = [
   { id: 'editor', desc: '中科院 2 区农林科学期刊的责任编辑/审稿人视角：范围契合、读者兴趣、单一企业案例的一般性、是否像"软文"（企业宣传风险）、方法是否达到该刊常见标准' },
   { id: 'data', desc: '数据可得性与研究诚信视角：每个变量能否在本环境（仅 WebSearch 摘要 + 文献）真实获得？样本量是否足够？是否存在被迫编造/估算的风险？统计方法与数据结构是否匹配？' },
-  { id: 'novelty', desc: '学术新颖性与理论贡献视角：与最接近的 3–5 篇已有文献相比（可用 Consensus/Scholar Gateway 核实），创新点是否真实、是否可被审稿人一句话否定；框架/指标/数据集的原创性' },
+  { id: 'novelty', desc: '学术新颖性与理论贡献视角：与最接近的 3–5 篇已有文献相比（可用 Undermind/Scholar Gateway 核实），创新点是否真实、是否可被审稿人一句话否定；框架/指标/数据集的原创性' },
 ]
 const proposals = (args && args.proposals) || []
 phase('Judge')

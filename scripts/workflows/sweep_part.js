@@ -11,13 +11,12 @@ const ROOT = '/home/user/video'
 const EV = ROOT + '/evidence'
 
 const ENV_NOTE = `
-环境与工具约束（必须遵守）：
-- 本容器内 curl/WebFetch 对几乎所有站点（cninfo、巨潮、深交所、qq/sina财经、公司官网、知乎、CSDN、doi.org、ScienceDirect、MDPI、Wiley、Wikipedia 等）均被代理拦截，只有 github.com 可 fetch。不要浪费调用在 WebFetch 上（最多试 1 次即放弃）。
-- WebSearch 工具可用，且其结果自带页面内容的 AI 摘要——这是获取中文新闻/公告/年报数字的唯一渠道。请发起大量、具体、带数字/年份/关键词的查询（例如 "荃银高科 2024年年度报告 订单粮食 收入 毛利率"），每个维度至少 15–30 次查询，直到边际收益趋零。
-- 学术检索 MCP 工具可用：mcp__Consensus__search、mcp__Scholar_Gateway__semanticSearch（返回大量全文段落，结果可能超长并被写入文件，请用 grep/Read 分块读取）、mcp__Elicit__search_papers、mcp__PubMed__search_articles / get_full_text_article、mcp__Undermind__*（先调用 get_orientation，可 launch_deep_search、read_pdfs 读开放获取 PDF）、mcp__Amass_Connector__search_amass_biomedcore_records、mcp__bioRxiv__*、mcp__Hugging_Face__hf_fs（搜数据集）。用 ToolSearch 按名加载后再调用。
-- 严禁编造任何数字、品种名、项目名、文献。找不到就写"未找到/未确认"。每条事实必须附：来源 URL、发布日期（尽量）、所用检索词、置信度（高=摘要中直接出现原文数字；中=搜索工具的综合表述；低=间接推断）。
-- 输出文件用 UTF-8 Markdown 写入指定路径（可用 Bash heredoc 或 Write 工具）。文件顶部写明：维度、检索次数、来源数、更新时间（用 2026-09-14）。
-- 文献条目格式：作者. 年份. 标题. 期刊, 卷(期): 页. DOI. 并注明来自哪个工具。
+工具与环境约束（必须遵守）：
+- 容器内 curl/WebFetch 对几乎所有站点被代理拦截；但 github.com 可访问：可 `git clone --depth 1` 公开仓库、WebFetch raw.githubusercontent.com 文件（已有年报文本仓库 IamBusy/audit、品种审定汇编 he-zhui/Rice_QA 等先例）。
+- WebSearch 可用且结果自带页面摘要，但每个代理会话有配额（约 200 次，且可能提前耗尽）：先列出最有价值的查询再执行，措辞具体（主体+年份+指标），避免重复。
+- 学术工具：mcp__Consensus__search 本月配额已耗尽、mcp__Elicit__* 无 API 权限——不要调用。可用：mcp__Undermind__*（先 get_orientation；search_papers / launch_deep_search / lookup_papers_by_metadata / read_pdfs 读开放获取 PDF）、mcp__Scholar_Gateway__semanticSearch（返回长文本，用 grep/Read 分块）、mcp__PubMed__*、mcp__Amass_Connector__search_amass_biomedcore_records、mcp__bioRxiv__*、mcp__Hugging_Face__hf_fs。用 ToolSearch 按名加载后调用。
+- 严禁编造任何数字、品种名、项目名、文献。找不到就写"未找到/未确认"。每条事实附来源 URL、日期、检索词、置信度（高=原文数字直接出现；中=工具综合表述；低=推断）。文献给完整引文与 DOI。
+- 输出用 UTF-8 写入指定路径（Bash heredoc / python / Write）。
 `
 
 const SWEEP_SCHEMA = {

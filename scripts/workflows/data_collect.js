@@ -6,13 +6,13 @@ export const meta = {
 const ROOT = '/home/user/video'
 const DATA = ROOT + '/evidence/data'
 const ENV_NOTE = `
-环境与工具约束（必须遵守）：
-- 容器内 curl/WebFetch 对几乎所有站点被代理拦截（github.com 除外），不要浪费调用。
-- WebSearch 可用且结果自带页面内容摘要——请用非常具体的查询（品种名 + 审定编号 + "区试" + "亩产" + "米质" + "稻瘟病"），一个品种拿不到就换 2–3 种措辞（如加 "国审稻" "审定公告" "品种简介" "特征特性"）。
-- 学术 MCP（Consensus、Scholar Gateway、Elicit、PubMed、Undermind、Amass；用 ToolSearch 加载）可用于从已发表论文中取数。
-- 严禁编造或"合理估计"任何数值。拿不到的字段留空（不要填 0 或平均值），并在 note 列写明尝试过的检索词。每条记录必须有 source_url（可多个，用 | 分隔）与 confidence（high/medium/low）。
-- 数值统一单位：产量 kg/亩（若来源为 kg/hm² 请换算并在 note 注明），生育期 天，增产 %。
-- 用 Python (pandas) 或 Bash 把结果写成 UTF-8 CSV（表头固定为任务给定的列名），不要用 Excel。`
+工具与环境约束（必须遵守）：
+- 容器内 curl/WebFetch 对几乎所有站点被代理拦截；但 github.com 可访问：可 `git clone --depth 1` 公开仓库、WebFetch raw.githubusercontent.com 文件（已有年报文本仓库 IamBusy/audit、品种审定汇编 he-zhui/Rice_QA 等先例）。
+- WebSearch 可用且结果自带页面摘要，但每个代理会话有配额（约 200 次，且可能提前耗尽）：先列出最有价值的查询再执行，措辞具体（主体+年份+指标），避免重复。
+- 学术工具：mcp__Consensus__search 本月配额已耗尽、mcp__Elicit__* 无 API 权限——不要调用。可用：mcp__Undermind__*（先 get_orientation；search_papers / launch_deep_search / lookup_papers_by_metadata / read_pdfs 读开放获取 PDF）、mcp__Scholar_Gateway__semanticSearch（返回长文本，用 grep/Read 分块）、mcp__PubMed__*、mcp__Amass_Connector__search_amass_biomedcore_records、mcp__bioRxiv__*、mcp__Hugging_Face__hf_fs。用 ToolSearch 按名加载后调用。
+- 严禁编造任何数字、品种名、项目名、文献。找不到就写"未找到/未确认"。每条事实附来源 URL、日期、检索词、置信度（高=原文数字直接出现；中=工具综合表述；低=推断）。文献给完整引文与 DOI。
+- 输出用 UTF-8 写入指定路径（Bash heredoc / python / Write）。
+`
 const SCHEMA = {
   type: 'object',
   properties: { task_id: { type: 'string' }, file: { type: 'string' }, n_records: { type: 'number' }, n_complete: { type: 'number' }, field_coverage: { type: 'string' }, problems: { type: 'array', items: { type: 'string' } } },

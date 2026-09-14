@@ -74,11 +74,11 @@
 
 - **Duflo, E., Greenstone, M., Pande, R., & Ryan, N. (2013). Truth-telling by third-party auditors and the response of polluting firms: experimental evidence from India. *Quarterly Journal of Economics*, 128(4), 1499–1545. DOI: 10.1093/qje/qjt024.**
   已用随机实验证明"由被监管方选择并付费的审计方系统性报出有利数字"。**但其设计是同一属性（排放量）由两方分别测量**；本文没有同一属性的双重测量，拥有的是**同一份文书内两类由不同主体测量的属性**。本文的证据强度弱于 Duflo et al.，但场景与可观测量完全不同，且不依赖实验。
-- **Bar, T., & Zheng, Y. (2018). Choosing certifiers: evidence from the British Retail Consortium food safety standard. *American Journal of Agricultural Economics*. DOI: 10.1093/ajae/aay024.**
+- **Bar, T., & Zheng, Y. (2019). Choosing certifiers: evidence from the British Retail Consortium food safety standard. *American Journal of Agricultural Economics*, 101(1), 74–88. DOI: 10.1093/ajae/aay024.**
   厂商偏好地理邻近、且此前给出更高 A 级比例的认证机构——即"认证方选择的内生性"。这正是本文 R11 组内检验无法排除的自选择解释的农经版本，必须正面引用并说明本文的符号分离为何不能被纯自选择解释。
-- **Grennan, M., & Town, R. J. (2020). Regulating innovation with uncertain quality: information, risk, and access in medical devices. *American Economic Review*, 110(1), 120–161. DOI: 10.3386/w20981.**
+- **Grennan, M., & Town, R. J. (2020). Regulating innovation with uncertain quality: information, risk, and access in medical devices. *American Economic Review*, 110(1), 120–161. DOI: 10.1257/aer.20180946.**
   比较的是**两个制度之间**（EU vs US），而非同一制度内的两条路径。
-- **Renckens, S., & Auld, G. (2020). Time to certify: explaining varying efficiency of private regulatory audits. *Regulation & Governance*, 14(4). DOI: 10.1111/rego.12362.**
+- **Renckens, S., & Auld, G. (2022). Time to certify: explaining varying efficiency of private regulatory audits. *Regulation & Governance*, 16(2), 500–518. DOI: 10.1111/rego.12362.**
 
 **增量（识别论证本身）**：纯"申请人育种能力差异"假说预测两类性状**同向变差**。实跑结果是**符号分离**：第三方测定的加工与外观品质更差（整精米率 −1.84 pp，p<0.0001；垩白度 +1.11 pp，p=0.012），而申请人自测的产量优势不降反升（区试增产率 +0.55 pp，p=0.020；生产试验增产率 +0.92 pp，p<0.0001）。能力差异假说无法产生这个符号分离；能产生它的只有"两类性状由不同主体测量"或"两条通道的申报门槛不同"。**这句话必须写进摘要与方法节，不得留在讨论。**
 

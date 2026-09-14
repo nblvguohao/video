@@ -1,0 +1,6 @@
+spec,group,n,share_unified,coef,se,p,odds_ratio
+descriptive_share_unified_all_national_groups,Winall,166,0.6024096385542169,,,,
+descriptive_share_unified_all_national_groups,Others,1101,0.4750227066303361,,,,
+logit_FE_yeartrialgroup_all_national_groups,Winall coefficient (alpha),1246,,-0.7276184054953486,0.18244201416567155,6.65716591742175e-05,0.48305806967041937
+logit_FE_yeartrialgroup_two_indica_groups,Winall coefficient (alpha),849,,-0.5582200693639122,0.20058391077593446,0.00538629064692569,0.572226681737134
+logit_no_FE_all_national_groups,Winall coefficient (alpha),1267,,-0.5155078485691186,0.16968696133423117,0.0023815926394016784,0.5971972318339112

@@ -1,0 +1,7 @@
+channel_subsample,outcome,outcome_label,rho,se,p,n
+Unified,head_rice_pct,整精米率 (head-rice %),2.2116452490126255,0.5926494696761649,0.00019012156889590908,495
+Unified,quality_stated,"载明国家米质等级 (quality grade stated, 0/1)",0.09770683940439216,0.02768396831297158,0.0004165575710542356,501
+Unified,chalkiness_deg_pct,垩白度 (chalkiness %),-0.6916010338906091,0.18754915327571867,0.00022640391219531434,494
+New(Consortium+Green),head_rice_pct,整精米率 (head-rice %),-0.451733680458531,0.7518284087862018,0.5479420413381728,494
+New(Consortium+Green),quality_stated,"载明国家米质等级 (quality grade stated, 0/1)",0.04517247291655277,0.034034991273917355,0.18443055689677712,503
+New(Consortium+Green),chalkiness_deg_pct,垩白度 (chalkiness %),0.1995324519071287,0.44639076224262475,0.6548818837260008,495

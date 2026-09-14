@@ -6,7 +6,7 @@
 | 检索次数 | 53 次工具调用（WebSearch 40；Scholar Gateway semanticSearch 1；PubMed search_articles 2 + get_article_metadata 1；Undermind get_orientation/list_workspaces/launch_deep_search/inspect_deep_searches×3/search_papers/get_paper_info×2 = 9；Amass PatentCore 1（账户配额耗尽，未返回结果）） |
 | 来源数（工具） | 4 类可用工具：WebSearch、Scholar Gateway（Wiley 全文语料）、PubMed（NCBI）、Undermind（全球学术语料 + 深度检索） |
 | 找到条目数 | **47 条**（A 类国际期刊 14 条；B 类中文期刊/案例 33 条） |
-| 可提取定量数据条目 | 24 条（见 `08_quanyin_lit_data.csv`） |
+| 可提取定量数据条目 | 36 行（见 `08_quanyin_lit_data.csv`） |
 | 更新时间 | 2026-09-14 |
 
 ## 0. 检索策略与可信度说明
@@ -492,4 +492,4 @@
 
 ## 7. 数据文件
 
-可提取定量数据的条目已整理至 **`/home/user/video/evidence/08_quanyin_lit_data.csv`**（24 行，列：variety, study_ref, doi, role, site, year, trait, value, unit, note, confidence）。
+可提取定量数据的条目已整理至 **`/home/user/video/evidence/08_quanyin_lit_data.csv`**（36 行 × 11 列，列：variety, study_ref, doi, role, site, year, trait, value, unit, note, confidence；其中 high 置信 17 行、medium 17 行、low 2 行）。

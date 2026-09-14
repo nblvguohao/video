@@ -1,0 +1,32 @@
+year_or_season,indicator,value,unit,source_url,source_date,confidence,note
+2024,hybrid_rice_seed_production_area,192,万亩,https://www.sohu.com/a/931478963_120950077,2025,中,同比减少24万亩；另一口径12.8万公顷(-11%)
+2024,hybrid_rice_new_seed_output,3.1,亿公斤,https://www.sohu.com/a/931478963_120950077,2025,中,同比减少0.3亿公斤
+2024/25,hybrid_rice_seed_total_supply,41,万吨,https://finance.sina.com.cn/money/future/wemedia/2024-12-02/doc-incxzrau5637850.shtml,2024-12-02,高,含结转库存10万吨；全国农技中心供需预测
+2024/25,hybrid_rice_seed_carryover_stock,10,万吨,https://finance.sina.com.cn/money/future/wemedia/2024-12-02/doc-incxzrau5637850.shtml,2024-12-02,高,
+2024/25,hybrid_rice_seed_total_demand,35,万吨,https://finance.sina.com.cn/money/future/wemedia/2024-12-02/doc-incxzrau5637850.shtml,2024-12-02,高,含出口3万吨；较2023/24增30%（集中育秧、机插亩用种量↑约10%）
+2024,hybrid_rice_seed_supply_demand_ratio,178,%,https://www.huaon.com/channel/trend/1173272.html,2026,中,
+2024,fujian_hybrid_rice_seed_production_area,60.39,万亩,https://www.sohu.com/a/931478963_120950077,2025,中,产量1.1亿公斤；连续七年全国第一
+2024,jiangxi_hybrid_rice_seed_production_area,57.9,万亩,https://www.sohu.com/a/931478963_120950077,2025,中,全国第二
+2025,hybrid_rice_seed_production_area,225.4,万亩,https://www.huaon.com/channel/trend/1173272.html,2026,中,同比+17.4%
+2025,hybrid_rice_seed_effective_stock_prev_year,0.91,亿公斤,https://www.huaon.com/channel/trend/1173272.html,2026,中,
+2025,hybrid_rice_seed_supply_demand_ratio,125,%,https://www.huaon.com/channel/trend/1173272.html,2026,中,
+2026,hybrid_rice_commercial_seed_demand_forecast,3.3,亿公斤,https://www.huaon.com/channel/trend/1173272.html,2026,中,含出口约0.3亿公斤
+2023,national_approved_rice_varieties,409,个,https://seed-china.com/Info.aspx?Id=53616&ModelId=1,2024,中,国审
+2024,national_approved_rice_varieties,405,个,https://seed-china.com/Info.aspx?Id=53616&ModelId=1,2025,中,优质二级以上占57%；杂交稻占87.9%
+2021,approved_rice_varieties_all_levels,2287,个,https://doi.org/10.1002/agr.22020,2025,高,Xiang et al. 2025 Agribusiness；2000年为279个
+2021,approved_maize_varieties_all_levels,3779,个,https://doi.org/10.1002/agr.22020,2025,高,Xiang et al. 2025 Agribusiness；2000年为150个
+2019,seed_industry_CR5,9.6,%,https://doi.org/10.52819/jnes.2025.37.3.1,2025,高,Wang & Kang 2025
+2023,seed_industry_CR5,19.2,%,https://doi.org/10.52819/jnes.2025.37.3.1,2025,高,Wang & Kang 2025
+2023,GM_maize_planting_area_NE_China,250000,ha,https://doi.org/10.1002/ps.70796,2026,高,Quan et al. 2026 Pest Manag Sci
+2024,GM_maize_soybean_demo_area,1000,万亩,https://www.stcn.com/article/detail/1367879.html,2024-10,中,另一口径"2000万亩以上"(https://bz.ccpia.org.cn/xil52c/202502/7fc51cc834cde39de1c9eaf0db242842.html)
+2025,GM_maize_area_forecast,3100-5000+,万亩,https://www.chinaseed114.com/news/28/news_136011.html,2025,低,预测区间；13个省份获准
+2023-2025,GM_maize_varieties_approved_cumulative,160,个,https://www.chinaseed114.com/news/29/news_140887.html,2025-12,高,37(2023)+27(2024)+96(2025)
+2023-2025,GM_soybean_varieties_approved_cumulative,19,个,https://www.chinaseed114.com/news/29/news_140887.html,2025-12,高,14(2023)+3(2024)+2(2025)
+recent,ratoon_rice_area_national,>1.2,百万公顷,https://doi.org/10.1002/ece3.72724,2025,高,Luo et al. 2025引Lin et al. 2024；11省市
+~2020,ratoon_rice_area_hubei,200000,ha,https://doi.org/10.1002/agj2.21099,2022,高,Xia et al. 2022
+2030 target,ratoon_rice_area_national_increment_target,1000,万亩,https://tv.cctv.com/2025/02/22/VIDEo1F9E7opr59A0YMREXWS250222.shtml,2025-02-22,高,新闻联播：农业农村部力争到2030年新增约1000万亩
+2023,super_rice_varieties_certified_cumulative,129,个,https://doi.org/10.1111/jipb.13598,2023,高,Zheng et al. 2023 JIPB
+2018,super_rice_annual_area,8.67,百万公顷,https://doi.org/10.1111/jipb.13598,2023,高,占水稻面积30%
+2019->2023,mechanical_transplanting_share_hunan,34->54,%,https://doi.org/10.1002/agj2.70407,2026,高,Liu & Huang 2026
+2023,mechanical_transplanting_share_jiangsu,>75,%,https://doi.org/10.1002/agj2.70407,2026,高,Liu & Huang 2026
+2015,direct_seeding_share_early_rice_jiangxi,~60,%,https://doi.org/10.1002/agj2.70407,2026,高,Liu & Huang 2026引Wang et al. 2021

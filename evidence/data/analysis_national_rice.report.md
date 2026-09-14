@@ -57,24 +57,25 @@ Inbred/Other          339
 Hybrid (unclear)       10
 
 ## Key variable coverage (% non-missing)
-yield_2yr_kg_mu              92.8
-yield_gain_pct               77.2
-duration_d                   98.0
-plant_height_cm              98.6
-panicles_10k_mu              92.8
-grains_per_panicle           92.8
-seed_setting_pct             98.7
-tgw_g                        98.8
-head_rice_pct                98.0
-chalkiness_deg_pct           96.7
-amylose_pct                  96.0
-gel_mm                       97.6
-lw_ratio                     90.9
-quality_grade                53.7
-neck_blast_loss_max_grade    62.1
-blast_index_mean             13.9
-blb_grade                    59.8
-bph_grade                    70.8
+yield_2yr_kg_mu               92.8
+yield_gain_pct                77.2
+duration_d                    98.0
+plant_height_cm               98.6
+panicles_10k_mu               92.8
+grains_per_panicle            92.8
+seed_setting_pct              98.7
+tgw_g                         98.8
+head_rice_pct                 98.0
+chalkiness_deg_pct            96.7
+amylose_pct                   96.0
+gel_mm                        97.6
+lw_ratio                      90.9
+quality_grade                 65.8
+quality_stated               100.0
+neck_blast_loss_max_grade     62.1
+blast_index_mean              13.9
+blb_grade                     59.8
+bph_grade                     70.8
 
 ## Winall records per year (extended rule)
 winall_source  applicant  applicant+pedigree  pedigree

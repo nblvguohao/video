@@ -95,6 +95,9 @@ d['winall_source'] = np.where(d.is_winall & d.winall_rule, 'applicant+pedigree',
 
 # ---- 6. quality class -------------------------------------------------------
 # 1-3 = graded under the national/industry standard; NaN = not reported as a grade
+# Two distinct outcomes: whether a national/industry quality grade is documented at all
+# (well defined for every record), and, conditional on that, whether it is grade 1 or 2.
+d['quality_stated'] = d.quality_grade.notna().astype(float)
 d['quality_top2'] = np.where(d.quality_grade.notna(), (d.quality_grade <= 2).astype(float), np.nan)
 
 # ---- 7. resistance flags ----------------------------------------------------
@@ -130,7 +133,7 @@ L.append(d.breeding_system.value_counts().to_string())
 L.append('\n## Key variable coverage (% non-missing)')
 keys = ['yield_2yr_kg_mu', 'yield_gain_pct', 'duration_d', 'plant_height_cm', 'panicles_10k_mu',
         'grains_per_panicle', 'seed_setting_pct', 'tgw_g', 'head_rice_pct', 'chalkiness_deg_pct',
-        'amylose_pct', 'gel_mm', 'lw_ratio', 'quality_grade', 'neck_blast_loss_max_grade',
+        'amylose_pct', 'gel_mm', 'lw_ratio', 'quality_grade', 'quality_stated', 'neck_blast_loss_max_grade',
         'blast_index_mean', 'blb_grade', 'bph_grade']
 L.append((d[keys].notna().mean() * 100).round(1).to_string())
 L.append('\n## Winall records per year (extended rule)')

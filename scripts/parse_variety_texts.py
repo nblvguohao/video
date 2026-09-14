@@ -85,7 +85,14 @@ for _, r in df.iterrows():
     gel = first(r'胶稠度\s*([\d.]+)\s*(?:毫米|mm)', feat)
     lw = first(r'长宽比\s*([\d.]+)', feat)
     alkali = first(r'碱消值\s*([\d.]+)', feat)
-    q = re.search(r'(?:达到|达|符合)?(?:农业(?:行业|部)?标准?|国家标准|部颁?标准?|国标|部标|《[^》]*》标准?)[^。；;]{0,12}?(?:优质)?\s*([一二三1-3])\s*级', feat)
+    # Announcements state a grade only when the variety qualifies; there is no
+    # "fails the standard" wording anywhere in the corpus, so a missing grade means
+    # either "not qualifying" or "not stated". The widened pattern below tolerates the
+    # standard number that often sits between the standard name and the grade, e.g.
+    # "达到农业行业《食用稻品种品质》（NY/T 593-2013）标准二级".
+    q = re.search(r'(?:达到|达|符合|评定为|为)\s*(?:农业行业|农业部|国家)?\s*(?:标准)?\s*《?(?:食用稻品种品质|优质稻谷)》?[^。；;]{0,40}?([一二三1-3])\s*级', feat)
+    if not q:
+        q = re.search(r'(?:达到|达|符合)?(?:农业(?:行业|部)?标准?|国家标准|部颁?标准?|国标|部标|《[^》]*》标准?)[^。；;]{0,20}?(?:优质)?\s*([一二三1-3])\s*级', feat)
     q2 = re.search(r'米质(?:达到|达|为)?[^。；;]{0,30}?(优质|国标|部标)?\s*([一二三1-3])\s*级', feat)
     qmap = {'一': 1, '1': 1, '二': 2, '2': 2, '三': 3, '3': 3}
     quality_grade = qmap.get(q.group(1), np.nan) if q else (qmap.get(q2.group(2), np.nan) if q2 else np.nan)

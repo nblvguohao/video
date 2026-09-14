@@ -45,7 +45,7 @@ amylose_pct                   68.6
 gel_mm                        70.9
 lw_ratio                      70.7
 alkali                        28.5
-quality_grade                 31.9
+quality_grade                 35.8
 quality_std                  100.0
 is_winall                    100.0
 applicant                    100.0
@@ -92,7 +92,7 @@ amylose_pct                   96.8
 gel_mm                        98.2
 lw_ratio                      92.3
 alkali                        45.0
-quality_grade                 56.8
+quality_grade                 69.6
 quality_std                  100.0
 is_winall                    100.0
 applicant                    100.0

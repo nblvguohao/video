@@ -17,6 +17,45 @@ from docx.oxml import OxmlElement
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# ---------------------------------------------------------------------------
+# Lightweight LaTeX-inline-math renderer (see scripts/build_pdf.py for the
+# rationale). Not a full TeX engine - it recognises exactly the constructs
+# used in manuscript_v2.md (\text{}, \mathbb{1}, Greek letters, \times, \sim,
+# \ge/\le, \Pr, braced/bare sub- and superscripts) and renders them as plain
+# Unicode, so $...$/$$...$$ source is never printed verbatim.
+# ---------------------------------------------------------------------------
+_GREEK = {
+    'varepsilon': '\u03b5', 'epsilon': '\u03b5', 'alpha': '\u03b1', 'beta': '\u03b2',
+    'gamma': '\u03b3', 'delta': '\u03b4', 'theta': '\u03b8', 'rho': '\u03c1',
+    'sigma': '\u03c3', 'Lambda': '\u039b', 'Gamma': '\u0393', 'Delta': '\u0394', 'mu': '\u03bc',
+}
+_SUBS = {'0': '\u2080', '1': '\u2081', '2': '\u2082', '3': '\u2083', '4': '\u2084',
+         '5': '\u2085', '6': '\u2086', '7': '\u2087', '8': '\u2088', '9': '\u2089',
+         'i': '\u1d62', 't': '\u209c', 'b': '\u1d66', 'g': '\u1d4d', 'y': '\u1d67',
+         'c': '\u1d9c', 'n': '\u2099', 'x': '\u2093'}
+
+def _render_math(m):
+    s = m.group(1).strip()
+    s = re.sub(r'\\text\{([^{}]*)\}', lambda mm: mm.group(1).replace('\\_', '_'), s)
+    s = re.sub(r'\\mathbb\{1\}', '\U0001d7d9', s)
+    for name in sorted(_GREEK, key=len, reverse=True):
+        s = re.sub(r'\\' + name + r'(?![A-Za-z])', _GREEK[name], s)
+    s = s.replace('\\times', '\u00d7').replace('\\sim', '~').replace('\\ge', '\u2265')
+    s = s.replace('\\Pr', 'Pr').replace('\\le', '\u2264')
+    s = re.sub(r'\\[,;!]', '', s)
+    s = s.replace('\\\\', '')
+    s = re.sub(r'_\{([^{}]*)\}', r'_(\1)', s)
+    s = re.sub(r'\^\{([^{}]*)\}', r'^(\1)', s)
+    s = re.sub(r'([A-Za-z\u0391-\u03c90-9)])_([A-Za-z0-9])(?![A-Za-z0-9_(])',
+               lambda mm: mm.group(1) + _SUBS.get(mm.group(2), '_' + mm.group(2)), s)
+    s = s.replace('\\;', ' ').replace('\\,', '')
+    return re.sub(r'\s+', ' ', s).strip()
+
+def strip_latex_math(text):
+    text = re.sub(r'\$\$(.+?)\$\$', _render_math, text, flags=re.S)
+    text = re.sub(r'\$([^$]+?)\$', _render_math, text, flags=re.S)
+    return text
+
 def add_line_numbering(section):
     sectPr = section._sectPr
     ln = OxmlElement('w:lnNumType')
@@ -67,7 +106,7 @@ def resolve(path):
 
 def build(md_path, out_path, pdf=False, line_numbers=False):
     with open(md_path, encoding='utf-8') as f:
-        lines = f.read().splitlines()
+        lines = strip_latex_math(f.read()).splitlines()
     doc = Document()
     sec = doc.sections[0]
     sec.page_width, sec.page_height = Mm(210), Mm(297)

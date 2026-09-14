@@ -7,6 +7,52 @@ import re, sys, os
 import markdown, pymupdf
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# ---------------------------------------------------------------------------
+# Lightweight LaTeX-inline-math renderer.
+#
+# manuscript_v2.md uses $...$ / $$...$$ for a handful of formal-model
+# statements (Section 4.2-4.6, one instance in 6.1). markdown.markdown() has
+# no concept of TeX math, so without this pass the raw source (backslashes,
+# \text{}, \beta, _{...}, etc.) was printed verbatim in both the PDF and the
+# DOCX. This is not a full TeX engine - it recognises exactly the constructs
+# used in this manuscript (\text{}, \mathbb{1}, Greek letters, \times, \sim,
+# \ge/\le, \Pr, braced/bare sub- and superscripts) and renders them as plain
+# Unicode, which is legible and faithful even though it is not typeset like
+# real math.
+# ---------------------------------------------------------------------------
+_GREEK = {
+    'varepsilon': '\u03b5', 'epsilon': '\u03b5', 'alpha': '\u03b1', 'beta': '\u03b2',
+    'gamma': '\u03b3', 'delta': '\u03b4', 'theta': '\u03b8', 'rho': '\u03c1',
+    'sigma': '\u03c3', 'Lambda': '\u039b', 'Gamma': '\u0393', 'Delta': '\u0394', 'mu': '\u03bc',
+}
+_SUBS = {'0': '\u2080', '1': '\u2081', '2': '\u2082', '3': '\u2083', '4': '\u2084',
+         '5': '\u2085', '6': '\u2086', '7': '\u2087', '8': '\u2088', '9': '\u2089',
+         'i': '\u1d62', 't': '\u209c', 'b': '\u1d66', 'g': '\u1d4d', 'y': '\u1d67',
+         'c': '\u1d9c', 'n': '\u2099', 'x': '\u2093'}
+
+def _render_math(s):
+    s = s.strip()
+    s = re.sub(r'\\text\{([^{}]*)\}', lambda m: m.group(1).replace('\\_', '_'), s)
+    s = re.sub(r'\\mathbb\{1\}', '\U0001d7d9', s)
+    for name in sorted(_GREEK, key=len, reverse=True):
+        s = re.sub(r'\\' + name + r'(?![A-Za-z])', _GREEK[name], s)
+    s = s.replace('\\times', '\u00d7').replace('\\sim', '~').replace('\\ge', '\u2265')
+    s = s.replace('\\Pr', 'Pr').replace('\\le', '\u2264')
+    s = re.sub(r'\\[,;!]', '', s)
+    s = s.replace('\\\\', '')
+    s = re.sub(r'_\{([^{}]*)\}', r'_(\1)', s)
+    s = re.sub(r'\^\{([^{}]*)\}', r'^(\1)', s)
+    s = re.sub(r'([A-Za-z\u0391-\u03c90-9)])_([A-Za-z0-9])(?![A-Za-z0-9_(])',
+               lambda m: m.group(1) + _SUBS.get(m.group(2), '_' + m.group(2)), s)
+    s = s.replace('\\;', ' ').replace('\\,', '')
+    return re.sub(r'\s+', ' ', s).strip()
+
+def strip_latex_math(text):
+    text = re.sub(r'\$\$(.+?)\$\$', lambda m: _render_math(m.group(1)), text, flags=re.S)
+    text = re.sub(r'\$([^$]+?)\$', lambda m: _render_math(m.group(1)), text, flags=re.S)
+    return text
+
 CSS = """
 body{font-family:'Times New Roman',serif;font-size:11.5pt;line-height:1.9;color:#000}
 h1{font-size:15pt;text-align:center;line-height:1.3;margin:0 0 12pt 0}
@@ -20,6 +66,7 @@ ul,ol{margin:0 0 8pt 18pt} li{margin:0}
 """
 
 def md_to_html(md_text):
+    md_text = strip_latex_math(md_text)
     md_text = re.sub(r'\^([^\^\s]{1,20})\^', r'<sup>\1</sup>', md_text)
     md_text = re.sub(r'(?<!~)~([^~\s]{1,20})~(?!~)', r'<sub>\1</sub>', md_text)
     md_text = re.sub(r'<!--.*?-->', '', md_text, flags=re.S)

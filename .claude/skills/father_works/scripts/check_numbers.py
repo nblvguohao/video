@@ -4,7 +4,7 @@
 写作和修订之后都要跑。凭眼看必然漏，这类不一致是审稿人一眼能看见的硬伤。
 
 用法:
-    python3 check_numbers.py data.json manuscript.md [--strict] [--ignore 1.65,46.3]
+    python3 check_numbers.py data.json manuscript.md [--strict] [--ignore 1.20,46.0]
 
 做两件事：
 1. 抽出正文里的数字，凡在 data.json 里找不到对应值的列出来，附上下文供人工确认。
@@ -34,7 +34,7 @@ def collect_numbers(obj, acc):
 
 
 def matches(tok, values):
-    """数值容差匹配：正文写 0.01097，data.json 里是 -0.010974，应判为一致。"""
+    """数值容差匹配：正文写 0.01234，data.json 里是 -0.012340，应判为一致。"""
     try:
         x = float(tok)
     except ValueError:

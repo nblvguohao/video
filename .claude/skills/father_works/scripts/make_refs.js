@@ -1,7 +1,7 @@
 // 由结构化字段生成 GB/T 7714-2015（顺序编码制）著录字符串
-// 用法：node mkrefs.js refs_map.json > refs.js
+// 用法：node make_refs.js refs_data.json > refs.js
 const fs = require('fs');
-const map = JSON.parse(fs.readFileSync(process.argv[2], 'utf8')); // [{key, type:'J'|'S'|'M', authors:[], title, journal, year, volume, issue, pages, org, stdno, publisher, city}]
+const map = JSON.parse(fs.readFileSync(process.argv[2], 'utf8')); // [{key, type:'J'|'S'|'M'|'EB', authors:[], title, journal, year, volume, issue, pages, org, stdno, publisher, city, date, cited, url}]
 
 function authorsStr(a) {
   const arr = (a || []).map(s => s.trim()).filter(Boolean);

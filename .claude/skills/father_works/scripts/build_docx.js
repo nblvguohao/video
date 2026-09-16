@@ -1,13 +1,17 @@
-// 生成投稿用 docx：node build.js [refs-file] [out-file]
+// 生成投稿用 docx：node build_docx.js [refs-file] [out-file]
+// content.js、data.json、图片文件均从**当前工作目录**读取，与 refs.js 口径一致。
 const fs = require('fs');
 const path = require('path');
+const CWD = process.cwd();
+// setup_env.sh 把 docx 装在**工作目录**的 node_modules 里，而本脚本住在 scripts/，
+// Node 默认从脚本自身目录向上找，找不到。故显式把工作目录加进解析路径。
+const docxPkg = require(require.resolve('docx', { paths: [CWD, __dirname, process.env.NODE_PATH || CWD] }));
 const {
   Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell, WidthType, AlignmentType,
   BorderStyle, ImageRun, Footer, PageNumber, VerticalAlign, HeightRule, TabStopType,
-} = require('docx');
-
-const C = require('./content.js');
-const D = JSON.parse(fs.readFileSync(path.join(__dirname, 'data.json'), 'utf8'));
+} = docxPkg;
+const C = require(path.resolve(CWD, 'content.js'));
+const D = JSON.parse(fs.readFileSync(path.resolve(CWD, 'data.json'), 'utf8'));
 const REFS = require(path.resolve(process.argv[2] || './refs.js'));
 const OUT = process.argv[3] || 'manuscript.docx';
 
@@ -147,10 +151,15 @@ const tableBuilders = {
     [[{ t: '处理编号', rs: 2 }, { t: '处理', rs: 2 }, { t: '施肥水平', cs: 3 }, { t: '施肥量/(kg/' + sup2 + ')', cs: 3 }], [{ gap: 2 }, 'N', 'P_{2}O_{5}', 'K_{2}O', 'N', 'P_{2}O_{5}', 'K_{2}O']],
     rows.map(r => [r.no, `N_{${r.label[1]}}P_{${r.label[3]}}K_{${r.label[5]}}`, r.label[1], r.label[3], r.label[5], f1(r.N), f1(r.P), f1(r.K)]),
     [1.1, 1.3, 0.8, 0.8, 0.8, 1.2, 1.2, 1.2]),
-  t2: () => threeLineTable(
-    [['处理', '株高/cm', '穗长/cm', '有效穗数/(万穗/' + sup2 + ')', '每穗总粒数/粒', '每穗实粒数/粒', '结实率/%', '千粒重/g']],
-    rows.map(r => [r.no, f1(r.ph), f1(r.pl), f1(r.eff_hm2), f1(r.tot), f1(r.fg), f1(r.sr), f1(r.tgw)]),
-    [0.8, 1, 1, 1.4, 1.3, 1.3, 1, 1]),
+  // 性状键名即 trial.json 里 traits 的键，与 analyze_3414.py 写出的 rows 一致；
+  // 换一套性状时改 TRAITS 与表头即可，两者顺序必须对应。
+  t2: () => {
+    const TRAITS = ['株高', '穗长', '有效穗', '每穗总粒数', '每穗实粒数', '结实率', '千粒重'];
+    return threeLineTable(
+      [['处理', '株高/cm', '穗长/cm', '有效穗数/(万穗/' + sup2 + ')', '每穗总粒数/粒', '每穗实粒数/粒', '结实率/%', '千粒重/g']],
+      rows.map(r => [r.no, ...TRAITS.map(k => f1(r[k]))]),
+      [0.8, 1, 1, 1.4, 1.3, 1.3, 1, 1]);
+  },
   t3: () => threeLineTable(
     [['处理', '施肥组合', '折合产量/(kg/' + sup2 + ')', '增产率/%', '位次', '产值/(元/' + sup2 + ')', '肥料成本/(元/' + sup2 + ')', '扣肥料成本后收益/(元/' + sup2 + ')', '产投比']],
     rows.map(r => [r.no, `N_{${r.label[1]}}P_{${r.label[3]}}K_{${r.label[5]}}`, f1(r.y_hm2), f1(r.inc_pct), r.rank,
@@ -158,7 +167,7 @@ const tableBuilders = {
     [0.6, 1.0, 1.25, 0.8, 0.6, 1.15, 1.2, 1.35, 0.8]),
   t4: () => {
     const de = D.deficiency; const full = rows[5].y_hm2;
-    const grade = v => v < 50 ? '极低' : v <= 75 ? '低' : v <= 95 ? '中' : '高';
+    const grade = v => v < 50 ? '极低' : v < 75 ? '低' : v < 95 ? '中' : '高';
     return threeLineTable(
       [['处理', '类型', '产量/(kg/' + sup2 + ')', '相对产量/%', '养分丰缺等级', '肥料贡献率/%', '农学效率/(kg/kg)']],
       [
@@ -171,18 +180,33 @@ const tableBuilders = {
       [0.6, 1.9, 1.3, 1.1, 1.2, 1.4, 1.4]);
   },
   t5: () => {
-    const s = D.single; const l = D.N_lpp; const pl = D.P_lin; const kl = D.K_lin;
+    const s = D.single;
+    // 补充行用线性加平台还是线性，按数据定，判据与 plot_response.py 一致：
+    // 线性加平台明显更贴合（R^2 高出 0.02 以上）时用 lpp，否则用线性。
+    const pick = fac => {
+      const lp = D.lpp && D.lpp[fac], ln = D.linear && D.linear[fac];
+      if (lp && (!ln || lp.R2 - ln.R2 > 0.02)) return { kind: 'lpp', m: lp };
+      return ln ? { kind: 'lin', m: ln } : null;
+    };
     const q = (c) => `*{y}=${c[0].toFixed(2)}${c[1] >= 0 ? '+' : '－'}${Math.abs(c[1]).toFixed(4)}*{x}${c[2] >= 0 ? '+' : '－'}${Math.abs(c[2]).toFixed(5)}*{x}^{2}`;
     return threeLineTable(
       [['因素', '模型', '效应方程', '*{R}^{2}', '*{F}', '*{P}', '典型性', '最高产量施肥量/(kg/' + sup2 + ')', '最高产量/(kg/' + sup2 + ')']],
-      [
-        ['N', '一元二次', q(s.N.coef), s.N.R2.toFixed(4), s.N.F.toFixed(2), s.N.p.toFixed(3), '典型', f1(s.N.xmax) + '^{b}', f1(s.N.ymax) + '^{b}'],
-        ['N', '线性加平台', `*{y}=${l.a.toFixed(1)}+${l.b.toFixed(3)}*{x}（*{x}<${l.x0.toFixed(1)}）；*{y}=${l.plateau.toFixed(1)}（*{x}≥${l.x0.toFixed(1)}）`, l.R2.toFixed(4), '—', '—', '—', f1(l.x0), f1(l.plateau)],
-        ['P_{2}O_{5}', '一元二次', q(s.P.coef), s.P.R2.toFixed(4), s.P.F.toFixed(2), s.P.p.toFixed(3), '典型', f1(s.P.xmax) + '^{b}', f1(s.P.ymax) + '^{b}'],
-        ['P_{2}O_{5}', '线性', `*{y}=${pl.a.toFixed(1)}+${pl.b.toFixed(3)}*{x}`, pl.R2.toFixed(4), '—', '—', '—', '—', '—'],
-        ['K_{2}O', '一元二次', q(s.K.coef), s.K.R2.toFixed(4), s.K.F.toFixed(2), s.K.p.toFixed(3), '非典型', '—', '—'],
-        ['K_{2}O', '线性', `*{y}=${kl.a.toFixed(1)}+${kl.b.toFixed(3)}*{x}`, kl.R2.toFixed(4), '—', '—', '—', '—', '—'],
-      ],
+      [['N', 'N'], ['P', 'P_{2}O_{5}'], ['K', 'K_{2}O']].flatMap(([fac, lab]) => {
+        const u = s[fac];
+        // 典型＝一次项为正、二次项为负；非典型时最高产量施肥量无意义，不列
+        const quad = [lab, '一元二次', q(u.coef), u.R2.toFixed(4), u.F.toFixed(2), u.p.toFixed(3),
+                      u.typical ? '典型' : '非典型',
+                      u.typical ? f1(u.xmax) + '^{b}' : '—',
+                      u.typical ? f1(u.ymax) + '^{b}' : '—'];
+        const p = pick(fac);
+        if (!p) return [quad];
+        const m = p.m;
+        const extra = p.kind === 'lpp'
+          ? [lab, '线性加平台', `*{y}=${m.a.toFixed(1)}+${m.b.toFixed(3)}*{x}（*{x}<${m.x0.toFixed(1)}）；*{y}=${m.plateau.toFixed(1)}（*{x}≥${m.x0.toFixed(1)}）`,
+             m.R2.toFixed(4), '—', '—', '—', f1(m.x0), f1(m.plateau)]
+          : [lab, '线性', `*{y}=${m.a.toFixed(1)}+${m.b.toFixed(3)}*{x}`, m.R2.toFixed(4), '—', '—', '—', '—', '—'];
+        return [quad, extra];
+      }),
       [0.6, 0.9, 3.0, 0.7, 0.6, 0.6, 0.8, 1.2, 1.1], { leftCols: [2] });
   },
   t6: () => threeLineTable(
@@ -190,8 +214,9 @@ const tableBuilders = {
     D.marginal.map(m => [m.f === 'N' ? 'N' : (m.f === 'P' ? 'P_{2}O_{5}' : 'K_{2}O'), `${m.f}${m.from}→${m.f}${m.to}`, f1(m.dy), f1(m.dval), f1(m.cost), f2(m.ratio)]),
     [0.8, 1.2, 1.3, 1.3, 1.5, 1.0]),
 };
+const dfSum = ['N', 'P', 'K'].reduce((a, f) => a + D.deficiency[f].contrib, 0);
 const tableNotesExtra = {
-  t4: '　氮磷钾肥综合贡献率为28.3%［=（全肥区产量－无肥区产量）/全肥区产量×100］。因各单养分贡献率系分别以相应缺素区计算，养分间存在交互作用，三者之和（45.3%）与综合贡献率含义不同，不可相加比较。',
+  t4: `　氮磷钾肥综合贡献率为${f1(D.deficiency.CK.contrib)}%［=（全肥区产量－无肥区产量）/全肥区产量×100］。因各单养分贡献率系分别以相应缺素区计算，养分间存在交互作用，三者之和（${f1(dfSum)}%）与综合贡献率含义不同，不可相加比较。`,
   t5: '　*{F}、*{P}由4个施肥水平的产量拟合求得，残差自由度仅为1，各回归方程均未达显著水平，方程仅用于描述趋势。典型性检验仅适用于一元二次方程（一次项系数为正、二次项系数为负），线性及线性加平台模型不适用。^{b}由方程外推所得，超出试验设计范围，无实际农学意义，不作为推荐施肥依据。',
 };
 
@@ -209,8 +234,10 @@ for (const b of C.body) {
     body.push(note((t.note || '') + (tableNotesExtra[b.id] || '')));
   } else if (b.type === 'figure') {
     const f = C.figures[b.id];
-    const img = fs.readFileSync(path.join(__dirname, f.file));
-    const w = 566, h = Math.round(566 * 1464 / 4015);
+    const img = fs.readFileSync(path.resolve(CWD, f.file));
+    // 从 PNG 的 IHDR 取实际像素宽高，按版心宽等比缩放
+    const iw = img.readUInt32BE(16), ih = img.readUInt32BE(20);
+    const w = 566, h = Math.round(w * ih / iw);
     body.push(new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 120, after: 40 }, keepNext: true,
       children: [new ImageRun({ type: 'png', data: img, transformation: { width: w, height: h } })] }));
     body.push(P(f.caption, { font: F_HEI, size: SZ.xiaowu, align: AlignmentType.CENTER, indent: {}, spacing: { after: 160, line: 240 } }));
@@ -232,9 +259,8 @@ refOrder.forEach((key, i) => {
 // ---------- 页脚（首页脚注 + 页码） ----------
 const firstFooter = new Footer({ children: [
   new Paragraph({ border: { top: { style: BorderStyle.SINGLE, size: 6, color: BLACK, space: 1 } }, spacing: { before: 0, after: 0 }, children: [] }),
-  P(C.fund, { font: F_SONG, size: SZ.liuhao, align: AlignmentType.LEFT, indent: {}, spacing: { line: 240, after: 0 } }),
-  P(C.bio, { font: F_SONG, size: SZ.liuhao, align: AlignmentType.LEFT, indent: {}, spacing: { line: 240, after: 0 } }),
-  P(C.received, { font: F_SONG, size: SZ.liuhao, align: AlignmentType.LEFT, indent: {}, spacing: { line: 240, after: 0 } }),
+  ...[C.fund, C.bio, C.received].filter(t => t && t.trim()).map(t =>
+    P(t, { font: F_SONG, size: SZ.liuhao, align: AlignmentType.LEFT, indent: {}, spacing: { line: 240, after: 0 } })),
   new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60 }, children: [new TextRun({ children: [PageNumber.CURRENT], font: F_TNR, size: SZ.xiaowu })] }),
 ] });
 const defaultFooter = new Footer({ children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ children: [PageNumber.CURRENT], font: F_TNR, size: SZ.xiaowu })] })] });

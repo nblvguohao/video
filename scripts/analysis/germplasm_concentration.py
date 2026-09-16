@@ -28,18 +28,37 @@ import pandas as pd
 PKL = 'evidence/data/analysis_rice_channel.pkl'
 OUT = 'manuscript/tables/table_germplasm_concentration.csv'
 RNG = np.random.default_rng(20260916)
-B = 2000
+B = 10000
 
 # --- parental-line extraction -------------------------------------------------
-# Separators vary (×, x, X, /, ＊). Quotation marks around line names are common.
-# We take only the FIRST cross in the string: later crosses describe the parents'
-# own ancestry, not this variety's immediate parents.
-_SEP = str.maketrans({'/': '×', 'x': '×', 'X': '×', '＊': '×', '*': '×'})
-_PAT = re.compile(r'^[“"]?([A-Za-z0-9一-鿿\-]{2,12})[”"]?×[“"]?([A-Za-z0-9一-鿿\-]{2,14})')
+# We take only the FIRST cross: later crosses describe the parents' own ancestry.
+# Announcements use several typographic conventions for the cross symbol and for hyphens
+# inside line names, and some records carry a parenthetical alias before the cross. An
+# earlier version of this extractor handled only the common cases, and its failures were
+# CHANNEL-CORRELATED (green-channel records failed at 8.0% against the unified channel's
+# 2.3%), which would have biased the Arm-2 comparison. This normalisation removes that.
+_CH = r'[A-Za-z0-9\u4e00-\u9fff\u2160-\u217f\-]'   # includes Roman numerals (Ⅱ-32A etc.)
+_PAT = re.compile(r'^["“]?(' + _CH + r'{2,14})["”]?×["“]?(' + _CH + r'{2,16})')
+_SUBS = [('＊', '×'), ('✕', '×'), ('╳', '×'), ('Ｘ', '×'),
+         ('－', '-'), ('–', '-'), ('—', '-'), ('～', '-')]
+
+
+def _norm(s):
+    s = re.sub(r'[（(][^）)]{0,20}[）)]', '', s)   # drop a parenthetical alias
+    for a, b in _SUBS:
+        s = s.replace(a, b)
+    if '×' not in s:
+        # Only treat x/X or a slash as the cross when no true cross symbol is present, so a
+        # Latin x inside a line name is not mistaken for a separator.
+        s = re.sub(r'(?<=[0-9A-Za-z\u4e00-\u9fff])[xX](?=[0-9A-Za-z\u4e00-\u9fff])', '×', s, count=1)
+        s = s.replace('//', '×', 1)
+        if '×' not in s:
+            s = s.replace('/', '×', 1)
+    return s
 
 
 def parents(s):
-    m = _PAT.match(str(s).translate(_SEP))
+    m = _PAT.match(_norm(str(s)))
     return (m.group(1), m.group(2)) if m else (None, None)
 
 
@@ -66,6 +85,31 @@ n['father'] = [b for _, b in pp]
 parsed = n.mother.notna()
 print(f'parental-line extraction: {parsed.sum()}/{len(n)} national records '
       f'({parsed.mean()*100:.1f}%) resolved into two parents')
+
+# The concentration comparison must run on the SAME stratum as the main estimates: national
+# approvals in the two dominant mid-season indica trial groups. Computing it over all 26
+# national trial groups pools ecologically unrelated breeding pools and inflates the contrast.
+INDICA = ['长江中下游中籼迟熟', '长江上游中籼迟熟']
+n = n[n.trial_group.isin(INDICA)].copy()
+print('restricted to the two dominant indica trial groups: n =', len(n))
+
+# Per-channel extraction coverage. Reported because unbalanced extraction failure would
+# confound the concentration contrast; this is the diagnostic that caught the earlier
+# extractor's channel-correlated failures.
+cov_rows = []
+for _arm, (_ch, _yrs) in {'Arm1_Consortium_vs_Unified': ('Consortium', list(range(2019, 2023))),
+                          'Arm2_Green_vs_Unified': ('Green', [2017])}.items():
+    _s = n[n.approval_year.isin(_yrs) & n.channel.isin([_ch, 'Unified'])]
+    for _c in ['Unified', _ch]:
+        _g = _s[_s.channel == _c]
+        if not len(_g):
+            continue
+        cov_rows.append(dict(arm=_arm, group=_c, n=len(_g),
+                             resolved=int(_g.mother.notna().sum()),
+                             coverage=round(_g.mother.notna().mean(), 4)))
+cov = pd.DataFrame(cov_rows)
+print('\nextraction coverage by channel (must be balanced):')
+print(cov.to_string(index=False))
 
 ARMS = {'Arm1_Consortium_vs_Unified': ('Consortium', list(range(2019, 2023))),
         'Arm2_Green_vs_Unified':      ('Green',      [2017])}
@@ -101,7 +145,8 @@ for arm, (chan, yrs) in ARMS.items():
     for i in range(B):
         RNG.shuffle(pool)
         perm[i] = hhi(pd.Series(pool[:len(b)])) - hhi(pd.Series(pool[len(b):]))
-    p = float((np.abs(perm) >= abs(obs)).mean())
+    # (1 + count) / (1 + B): the uncorrected proportion can return exactly zero.
+    p = float((1 + (np.abs(perm) >= abs(obs)).sum()) / (1 + B))
     tests.append(dict(arm=arm, statistic='hhi_sterile_diff_new_minus_unified',
                       observed=round(obs, 5), ci_low=round(lo, 5), ci_high=round(hi, 5),
                       perm_p=round(p, 4), n_unified=len(a), n_new=len(b)))
@@ -110,6 +155,6 @@ t = pd.DataFrame(rows)
 tt = pd.DataFrame(tests)
 print('\n', t.to_string(index=False), sep='')
 print('\n', tt.to_string(index=False), sep='')
-pd.concat([t.assign(block='descriptive'), tt.assign(block='inference')], ignore_index=True)\
-  .to_csv(OUT, index=False)
+pd.concat([t.assign(block='descriptive'), tt.assign(block='inference'),
+           cov.assign(block='coverage')], ignore_index=True).to_csv(OUT, index=False)
 print('\nwrote', OUT)

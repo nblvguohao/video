@@ -30,7 +30,8 @@ are a long-public but structurally unexploited intelligence source: they are iss
 running prose and have therefore stayed outside an innovation-indicator toolkit still built
 mainly on patents, publications and, more recently, firm web data. We set out the full
 extraction pipeline — source identification, corpus acquisition, rule-based field
-extraction, entity recognition and disambiguation (with reported precision and recall),
+extraction, entity recognition and disambiguation (with a reported resolution rate and a
+per-channel coverage check),
 field-coverage and data-quality assessment, and indicator construction — and produce a
 record-level system of 2,386 national approval records across 17 measured fields, each field
 labelled by the party that measured it. That labelling is what yields the paper's most

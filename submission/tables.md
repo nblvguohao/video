@@ -9,12 +9,6 @@
 > The former Supplementary Table S1 was removed and Table S2 renumbered to S1; see
 > `manuscript/review/change_log_v2_to_v3.md`.
 >
-> **v4 check (2026-09-16):** the v3 → v4 reframing changed no table. Numbering (Table 1–5 in
-> the main text, Table S1 in the Supplementary Material), column definitions, all reported
-> coefficients, confidence intervals, p-values and sample sizes, and the order of first mention
-> in the body are **unchanged and verified consistent** with `manuscript/manuscript_v4.md`.
-> Only the manuscript title above was updated. See
-> `manuscript/review/change_log_v3_to_v4.md` §9–§10.
 
 ---
 
@@ -140,9 +134,9 @@ records); this coefficient (n = 21) is reported in the source CSV but flagged in
 
 ---
 
-## Table 4. Robustness matrix (R1–R16)
+## Table 4. Robustness matrix (R1–R17)
 
-Caption: Robustness matrix, R1–R16, including all checks that qualify or fail to support the
+Caption: Robustness matrix, R1–R17, including all checks that qualify or fail to support the
 headline result. Compiled from the R10 robustness output,
 `table_breakpoint_scan_full.csv`, `table_event_study_by_year.csv`, and the robustness-section
 point estimates in main text §6. First cited in §6.7.
@@ -153,17 +147,18 @@ point estimates in main text §6. First cited in §6.7.
 | R2 | Additive (non-interaction) fixed-effects specification | Signs/magnitudes unchanged |
 | R3 | Extend to all national trial groups | Direction/significance unchanged |
 | R4 | 2018 unlabelled records coded Unified vs. excluded | Numerically identical — immaterial |
-| R5 | Benjamini–Hochberg FDR across 17 outcomes | 8/17 retain q<0.05, including all 6 headline coefficients |
+| R5 | Benjamini–Hochberg FDR across 17 outcomes | 9/17 retain q<0.05, including all 6 headline coefficients |
 | R6 | Randomisation inference (500 permutations) | Head-rice, chalkiness, yield gain in extreme tail (RI p=0.002 each) |
 | R7 | Manski worst-case bounds (4 unbalanced-missingness outcomes) | Head-rice, chalkiness sign-stable; top-two grade crosses zero — downgraded to secondary |
 | R8 | Missingness balance (Supplementary Fig. S1) | Most outcomes balanced within ~2pp; 3 exceptions motivate R7 |
 | R9 | Within-applicant subsample (10 applicants, 51 records) | Underpowered (MDE exceeds main coefficient on every outcome); not informative either way |
-| R10 | Drop the dominant sterile-line family | Headline result intact: head-rice −1.368pp (p=0.006), chalkiness +0.940pp (p=0.034), stated grade −0.104 (p=0.011) |
+| R10 | Drop the dominant sterile-line family (荃9311A, 65 of 878 records) | Headline result intact: head-rice −1.368pp (p=0.006), chalkiness +0.940pp (p=0.034), stated grade −0.104 (p=0.011) |
 | R11 | Provincial replication (2021–2022) | 3 of 4 outcomes underpowered/undetermined; stated-grade outcome adequately powered and corroborating (β=−0.468, p=0.001) |
 | R12 | Pre-declared placebos | Seed-setting, 1000-grain weight non-significant as required; plant height (not a placebo) significant, reported as auxiliary |
 | R13 | Pre-reform time placebo (2005–2016) | No significant coefficient on any of 6 outcomes; opposite sign to real design |
 | R14 | Cluster by variety (36 varieties) | All headline coefficients remain significant, p≤0.0014 |
 | R15 | Chained-check genetic-gain ladder | Inconclusive — wide interval, does not reverse sign but cannot pin magnitude |
+| R17 | Quality-grading standard composition | Standard in force tracks approval year, not channel (Arm 1: 99.2% vs 99.2% NY/T 593 among graded records; Arm 2 entirely GB/T both sides); quality contrasts are not an artefact of which standard applied |
 | R16 | `quality_stated` under disclosure-behaviour controls | Coefficient survives and strengthens (β=−0.122→−0.146) |
 
 ---
@@ -171,34 +166,38 @@ point estimates in main text §6. First cited in §6.7.
 ## Table 5. Germplasm concentration across resolved parental lines
 
 Caption: Germplasm concentration across resolved parental lines, by trial channel and arm.
-National approvals in the two dominant mid-season indica trial groups; sterile (female) lines
-of the originating cross, resolved from the announcement's variety-source field (§3.1; 95.6%
-of national records resolve). HHI is the Herfindahl–Hirschman index across sterile lines.
-Distinct-line counts are reported both raw and rarefied to the smaller group's *n*, because
-distinct counts rise mechanically with sample size. The difference in HHI is tested by a
-stratified bootstrap (2,000 resamples, percentile interval) and a label-permutation test
-(2,000 permutations).
+Sample: national approvals in the two dominant mid-season indica trial groups — the same
+stratum as the main estimates. Sterile (female) lines of the originating cross, resolved from
+the announcement's variety-source field (§3.1). HHI is the Herfindahl–Hirschman index across
+sterile lines. Distinct-line counts are reported raw and rarefied to the smaller group's *n*,
+because distinct counts rise mechanically with sample size; rarefaction is applied to the
+sterile-line counts only. The HHI difference is tested by a stratified bootstrap (10,000
+resamples, percentile interval) and a label-permutation test (10,000 permutations,
+*p* = (1 + *k*)/(1 + *B*)).
 
 | Arm | Channel | *n* | Distinct sterile lines | Rarefied | HHI | Top line share | Distinct restorer lines | HHI (restorer) |
 |---|---|---:|---:|---:|---:|---:|---:|---:|
-| Arm 1 (2019–2022) | Unified | 521 | 238 | 238.0 | 0.01281 | 7.5% | 342 | 0.00574 |
-| Arm 1 (2019–2022) | Consortium | 542 | 298 | 290.0 | 0.00846 | 4.6% | 396 | 0.00477 |
-| Arm 2 (2017) | Unified | 85 | 61 | 58.6 | 0.02644 | 8.2% | 77 | 0.01481 |
-| Arm 2 (2017) | Green channel | 81 | 43 | 43.0 | 0.06447 | 19.8% | 67 | 0.01844 |
+| Arm 1 (2019–2022) | Unified | 353 | 156 | 156.0 | 0.01858 | 9.1% | 241 | 0.00699 |
+| Arm 1 (2019–2022) | Consortium | 405 | 212 | 193.0 | 0.01239 | 5.7% | 304 | 0.00577 |
+| Arm 2 (2017) | Unified | 52 | 30 | 30.0 | 0.05621 | 11.5% | 48 | 0.02219 |
+| Arm 2 (2017) | Green channel | 67 | 35 | 29.4 | 0.07775 | 22.4% | 56 | 0.02428 |
 
 **Between-channel difference in sterile-line HHI (new channel − Unified)**
 
 | Arm | Observed | 95% bootstrap CI | Permutation *p* | *n* (Unified / new) |
 |---|---:|---|---:|---|
-| Arm 1: Consortium − Unified | −0.00435 | [−0.00829, −0.00078] | 0.016 | 521 / 542 |
-| Arm 2: Green − Unified | +0.03804 | [+0.00931, +0.07553] | 0.009 | 85 / 81 |
+| Arm 1: Consortium − Unified | −0.00618 | [−0.01303, −0.00085] | 0.022 | 353 / 405 |
+| Arm 2: Green − Unified | +0.02153 | [−0.02398, +0.06712] | 0.344 | 52 / 67 |
 
-*The two self-organised channels differ from the unified trial in opposite directions, each
-matching the number of breeding programmes its rules admit: green-channel trials are run by a
-single certified enterprise and draw on a narrower base, while consortium trials pool five or
-more breeders and draw on a broader one. Because differently spelled variants of the same line
-are not merged (§3.1), reported concentration is a lower bound and the contrasts are biased
-toward finding no difference.*
+**Extraction coverage by channel** (reported because unbalanced extraction failure would
+confound the comparison): Arm 1 Unified 99.7%, Arm 1 Consortium 100%, Arm 2 Unified 100%,
+Arm 2 Green 100%.
+
+*Consortium entrants draw on a significantly broader sterile-line base than contemporaneous
+unified entrants. Green-channel entrants are directionally more concentrated, but at n = 52
+versus 67 the interval spans zero and the difference is not significant; that arm is reported
+for completeness and no claim rests on it. Because differently spelled variants of the same
+line are not merged (§3.1), reported concentration levels are lower bounds.*
 
 Source: `scripts/analysis/germplasm_concentration.py`;
 `manuscript/tables/table_germplasm_concentration.csv`.

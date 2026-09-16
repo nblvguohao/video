@@ -19,6 +19,11 @@ OUT = 'manuscript/tables/table_r17_standard_composition.csv'
 
 d = pd.read_pickle(PKL)
 nat = d[d.level == '国审'].copy()
+# Restrict to the estimation stratum, so the composition this check vindicates is the one the
+# fixed effects actually operate on.
+INDICA = ['长江中下游中籼迟熟', '长江上游中籼迟熟']
+nat = nat[nat.trial_group.isin(INDICA)].copy()
+print('restricted to the two dominant indica trial groups: n =', len(nat))
 
 ARMS = {
     'Arm1_Consortium_vs_Unified': ('Consortium', list(range(2019, 2023))),

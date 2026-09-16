@@ -1,7 +1,11 @@
-arm,group,n,distinct_sterile_lines,distinct_sterile_rarefied,hhi_sterile,top_sterile_share,distinct_restorer_lines,hhi_restorer,block,statistic,observed,ci_low,ci_high,perm_p,n_unified,n_new
-Arm1_Consortium_vs_Unified,Unified,521.0,238.0,238.0,0.01281,0.0749,342.0,0.00574,descriptive,,,,,,,
-Arm1_Consortium_vs_Unified,new channel,542.0,298.0,290.0,0.00846,0.0461,396.0,0.00477,descriptive,,,,,,,
-Arm2_Green_vs_Unified,Unified,85.0,61.0,58.6,0.02644,0.0824,77.0,0.01481,descriptive,,,,,,,
-Arm2_Green_vs_Unified,new channel,81.0,43.0,43.0,0.06447,0.1975,67.0,0.01844,descriptive,,,,,,,
-Arm1_Consortium_vs_Unified,,,,,,,,,inference,hhi_sterile_diff_new_minus_unified,-0.00435,-0.00829,-0.00078,0.016,521.0,542.0
-Arm2_Green_vs_Unified,,,,,,,,,inference,hhi_sterile_diff_new_minus_unified,0.03804,0.00931,0.07553,0.009,85.0,81.0
+arm,group,n,distinct_sterile_lines,distinct_sterile_rarefied,hhi_sterile,top_sterile_share,distinct_restorer_lines,hhi_restorer,block,statistic,observed,ci_low,ci_high,perm_p,n_unified,n_new,resolved,coverage
+Arm1_Consortium_vs_Unified,Unified,353.0,156.0,156.0,0.01858,0.0907,241.0,0.00699,descriptive,,,,,,,,,
+Arm1_Consortium_vs_Unified,new channel,405.0,212.0,193.0,0.01239,0.0568,304.0,0.00577,descriptive,,,,,,,,,
+Arm2_Green_vs_Unified,Unified,52.0,30.0,30.0,0.05621,0.1154,48.0,0.02219,descriptive,,,,,,,,,
+Arm2_Green_vs_Unified,new channel,67.0,35.0,29.4,0.07775,0.2239,56.0,0.02428,descriptive,,,,,,,,,
+Arm1_Consortium_vs_Unified,,,,,,,,,inference,hhi_sterile_diff_new_minus_unified,-0.00618,-0.01303,-0.00085,0.0215,353.0,405.0,,
+Arm2_Green_vs_Unified,,,,,,,,,inference,hhi_sterile_diff_new_minus_unified,0.02153,-0.02398,0.06712,0.3443,52.0,67.0,,
+Arm1_Consortium_vs_Unified,Unified,354.0,,,,,,,coverage,,,,,,,,353.0,0.9972
+Arm1_Consortium_vs_Unified,Consortium,405.0,,,,,,,coverage,,,,,,,,405.0,1.0
+Arm2_Green_vs_Unified,Unified,52.0,,,,,,,coverage,,,,,,,,52.0,1.0
+Arm2_Green_vs_Unified,Green,67.0,,,,,,,coverage,,,,,,,,67.0,1.0

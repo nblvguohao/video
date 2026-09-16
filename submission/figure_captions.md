@@ -6,11 +6,10 @@
 > standalone file in case the target journal requires captions submitted separately from the
 > figure image files. Source image files are listed for each.
 >
-> **v4 check (2026-09-16):** the v3 → v4 reframing changed no figure. Numbering (Fig. 1–6 in
-> the main text, Fig. S1 in the Supplementary Material), captions, source image files, and the
-> order of first mention in the body are all **unchanged and verified consistent** with
-> `manuscript/manuscript_v4.md`. Only the manuscript title above was updated. See
-> `manuscript/review/change_log_v3_to_v4.md` §9.
+> **v5 check (2026-09-16):** verified against `manuscript_v5.md`. Fig. 6 was replaced at v5
+> (germplasm concentration, previously a firm-level mechanism figure). Fig. 5 and Fig. 6 render
+> from files whose names retain earlier working numbering; the published number is the one in
+> the caption.
 
 ---
 
@@ -43,7 +42,8 @@ retained from the pre-merge working numbering).*
 
 **Fig. 6.** Germplasm concentration across resolved parental lines, by trial channel.
 (a) Concentration curves over sterile (female) lines, cumulative share of approvals against
-cumulative share of distinct lines ordered most-frequent-first, one curve per channel and arm;
+cumulative share of distinct lines ordered most-frequent-first, one curve per channel and arm,
+computed on the two dominant mid-season indica trial groups;
 the diagonal marks an even spread across lines. (b) Sterile-line Herfindahl-Hirschman index by
 channel and arm, with 95% percentile bootstrap intervals (2,000 resamples). The interval is
 drawn as its own segment rather than as error bars, because a percentile bootstrap interval for

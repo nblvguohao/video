@@ -14,16 +14,35 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 RNG = np.random.default_rng(20260916)
-B = 2000
+B = 10000
 OUT = 'manuscript/figures/fig6_germplasm_concentration'
 
-_SEP = str.maketrans({'/': '×', 'x': '×', 'X': '×', '＊': '×', '*': '×'})
-_PAT = re.compile(r'^[“"]?([A-Za-z0-9一-鿿\-]{2,12})[”"]?×[“"]?([A-Za-z0-9一-鿿\-]{2,14})')
+_CH = r'[A-Za-z0-9\u4e00-\u9fff\u2160-\u217f\-]'   # includes Roman numerals (Ⅱ-32A etc.)
+_PAT = re.compile(r'^["“]?(' + _CH + r'{2,14})["”]?×["“]?(' + _CH + r'{2,16})')
+_SUBS = [('＊', '×'), ('✕', '×'), ('╳', '×'), ('Ｘ', '×'),
+         ('－', '-'), ('–', '-'), ('—', '-'), ('～', '-')]
 
+
+def _norm(s):
+    s = re.sub(r'[（(][^）)]{0,20}[）)]', '', s)   # drop a parenthetical alias
+    for a, b in _SUBS:
+        s = s.replace(a, b)
+    if '×' not in s:
+        # Only treat x/X or a slash as the cross when no true cross symbol is present, so a
+        # Latin x inside a line name is not mistaken for a separator.
+        s = re.sub(r'(?<=[0-9A-Za-z\u4e00-\u9fff])[xX](?=[0-9A-Za-z\u4e00-\u9fff])', '×', s, count=1)
+        s = s.replace('//', '×', 1)
+        if '×' not in s:
+            s = s.replace('/', '×', 1)
+    return s
+
+
+def parents(s):
+    m = _PAT.match(_norm(str(s)))
+    return (m.group(1), m.group(2)) if m else (None, None)
 
 def mother(s):
-    m = _PAT.match(str(s).translate(_SEP))
-    return m.group(1) if m else None
+    return parents(s)[0]
 
 
 def hhi(sr):
@@ -33,7 +52,8 @@ def hhi(sr):
 d = pd.read_pickle('evidence/data/analysis_rice_channel.pkl')
 n = d[d.level == '国审'].copy()
 n['mother'] = n.pedigree.astype(str).str.replace(r'\s+', '', regex=True).apply(mother)
-n = n[n.mother.notna()]
+INDICA = ['长江中下游中籼迟熟', '长江上游中籼迟熟']
+n = n[n.trial_group.isin(INDICA) & n.mother.notna()]
 
 ARMS = [('Arm 1 (2019–2022)', 'Consortium', list(range(2019, 2023))),
         ('Arm 2 (2017)', 'Green', [2017])]

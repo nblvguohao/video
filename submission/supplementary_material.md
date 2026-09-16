@@ -63,3 +63,54 @@ Two further figures are provided for completeness:
 Neither is cited by number in the main text. Both should be rendered as image files before
 final upload if the journal's submission system requires every named Supplementary figure to
 be supplied as an image.
+
+---
+
+## Supplementary Note S1. Chained-check genetic-gain scale (robustness check R15)
+
+Main text §6.5 reports the verdict of this check and its four headline diagnostics. Its
+construction and full diagnostics are given here.
+
+**Construction.** The percentage gain over the named check reported in approval announcements
+is comparable only within a trial-year-check cell. To place yield on a scale comparable across
+years, we exploit the fact that each announcement records mean yield, the named check variety
+and the percentage gain over it, which allows the implied check-variety yield to be back-solved
+for each record. Records sharing the same check in adjacent approval years are then linked into
+a step-wise check ladder. Where the same check recurs, the discrepancy between independently
+back-solved yields is an internal-consistency diagnostic; the year-to-year change along the
+ladder is the chained estimate of realised genetic gain. The approach follows the established
+genetic-gain literature separating genetic from non-genetic sources of trend in official
+variety trials (Piepho et al., 2014; Laidig et al., 2014; Mackay et al., 2011).
+
+**Full diagnostics.**
+
+1. *Back-solved check yield is unstable.* Within the main analysis layer, the coefficient of
+   variation of the back-solved check yield across records sharing a check-year cell has a
+   median of 1.56%, a 90th percentile of 3.32% and a maximum of 5.40%. An independent
+   re-verification using only the fields available in the national rice dataset reproduces the
+   same order of magnitude — median CV 0.9%–2.4%, 90th percentile roughly 3%–3.6% — but not the
+   figures digit-for-digit, because the exact cell construction and backfilled gain variable of
+   the original pipeline cannot be fully recovered from that table alone. We report the
+   discrepancy rather than adopt the closer-looking number.
+2. *A chain step does not reconcile.* A key step in the chain, checked directly against the
+   underlying records, moves by +3.14%, not the +7.04% implied by the decomposition's structural
+   identity — a gap large enough to discourage taking the point estimate at face value.
+3. *The implied rate is not stable to chain composition.* Depending on which years and checks
+   enter the chain, the implied genetic-gain rate swings between 0.25% and 0.50% per year, a
+   two-fold range from a method whose appeal is a single defensible number.
+4. *Inference is thin.* The chain rests on six distinct check varieties (G = 6). Clustering
+   standard errors at the check level gives an effective degrees of freedom of about 3,
+   inflating standard errors roughly six-fold relative to the naive unclustered calculation.
+
+**Why these are expected.** Each is a known property of check-based genetic-gain estimation
+rather than a defect specific to this corpus. Mackay et al. (2011) and Laidig et al. (2014)
+document sensitivity to the trial series used; Raymond et al. (2023) show that check-variety
+yields are not stable over time and that gain estimates depend heavily on which long-term
+checks are chosen; and Piepho and Laidig (2025) formalise why a low check-replacement rate and
+multiple checks per cycle are required for the chain to be informative — conditions that
+Chinese approval bulletins, with few checks and irregular replacement, do not meet.
+
+**Conclusion.** Re-expressed on a chained cross-year check scale, the direction of the
+applicant-self-reported yield advantage does not reverse, but the resulting interval is too
+wide to support any precise claim about its magnitude. The chained-scale evidence is
+inconclusive — neither confirmatory nor disconfirmatory of the estimate reported in §5.

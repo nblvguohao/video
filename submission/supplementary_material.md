@@ -4,19 +4,9 @@
 trial-channel indicators and third-party-assayed grain quality in China's rice variety
 registrations, 2017–2022"
 
-> This file contains the tables and figure moved out of the main text under the editorial
-> decision recorded in `manuscript/figure_table_list.md` (2026-09-14), to bring the
-> submission to the journal's 6-figure / 5-table main-text target
-> (`plan/04_format_spec.md` §5). Original captions and source data are reproduced unchanged;
-> only the numbering and its main-text pointer have changed.
->
-> **v3 update (2026-09-16):** the former Supplementary Table S1 (Winall and comparator
-> company financial panel) has been **removed in full**, at the author team's request that no
-> discussion of any applicant firm's financial or business performance appear in the paper.
-> With the §7 financial narrative it supported deleted from the main text, the table no
-> longer had an independent role and is not retained in any edited or partial form. The
-> former Supplementary Table S2 is renumbered **Table S1**. See
-> `manuscript/review/change_log_v2_to_v3.md` for the full record of this revision.
+> This file contains the table and figures presented as Supplementary Material to the
+> manuscript above, to keep the main text within the journal's 6-figure / 5-table target.
+> Captions and source data are as cited in the main text.
 
 ---
 

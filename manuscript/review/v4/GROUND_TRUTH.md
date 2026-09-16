@@ -59,6 +59,19 @@ manuscript must say so.
 | chalkiness_deg_pct (chalkiness, %) | **+1.010** | 0.614 | 0.100 | 411 |
 | head_rice_pct (head-rice %) | **−1.220** | 0.673 | 0.070 | 411 |
 
+**Sign convention — RESOLVED, no defect.** The CSV column `theta` carries no stated
+direction, so this was checked against the estimator rather than inferred from the
+prose. `manuscript/scripts/mechanism_winall.py` (TASK 4, ~line 275) sets
+`main_layer["public"] = (main_layer.applicant_type == "Public").astype(int)` and fits
+`Y ~ public + C(yxg) + C(bsys)` with `cov_type="cluster"` on `yxg`, taking θ as the
+coefficient on `public`. **θ is therefore Public minus Enterprise.** §7's reading is
+correct: public-institute applicants show higher regional-trial yield and 1000-grain
+weight, *and* higher chalkiness and lower head-rice — i.e. worse third-party grain
+quality than enterprise applicants. That is what makes the paragraph a counter-case to
+the "enterprises are careless breeders" alternative, so the argument stands as written.
+Reviewers do not need to re-open this; they do need to confirm the four values and the
+n = 408–411 range are reproduced unchanged in v4.
+
 n ranges 408–411. The planning-document values **+3.18 / +0.96** and the planning n of
 **632** are superseded and must not appear anywhere in v4 (this was the v2 correction;
 a regression to those numbers is a hard failure).

@@ -1,7 +1,8 @@
 # Tables
 
-**Manuscript:** "Who measures what enters the market? Self-organised variety trials and the
-third-party-assayed grain-quality gap in China's rice variety approvals, 2017–2022"
+**Manuscript:** "Mining administrative approval records for technology assessment: record-level
+trial-channel indicators and third-party-assayed grain quality in China's rice variety
+registrations, 2017–2022"
 
 > Final main-text numbering (5 tables), per `manuscript/figure_table_list.md`. Provided as a
 > standalone file in case the target journal requires tables submitted separately from the
@@ -9,6 +10,13 @@ third-party-assayed grain-quality gap in China's rice variety approvals, 2017–
 > `submission/supplementary_material.md`. **v3 update (2026-09-16):** the former Supplementary
 > Table S1 (Winall financial panel) was removed and the former Table S2 renumbered to S1; see
 > `manuscript/review/change_log_v2_to_v3.md`.
+>
+> **v4 check (2026-09-16):** the v3 → v4 reframing changed no table. Numbering (Table 1–5 in
+> the main text, Table S1 in the Supplementary Material), column definitions, all reported
+> coefficients, confidence intervals, p-values and sample sizes, and the order of first mention
+> in the body are **unchanged and verified consistent** with `manuscript/manuscript_v4.md`.
+> Only the manuscript title above was updated. See
+> `manuscript/review/change_log_v3_to_v4.md` §9–§10.
 
 ---
 

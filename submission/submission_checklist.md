@@ -1,7 +1,8 @@
 # Submission Checklist — Journal of Integrative Agriculture
 
-**Manuscript:** "Who measures what enters the market? Self-organised variety trials and the
-third-party-assayed grain-quality gap in China's rice variety approvals, 2017–2022"
+**Manuscript:** "Mining administrative approval records for technology assessment: record-level
+trial-channel indicators and third-party-assayed grain quality in China's rice variety
+registrations, 2017–2022"
 
 > Checked against `plan/04_format_spec.md`. [x] = done by this automated pipeline and
 > verifiable in the files as they stand. [ ] = requires action by the human author team before
@@ -11,13 +12,22 @@ third-party-assayed grain-quality gap in China's rice variety approvals, 2017–
 > financial performance, business strategy, or corporate governance anywhere in the paper, per
 > author request; see `manuscript/review/change_log_v2_to_v3.md`. Checklist items below that
 > referred to that content have been struck through or rewritten accordingly.
+>
+> **v4 update (2026-09-16):** the manuscript was reframed so that S&T information analysis
+> stands as a main supporting pillar alongside agricultural technology assessment — new title,
+> intelligence-source abstract opening, new Introduction paragraph, the Data section set out
+> as a six-step intelligence-extraction pipeline, a new Discussion §8.4 "Implications for S&T
+> intelligence practice", six new verified information-science references, and two new
+> Highlights. **No statistical result, sample size, robustness conclusion, conflicting-evidence
+> item (CF1–CF8) or Non-claim was changed.** See
+> `manuscript/review/change_log_v3_to_v4.md`.
 
 ## 1. Article type and structure
 
 - [x] Article type: Research Article.
 - [x] Section order maps onto the official template (Institutional background nested after
       Introduction; Mechanism nested after Results, before Discussion) — see
-      `manuscript/manuscript_v3.md` headings.
+      `manuscript/manuscript_v4.md` headings.
 - [ ] **Word count** — the v3 draft is approximately 14,100 words (13,600 excluding
       References; slightly shorter than v2's ~14,500/13,900 after the v2→v3 Winall
       financial-narrative deletion, see `manuscript/review/change_log_v2_to_v3.md`), still
@@ -29,8 +39,11 @@ third-party-assayed grain-quality gap in China's rice variety approvals, 2017–
 
 ## 2. Title, abstract, keywords
 
-- [x] Title uses "gap", not effect/impact/caused by; uses "third-party-assayed" to scope the
-      claim.
+- [x] **(v4)** Title names the method ("Mining administrative approval records", "indicators")
+      and the application ("technology assessment"), and uses "third-party-assayed" to scope the
+      quality claim. It avoids effect/impact/caused-by language, consistent with the
+      composition-effect estimand; the word "gap" moved from the title into the abstract and
+      body, where the estimand is defined precisely.
 - [x] Abstract: 249 words, under the 250-word structured-abstract limit.
 - [ ] **Structured-abstract formatting** — the abstract is written as an implicitly
       structured paragraph rather than with explicit Background/Methods/Results/Conclusion
@@ -39,11 +52,18 @@ third-party-assayed grain-quality gap in China's rice variety approvals, 2017–
       required**: confirm against the actual submission template or a recent JIA issue
       whether explicit headings are mandatory; if so, re-segment the existing 249 words under
       labels (no further word-cutting needed).
-- [x] Keywords: 6, within the 3–6 range, none containing "and"/"of" as an internal connector.
+- [x] **(v4)** Keywords: 6, within the 3–6 range, none containing "and"/"of" as an internal
+      connector — *administrative text mining; technology assessment; information extraction;
+      data provenance; rice variety approval; China*. Four carry the S&T-information-analysis
+      framing; *rice variety approval* and *China* preserve retrievability for JIA's agronomic
+      readership.
 
 ## 3. Highlights
 
-- [x] 5 bullets, each ≤85 characters including spaces (see `submission/highlights.md`).
+- [x] 5 bullets, each ≤85 characters including spaces (see `submission/highlights.md`);
+      re-measured with `awk '{print length}'` after the v4 rewrite (83/79/71/78/81).
+- [x] **(v4)** Bullets 1 and 5 carry the S&T-intelligence contribution (administrative-text
+      corpus mining plus indicator construction; field-level data-reliability diagnostic).
 - [ ] **Author action required**: submit `highlights.md` as its own file with "highlights" in
       the filename, per the journal's Guide for Authors.
 
@@ -96,6 +116,19 @@ third-party-assayed grain-quality gap in China's rice variety approvals, 2017–
 
 - [x] Author-date system used throughout; reference list alphabetised; journal names spelled
       out in full.
+- [x] **(v4)** Reference list grew from 21 to 27 entries. The six additions are S&T-information
+      and information-science sources supporting the new framing — Antons et al. (2020),
+      Franceschini et al. (2016), Jaffe and de Rassenfosse (2017), Losiewicz et al. (2000),
+      Rammer and Es-Sadki (2023), Shi et al. (2021) — each verified against at least two
+      independent tools, with per-entry verification records appended to
+      `manuscript/references_verified.md` (entries 22–27). Two working-paper-versus-journal
+      traps were caught and corrected during that check (Rammer and Es-Sadki: the SSRN
+      preprint superseded by the *Technological Forecasting and Social Change* article of
+      record; Jaffe and de Rassenfosse: NBER w21868 superseded by the JASIST article).
+- [x] **(v4)** None of the six new sources was read in full text, so each is cited only for a
+      general claim its title and abstract explicitly support, and **no specific figure from
+      any of them is quoted** — the same conservative rule already applied to Gong et al.
+      (2026).
 - [ ] **Piepho & Laidig (2024)** reference is missing volume/page numbers — flagged as
       unresolved in `manuscript/references_verified.md`. **Author action required**: verify
       against CrossRef/publisher record before submission.
@@ -181,7 +214,7 @@ place to track them before final submission.
   text is at exactly 6 figures / 5 tables; see `manuscript/figure_table_list.md` for the
   decision record and `submission/supplementary_material.md` for the moved content.
 - **Manuscript rebuild: DONE.** `submission/manuscript.docx` and `submission/manuscript.pdf`
-  regenerated successfully from `manuscript/manuscript_v3.md`, the version with all
+  regenerated successfully from `manuscript/manuscript_v4.md`, the version with all
   Winall financial/business content removed (see `manuscript/review/change_log_v2_to_v3.md`).
 - **Everything under "author action required" above is a genuine gap that only the human
   author team, an institutional account, or a live network connection to MARA/the journal's

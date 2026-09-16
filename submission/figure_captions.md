@@ -1,13 +1,20 @@
 # Figure Captions
 
-**Manuscript:** "Who measures what enters the market? Self-organised variety trials and the
-third-party-assayed grain-quality gap in China's rice variety approvals, 2017–2022"
+**Manuscript:** "Mining administrative approval records for technology assessment: record-level
+trial-channel indicators and third-party-assayed grain quality in China's rice variety
+registrations, 2017–2022"
 
 > Final main-text numbering (6 figures), per `manuscript/figure_table_list.md`. Provided as a
 > standalone file in case the target journal requires captions submitted separately from the
 > figure image files. Source image files are listed for each. **v3 update (2026-09-16):** Fig.
 > 6's former panel (c), reporting Winall's financial performance, has been removed; see the
 > Fig. 6 entry below and `manuscript/review/change_log_v2_to_v3.md`.
+>
+> **v4 check (2026-09-16):** the v3 → v4 reframing changed no figure. Numbering (Fig. 1–6 in
+> the main text, Fig. S1 in the Supplementary Material), captions, source image files, and the
+> order of first mention in the body are all **unchanged and verified consistent** with
+> `manuscript/manuscript_v4.md`. Only the manuscript title above was updated. See
+> `manuscript/review/change_log_v3_to_v4.md` §9.
 
 ---
 

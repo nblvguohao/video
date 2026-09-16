@@ -135,7 +135,22 @@ trials did not exist in 2018 (see the year-by-year channel count by channel, Fig
 Table 1, and robustness check R4 in §6, which shows the 2018 coding choice is immaterial to
 the main estimates).
 
-## 3.2 Sample and stratification
+Step (iv) of the pipeline, entity recognition and disambiguation, is needed because the
+announcements do not carry a stable applicant identifier: the same breeding programme appears
+under varying institutional names, and for four approval years the applicant field is absent
+altogether (§3.3). For the one firm used as a counter-case in §7 we therefore identify
+firm-linked records by a pedigree-and-naming rule rather than by the applicant string — a
+record is coded firm-linked if the variety name begins with the firm's characteristic
+name element, or either parent line carries that element or the firm's line-code prefix.
+Validated against the 1,426 records that do carry an institutional label, the rule attains a
+precision of 1.000 and a recall of 0.770; because unrecalled records fall into the comparison
+group rather than the treated group, every firm-versus-others contrast in §7 is biased toward
+zero, which is the conservative direction for the use we make of it. We report the rule and its
+error profile here rather than in §7 because it is a property of the corpus construction, not
+of the counter-case analysis, and because an entity-resolution rule whose recall is not stated
+is not auditable by anyone re-using the pipeline.
+
+## 3.2 Sample, stratification and indicator construction (step vi)
 
 The main analysis stratum restricts to national-level approvals in the two dominant
 mid-season indica trial groups — the middle-and-lower Yangtze and the upper-Yangtze
@@ -158,10 +173,14 @@ the time placebo; and a provincial-approval layer (2021–2022, new-channel 143 
 supports an external replication check that we report as statistically inconclusive rather
 than confirmatory or disconfirmatory (§6, R11).
 
-## 3.3 Outcome variables, measuring party, and missingness
+## 3.3 Outcome variables, measuring party, and field-level data quality (steps v–vi)
 
-The paper's identification argument turns on a distinction the announcements make
-explicit: some fields report performance as measured by a ministry-designated third-party
+The single most consequential step in the pipeline is the one that attaches a **measuring
+party** to each extracted field. A conventional data-quality assessment asks how complete and
+how accurately transcribed a source is; here we additionally ask, field by field, *who
+generated the number the source reports*, and treat that as a dimension of field reliability on
+a par with coverage. The paper's identification argument turns on a distinction the
+announcements make explicit: some fields report performance as measured by a ministry-designated third-party
 assay body, and others report performance as measured and submitted by the applicant's own
 trial. The main quality outcomes — head-rice percentage (processing quality), chalkiness
 degree (appearance quality), and whether the announcement states a national or industry
@@ -213,7 +232,7 @@ descriptive comparison and the missingness-balance dumbbell plot are reported in
 Supplementary Material as Table S1 and Fig. S1 respectively (see §7 and §6.1–6.2 for the
 in-text pointers, and `submission/supplementary_material.md` for the moved content).
 
-## 3.4 Representativeness and verification
+## 3.4 Representativeness and source verification (step v)
 
 Two representativeness concerns bear directly on how the results should be read. First, the
 underlying compilation is a sample of announcements rather than a verified census, with
@@ -221,7 +240,11 @@ declining coverage after 2022 (§3.1); we therefore restrict the analysis window
 2017–2022 and treat the post-2022 period only as background evidence that the channel
 distinction is currently being narrowed by regulatory action (see §4.4). Second, because the
 compilation is a third-party re-transcription of official text rather than the official
-record itself, transcription and parsing error are a live concern for any single field.
+record itself, transcription and parsing error are a live concern for any single field. This
+is not a peculiarity of our source: large-scale audits of the databases on which S&T
+indicators are routinely built find systematic, non-negligible error rates in them as well
+(Franceschini et al., 2016), and the appropriate response is to state the verification status
+of a corpus rather than to assume it.
 Cross-checking the parsed corpus against the original MARA announcement text for a
 stratified random sample of records — the step needed to report a field-by-field agreement
 rate in this Methods section — requires reading the primary announcements directly, which
@@ -493,7 +516,7 @@ Table 4 collects all sixteen checks (R1–R16) in a single matrix, including the
 
 The sign separation reported in Sections 5–6 is consistent with measurement discretion in self-organised trials, but it is equally consistent with a cruder alternative: perhaps seed-marketing enterprises are simply less careful breeders than public research institutes, and the new channels happen to be where enterprises concentrate. If so, the quality gap would reflect *who* enters through each door, not *how* the door is measured. Anhui Winall Hi-Tech Seed Co. lets us test this alternative directly. Winall is the single largest beneficiary of the reform period among integrated seed enterprises — its share of national approvals in the two major indica trial groups rose from 0–12% in 2005–2015 to 23–31% in 2022–2024 — and it is a certified breeding-production-extension enterprise and a Ministry of Agriculture and Rural Affairs "strong-advantage" seed company, the profile the green channel was designed to serve. If enterprises are simply the more careless applicants, Winall should be the entrant that looks *most* like the new channel. Winall's own contract-farming business is separately the subject of Xie et al. (2023), which models the seed enterprise's choice of contract design for its order-grain quality incentives with a three-tier supply-chain game and a numerical example, but at the firm level and without any variety-level data; this section's own analysis is confined to the variety-level channel-choice and within-channel positioning evidence reported below, and does not draw on or reproduce Xie et al.'s firm-level contract data.
 
-It is not. Restricting to national approvals in 2017 and 2019–2022, Winall-linked records (n = 166) used the unified channel 60.2% of the time, against 47.5% for all other applicants (n = 1,101) (Table 5; Fig. 6a). A logit for channel choice, conditioning on year×trial-group fixed effects, confirms this is not an artefact of when or where Winall applied: being Winall-linked is associated with roughly half the odds of entering through a new channel (α = −0.728, SE = 0.182, p < 0.0001, odds ratio 0.483; robust in magnitude and sign, though somewhat attenuated, under a no-fixed-effects specification and a two-major-trial-group-only sample). Within the unified channel, Winall's own entrants also outperform other unified entrants on the same third-party-assayed traits that define the main result: head-rice percentage +2.212 points, probability of a stated quality grade +9.8 points, chalkiness −0.692 points (all p < 0.001) (Table 5; Fig. 6b). This within-channel advantage is not a general Winall effect, however: repeating the same comparison inside the new-channel subsample, all three coefficients lose significance (p > 0.18 throughout), and the point estimates move toward zero or reverse sign (Fig. 6b). A firm that were simply better at breeding across the board should retain some of this edge wherever its varieties enter; Winall's edge is specific to the channel in which quality is measured by the same third party as everyone else.
+It is not. Restricting to national approvals in 2017 and 2019–2022, Winall-linked records (n = 166; identified by the pedigree-and-naming entity-resolution rule described in §3.1, whose 0.770 recall biases every comparison below toward zero) used the unified channel 60.2% of the time, against 47.5% for all other applicants (n = 1,101) (Table 5; Fig. 6a). A logit for channel choice, conditioning on year×trial-group fixed effects, confirms this is not an artefact of when or where Winall applied: being Winall-linked is associated with roughly half the odds of entering through a new channel (α = −0.728, SE = 0.182, p < 0.0001, odds ratio 0.483; robust in magnitude and sign, though somewhat attenuated, under a no-fixed-effects specification and a two-major-trial-group-only sample). Within the unified channel, Winall's own entrants also outperform other unified entrants on the same third-party-assayed traits that define the main result: head-rice percentage +2.212 points, probability of a stated quality grade +9.8 points, chalkiness −0.692 points (all p < 0.001) (Table 5; Fig. 6b). This within-channel advantage is not a general Winall effect, however: repeating the same comparison inside the new-channel subsample, all three coefficients lose significance (p > 0.18 throughout), and the point estimates move toward zero or reverse sign (Fig. 6b). A firm that were simply better at breeding across the board should retain some of this edge wherever its varieties enter; Winall's edge is specific to the channel in which quality is measured by the same third party as everyone else.
 
 Dropping every Winall-linked record from the main consortium-versus-unified comparison leaves the headline result intact (Section 6.1, R10; Table 4): head-rice percentage −1.368 pp (p = 0.006, n = 602), chalkiness degree +0.940 pp (p = 0.034, n = 599), and stated quality grade −0.104 (p = 0.011, n = 609). The main result does not depend on this firm.
 
@@ -505,13 +528,9 @@ Two scope limits bound what this section argues. First, the comparison is Winall
 
 # 8. Discussion
 
-## 8.1 Contribution to the self-certification literature
+## 8.1 Why the sign separation arises: self-certification as theoretical support
 
-Duflo et al. (2013) randomly assigned polluting Indian plants to regulator-paid versus plant-paid auditors and observed the *same* pollution readings diverge systematically — a randomised, same-attribute design this paper cannot match. We observe no randomisation of channel assignment and have no same-attribute comparison; we instead have two *different* attributes, third-party-assayed grain quality and applicant-measured agronomic performance, coexisting in the same approval file. This is a weaker design for the same underlying question — does control over measurement shape what gets reported — but it offers scale and duration a bespoke audit experiment cannot: every one of 2,386 national approval records over six years carries this same self-organised/third-party split.
-
-Bar and Zheng (2019) show that firms endogenously choose certifiers on the basis of geographic proximity and a certifier's history of lenient grading — a self-selection channel our design cannot close off, and the closest existing analogue to the "channel self-selection" alternative flagged throughout this paper (§4; R9/R11), which our within-applicant test lacks the power to rule out. Qiu et al. (2016) offer the theoretical framework closest to this paper's own "who measures what" question, from the demand side: Chinese maize farmers' seed choices are shaped by asymmetric information between sellers and buyers, who rely on imperfect quality signals because they cannot observe quality directly. Our paper documents an analogous asymmetry one stage upstream, at variety approval rather than farmer purchase — the two papers describe the same information problem recurring at different links of the same seed-supply chain.
-
-Grennan and Town (2020) compare medical-device outcomes *across* two regulatory systems (EU, US); our comparison is *within* one system, across two trial pathways a single reform created side by side — narrower but more tightly controlled, since year, ecology and check are held fixed by construction. Renckens and Auld (2022) show private regulatory audits vary in efficiency with auditor incentives and monitoring intensity, a mechanism consistent with, though not directly tested by, our finding that the identification argument rests on where the third party sits relative to the applicant, not on auditor effort per se.
+The regulatory-economics literature on self-certification is not this paper's frame, but it supplies the mechanism that makes the observed sign separation intelligible, and we draw on it in that narrower role. Duflo et al. (2013) randomly assigned polluting Indian plants to regulator-paid versus plant-paid auditors and observed the *same* pollution readings diverge systematically; Bar and Zheng (2019) show that firms endogenously choose certifiers with a history of lenient grading — the closest existing analogue to the "channel self-selection" alternative this paper cannot close off (§4; R9/R11). Grennan and Town (2020) compare medical-device outcomes *across* two regulatory systems, where ours is a comparison *within* one system across two pathways a single reform created side by side, and Renckens and Auld (2022) show private regulatory audits vary in efficiency with auditor incentives and monitoring intensity. Taken together these results establish that reported values move with who was asked to measure — which is exactly the interpretation the sign separation invites, and which is why we report it as consistent with measurement discretion rather than proof of it: none of these designs is available here, since we observe two different attributes measured by two parties rather than one attribute measured twice. Qiu et al. (2016) describe the same information problem one stage downstream, where Chinese farmers must infer unobservable seed quality from imperfect signals; our result places an analogous asymmetry inside the approval file itself.
 
 ## 8.2 Is the identified variation disappearing? A qualified answer
 
@@ -523,7 +542,19 @@ One further result belongs in this discussion rather than in the robustness sect
 
 Three implications follow without extending beyond what the data show. First, the identification argument rests on an asymmetry: third-party assay covers grain-processing and appearance quality but not the agronomic-performance traits measured in the applicant's own regional and production trials. Extending independent, ministry-designated measurement to a subset of yield and performance traits — even a periodic spot-check rather than universal coverage — would let regulators test directly whether the sign separation this paper documents in observational data also appears when performance itself is measured by an independent party. Second, an audit-style re-verification of a random sample of self-organised trial results, analogous in spirit to the spot-checks the Ministry has run against the green channel and consortium trials since 2022, would generate exactly the kind of within-attribute comparison that Duflo et al. (2013) had and this paper does not; such spot-checks are already the Ministry's own initiative, and this paper's finding is best read as an independent, quantitative corroboration of the direction that 2022-08-31 rectification notice already took, not as a claim that regulators were unaware of the pattern. Third, the channel-of-entry information already exists inside every approval announcement but is not compiled or published as a standalone field; publishing it directly, rather than leaving it to be reconstructed by text-parsing as this paper did, would let downstream users of the seed catalogue — processors, distributors, other researchers — condition on it themselves.
 
-## 8.4 Limitations
+## 8.4 Implications for S&T intelligence practice
+
+Read as an intelligence exercise rather than an agricultural one, this paper makes four points that generalise beyond rice.
+
+**Administrative approval corpora are a usable, unusually rich innovation data source — within limits.** Innovation measurement has broadened from patents and publications to trademarks, web traces and transaction data (Rammer and Es-Sadki, 2023), but the records a state generates when it authorises a technology for market have stayed outside the indicator toolkit, chiefly because they are published as prose. They repay parsing: one announcement yields the applicant, the testing arrangement, the comparison baseline and more than a dozen measured performance fields, tied to an actual market-entry decision rather than to an application. The limits were equally concrete here — an unverified third-party re-transcription (§3.4), coverage collapsing after 2022 (§4.7, Non-claim 7), and an applicant field absent for four years (§3.1) — so an analyst adopting this class of source should expect most of the effort to fall on pipeline steps (iv) and (v), not on extraction.
+
+**Reliability is a property of fields, not of sources.** Within one official document, issued by one authority on one date, fields differed in evidential strength, and what predicted the difference was who measured: the laboratory-assayed quality traits moved one way, the applicant-recorded yield gain the other. Standard data-quality assessment in scientometrics and technology analysis is source-level — coverage, error rates, duplication, classification accuracy (Franceschini et al., 2016; Jaffe and de Rassenfosse, 2017) — and a source that passes such an audit can still contain fields of very different evidential value. Provenance labelling should therefore be a required step when building indicators from approval corpora: tag each field with its measuring party and stratify the reliability assessment by that tag, rather than issuing one verdict for the source.
+
+**The diagnostic is portable.** The structural feature exploited here — applicant-supplied dossier material and independent assay results bound into one official record — is not specific to seed regulation. It recurs in drug approval, where sponsor-run trial results and regulator-reviewed labelling coexist in documents already mined at scale (Shi et al., 2021); in medical-device registration; and in patent examination, where applicant-drafted claims sit alongside examiner-added citations, a distinction the patent-indicator literature adopted only after treating all citations alike produced biased measures (Jaffe and de Rassenfosse, 2017). The test is the same and cheap in each case: partition fields by measuring party and check whether the contrast of interest holds the same sign in both partitions. A contrast confined to the self-supplied partition is a candidate reporting artefact; one present in both is more likely real.
+
+**For technology assessment and competitive intelligence specifically.** Text mining of S&T corpora was developed to support research management and technology watch (Losiewicz et al., 2000; Antons et al., 2020); approval records extend that practice to the point where a technology reaches users. The indicators built here answer the questions such work asks — which actors produce approved varieties, by which testing route, at what measured quality — while the provenance labels tell the analyst which of those indicators will bear weight. The recommendation for the corpus publisher is correspondingly cheap: the channel already exists inside every announcement, and issuing it as a field would let downstream users condition on it directly (§8.3).
+
+## 8.5 Limitations
 
 Five limitations bound this paper's scope. The evidence covers a single country and a single crop (rice); whether the same channel-measurement asymmetry appears in other crops or seed-regulation regimes is untested here. Channel self-selection cannot be fully separated from measurement discretion with the data at hand — the within-applicant comparison in Section 6 is directionally uninformative because it is underpowered, not because it rules out self-selection. The `applicant_type` field needed for the enterprise-versus-institute comparison in Section 7 is entirely missing for the 2016, 2017, 2018 and 2021 approval cohorts, which limits that comparison to years with non-missing labels and to the two major trial groups. The underlying announcement compilation is not an official, complete registry of all approvals; it is a secondary compilation of Ministry announcements, and its completeness was checked against a 50-record manual audit rather than assumed. Finally, the analysis window runs through 2022 because compiled announcement coverage falls sharply afterward; this paper accordingly cannot speak to whether the convergence trends documented in Section 8.2, or the divergent trend in head-rice percentage, continue, reverse, or stabilise after 2022.
 
@@ -533,7 +564,7 @@ Five limitations bound this paper's scope. The evidence covers a single country 
 
 China's 2016 reform of variety approval did not just change how many rice varieties reach the market through self-organised trials; by parsing which trial each variety actually passed through, we show it changed what those varieties look like on the traits that a third party, rather than the applicant, measures — worse third-party-assayed grain-processing and appearance quality among self-organised entrants, alongside applicant-measured performance that is unchanged or higher, a sign separation that a simple breeding-ability story cannot produce and that survives dropping the single largest beneficiary firm from the sample.
 
-This finding is a composition effect on the population of varieties entering under each trial pathway, not a causal effect of channel assignment on any individual variety, and should not be read more broadly. It does not speak to farmer welfare, extension outcomes, or seed prices; it does not allege fabrication or manipulation of any applicant's trial results, a possibility the data cannot distinguish from channel self-selection or differing admission thresholds; and it does not extend to every third-party-measured trait or every level of government, since disease-resistance grading moves the other way and the provincial replication is conclusive for only one of four outcomes. Within these bounds, the contribution is narrow: a record-level channel variable, built from the text of approval announcements rather than a before/after indicator, that lets who measures what be observed directly — and shows that this, not only the volume of entrants, changed after 2016.
+This finding is a composition effect on the population of varieties entering under each trial pathway, not a causal effect of channel assignment on any individual variety, and should not be read more broadly. It does not speak to farmer welfare, extension outcomes, or seed prices; it does not allege fabrication or manipulation of any applicant's trial results, a possibility the data cannot distinguish from channel self-selection or differing admission thresholds; and it does not extend to every third-party-measured trait or every level of government, since disease-resistance grading moves the other way and the provincial replication is conclusive for only one of four outcomes. Within these bounds, the contribution is narrow but has two faces. As agricultural technology assessment, it supplies a record-level channel variable, built from the text of approval announcements rather than a before/after indicator, that lets who measures what be observed directly — and shows that this, not only the volume of entrants, changed after 2016. As S&T intelligence, it demonstrates that a long-public administrative corpus can be converted into a structured indicator system, and that the resulting indicators must be read field by field: inside a single official source, the strength of the evidence depended on who did the measuring. That diagnostic is the part of this paper most likely to be useful outside rice, and it can be applied wherever self-supplied dossier material and independent assay results are bound into the same approval record.
 
 ---
 
@@ -579,9 +610,13 @@ Not applicable. This study did not involve human participants or animal experime
 
 # References
 
+Antons D, Grünwald E, Cichy P, Salge T O. 2020. The application of text mining methods in innovation research: Current state, evolution patterns, and development priorities. R&D Management, 50, 329–351.
+
 Bar T, Zheng Y. 2019. Choosing certifiers: Evidence from the British Retail Consortium food safety standard. American Journal of Agricultural Economics, 101, 74–88.
 
 Duflo E, Greenstone M, Pande R, Ryan N. 2013. Truth-telling by third-party auditors and the response of polluting firms: Experimental evidence from India. Quarterly Journal of Economics, 128, 1499–1545.
+
+Franceschini F, Maisano D, Mastrogiacomo L. 2016. Empirical analysis and classification of database errors in Scopus and Web of Science. Journal of Informetrics, 10, 933–953.
 
 Gong J, Zhang X, Zhang J, Zeng B, Zhang X, Xu X, Xie H A. 2026. Three-line hybrid rice in China: sustained improvements in yield, quality, and resistance over fifty years. Rice Science. (title-level citation only; full text not accessible at time of writing, no specific figures attributed)
 
@@ -591,7 +626,11 @@ Hang S, Wang Q, Wang Y, Xiang H. 2024. Evolution of rice cultivar performance ac
 
 Huang Z Y, Xu Y, Zeng D, Wang C, Wang J M. 2018. One size fits all? Contract farming among broiler producers in China. Journal of Integrative Agriculture, 17, 473–482.
 
+Jaffe A B, de Rassenfosse G. 2017. Patent citation data in social science research: Overview and best practices. Journal of the Association for Information Science and Technology, 68, 1360–1374.
+
 Laidig F, Piepho H-P, Drobek T, Meyer U. 2014. Genetic and non-genetic long-term trends of 12 different crops in German official variety performance trials and on-farm yield trends. Theoretical and Applied Genetics, 127, 2599–2617.
+
+Losiewicz P, Oard D W, Kostoff R N. 2000. Textual data mining to support science and technology management. Journal of Intelligent Information Systems, 15, 99–119.
 
 Lu Y, Tang Y, Zhang J, Liu S, Liang X, Li M, Li R. 2024. Variations and trends in rice quality across different types of approved varieties in China, 1978–2022. Agronomy, 14, 1234.
 
@@ -603,11 +642,15 @@ Piepho H-P, Laidig F, Drobek T, Meyer U. 2014. Dissecting genetic and non-geneti
 
 Qiu H G, Wang X B, Zhang C P, Xu Z G. 2016. Farmers' seed choice behaviors under asymmetrical information: Evidence from maize farming in China. Journal of Integrative Agriculture, 15, 1915–1923.
 
+Rammer C, Es-Sadki N. 2023. Using big data for generating firm-level innovation indicators — A literature review. Technological Forecasting and Social Change, 197, 122874.
+
 Raymond J, Mackay I, Penfield S, Lovett A, Philpott H, Dorling S. 2023. Continuing genetic improvement and biases in genetic gain estimates revealed in historical UK variety trials data. Field Crops Research, 303, 109086.
 
 Renckens S, Auld G. 2022. Time to certify: Explaining varying efficiency of private regulatory audits. Regulation & Governance, 16, 500–518.
 
 Shi X, Hu R. 2017. Rice variety improvement and the contribution of foreign germplasms in China. Journal of Integrative Agriculture, 16, 2337–2345.
+
+Shi Y, Ren P, Zhang Y, Gong X, Hu M, Liang H. 2021. Information extraction from FDA drug labeling to enhance product-specific guidance assessment using natural language processing. Frontiers in Research Metrics and Analytics, 6, 670006.
 
 Xiang C, Yang R, Wang X, Huang J. 2025. Impact of seed regulation reform on licensing fees of varieties in China. Agribusiness.
 

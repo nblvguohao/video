@@ -2,10 +2,10 @@
 
 Dear Editor,
 
-We are pleased to submit our manuscript, "Who measures what enters the market?
-Self-organised variety trials and the third-party-assayed grain-quality gap in China's rice
-variety approvals, 2017–2022," for consideration as a Research Article in the *Journal of
-Integrative Agriculture*.
+We are pleased to submit our manuscript, "Mining administrative approval records for
+technology assessment: record-level trial-channel indicators and third-party-assayed grain
+quality in China's rice variety registrations, 2017–2022," for consideration as a Research
+Article in the *Journal of Integrative Agriculture*.
 
 **Contribution.** China's 2016 reform of variety approval let seed enterprises and breeder
 consortia organise their own trials, but no prior study has observed which trial channel a
@@ -22,10 +22,31 @@ measured by an independent third party deteriorates while performance measured b
 applicant does not — is inconsistent with a simple story that self-organised-channel
 applicants are just weaker breeders, and is the paper's central identification argument.
 
-**Fit with the journal's scope.** This paper is an institutional-economics reading of a
-Chinese crop-sector regulation, using approval-record text as its evidence base rather than a
-laboratory or field trial, and we believe it sits well within *JIA*'s established interest in
-this blend of institutional and seed-economics scholarship on China's agricultural sector.
+**Methodological contribution to S&T information analysis.** The paper is equally a
+contribution to the analysis of scientific and technological information, and we would ask
+the editorial office to read it in that light as well. Crop variety approval announcements
+are a long-public but structurally unexploited intelligence source: they are issued as
+running prose and have therefore stayed outside an innovation-indicator toolkit still built
+mainly on patents, publications and, more recently, firm web data. We set out the full
+extraction pipeline — source identification, corpus acquisition, rule-based field
+extraction, entity recognition and disambiguation (with reported precision and recall),
+field-coverage and data-quality assessment, and indicator construction — and produce a
+record-level system of 2,386 national approval records across 17 measured fields, each field
+labelled by the party that measured it. That labelling is what yields the paper's most
+portable finding: within a single official document, issued by one authority on one date,
+the evidential strength of different fields was *not* the same, and what predicted the
+difference was who performed the measurement. Standard data-quality assessment in this
+domain is source-level; our result argues it should be stratified by measuring party. The
+same diagnostic applies wherever applicant-supplied dossier material and independent assay
+results are bound into one approval record — drug approval, medical-device registration, and
+patent examination — which we set out in §8.4.
+
+**Fit with the journal's scope.** This paper reads a Chinese crop-sector regulatory corpus by
+text mining, using approval-record text as its evidence base rather than a laboratory or
+field trial, and it addresses two *JIA* audiences at once: readers working on seed-sector
+institutions and rice quality, and readers building quantitative indicators of agricultural
+technology from official records. We believe it sits well within *JIA*'s established interest
+in this blend of institutional and seed-economics scholarship on China's agricultural sector.
 Specifically, we draw on and extend three lines of *JIA* scholarship: variety-improvement
 history and germplasm contribution in Chinese rice breeding (Shi and Hu, 2017); information
 asymmetry in Chinese farmers' seed-choice behaviour, which our paper's "who measures what"
@@ -66,8 +87,9 @@ relationship with this or any other company discussed in the manuscript.
 leave this to the editorial office's discretion.
 
 We believe this manuscript will be of interest to *JIA*'s readership working on seed-sector
-regulation, agricultural institutional economics, and quality-certification design, and we
-thank you for considering it.
+regulation, agricultural institutional economics, quality-certification design, and the
+construction of technology indicators from official agricultural records, and we thank you
+for considering it.
 
 Sincerely,
 

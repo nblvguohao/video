@@ -1,7 +1,8 @@
 # Version History
 
-**Manuscript:** "Who measures what enters the market? Self-organised variety trials and the
-third-party-assayed grain-quality gap in China's rice variety approvals, 2017–2022"
+**Manuscript:** "Mining administrative approval records for technology assessment: record-level
+trial-channel indicators and third-party-assayed grain quality in China's rice variety
+registrations, 2017–2022"
 
 ## 1. v1 → v2 summary
 

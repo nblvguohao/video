@@ -131,3 +131,77 @@ DOI 不变。**[抽查，两个独立工具：Undermind + WebSearch，结果不�
 - 二级交叉核验（用于抽查的 8 条 + 全部新增修正）：WebSearch（期刊官网/AEA/EconPapers/IDEAS/ScienceDirect/researchgate 摘要页快照）；对生物医学范围外的农业经济学期刊（JIA、Agribusiness、AJAE、Regulation & Governance 等）尝试 PubMed 检索作为反向验证——均如预期般未命中（这些期刊不在 PubMed 收录范围内，此为预期结果而非疑点）；对 Wiley 出版的期刊尝试 Scholar Gateway `semanticSearch`，命中率取决于该数据库是否收录对应 ISSN。
 - 容器网络限制：ScienceDirect（`sciencedirect.com`）与 Rice Science 官网镜像（`ricesci.org`）的直接 WebFetch 均被出站代理拦截（`EGRESS_BLOCKED`），这是 Gong et al. 2026 全文仍无法取得的直接原因，与此前多次尝试的结果一致。
 - 未发现任何一条参考文献是编造或彻底错误（作者/期刊/DOI 全部可对应到真实出版物）；发现的问题均为**卷期页/年份的在线优先版本 vs 正式印刷版本不一致**，或**误用工作论文 DOI 代替期刊正式 DOI**，均已在上表列出并给出修正方案。
+
+---
+
+# 追加核验：v4「科技情报」重构新增文献（6 条）
+
+> 核验日期：2026-09-16｜核验员：v4 修订负责人代理
+> 触发：`plan/05_sti_reframing_brief.md` §3.7 要求新增科技情报／信息科学方向文献 4–6 篇。
+> 方法：与上文同一标准——每条至少过两个独立工具。一级工具 Undermind
+> （`lookup_papers_by_metadata` + `get_paper_info`，返回 DOI/期刊/年份/作者）；
+> 二级工具 WebSearch（出版商官网、dblp、NBER、ScienceDirect、Springer、Frontiers、
+> PubMed 记录页），独立确认卷期页与完整作者列表。
+> 格式：与上文一致，按 JIA author-date 体系。
+
+## 状态汇总（新增部分）
+
+| 状态 | 条数 | 条目 |
+|---|---|---|
+| ✅ Verified（双工具一致） | 6 | Antons20、Franceschini16、Jaffe&deRassenfosse17、Losiewicz00、Rammer&Es-Sadki23、Shi21 |
+| ⚠️ Check suggested | 0 | — |
+| ❌ Needs fix / ❓ Unverifiable | 0 | — |
+
+## 逐条核验结果
+
+### 22. Antons D, Grünwald E, Cichy P, Salge T O. 2020. The application of text mining methods in innovation research: Current state, evolution patterns, and development priorities. **R&D Management**, 50, 329–351. DOI: 10.1111/radm.12408
+
+**✅ Verified**。Undermind `lookup_papers_by_metadata`+`get_paper_info` 命中，确认年份 2020、期刊 R&D Management、DOI 10.1111/radm.12408、第一作者 David Antons、末位作者 T. O. Salge、254 次被引。WebSearch 独立确认卷期页 **50(3): 329–351**（Wiley Online Library 条目页 + RWTH Aachen 机构库记录 788955，两处一致）。**[抽查，两个独立工具，结果一致]**
+正文用途：Introduction 新增段与 §8.4（文本挖掘在创新研究中主要建立在专利/论文语料上）。
+
+### 23. Franceschini F, Maisano D, Mastrogiacomo L. 2016. Empirical analysis and classification of database errors in Scopus and Web of Science. **Journal of Informetrics**, 10, 933–953. DOI: 10.1016/j.joi.2016.07.003
+
+**✅ Verified**。Undermind 命中，确认作者三人、期刊 Journal of Informetrics、页码 933–953、215 次被引、DOI 10.1016/J.JOI.2016.07.003。WebSearch 独立确认 **10(4): 933–953 (2016)**，DOI 同（ScienceDirect 条目页）。注意 DOI 大小写差异仅为 Undermind 的大写化显示，正文统一用小写 `10.1016/j.joi.2016.07.003`。**[抽查，两个独立工具，结果一致]**
+正文用途：§3.4（S&T 指标所依赖的数据库本身存在系统性著录错误，故须声明核验状态）与 §8.4（源级数据质量评估不足以保证字段级证据强度一致）。
+
+### 24. Jaffe A B, de Rassenfosse G. 2017. Patent citation data in social science research: Overview and best practices. **Journal of the Association for Information Science and Technology**, 68, 1360–1374. DOI: 10.1002/asi.23731
+
+**✅ Verified**。Undermind 命中，确认作者 Adam B. Jaffe、Gaétan de Rassenfosse，期刊 JASIST，年份 2017，329 次被引。WebSearch 独立确认 **68(6): 1360–1374**（dblp `journals/jasis/JaffeR17` + Wiley/asistdl 条目页 + EPFL Infoscience 记录三处一致）；同时确认存在同名 NBER 工作论文 w21868，**正文引用的是 JASIST 期刊正式版本，不使用 NBER 版本**（避免重蹈 Grennan & Town 的工作论文 DOI 误用）。**[抽查，两个独立工具，结果一致]**
+正文用途：§8.4（专利指标文献中「申请人撰写 vs 审查员追加」的引文来源区分；数据源最佳实践）。
+
+### 25. Losiewicz P, Oard D W, Kostoff R N. 2000. Textual data mining to support science and technology management. **Journal of Intelligent Information Systems**, 15, 99–119. DOI: 10.1023/A:1008777222412
+
+**✅ Verified**。Undermind 命中，确认作者 P. Losiewicz、Douglas W. Oard、R. Kostoff，期刊 Journal of Intelligent Information Systems，页码 99–119，179 次被引，DOI 10.1023/A:1008777222412。WebSearch 独立确认 Springer 条目页 `link.springer.com/article/10.1023/A:1008777222412`，**vol. 15, pp. 99–119 (2000)**，摘要描述文本数据挖掘架构（信息检索→信息抽取→数据仓库→数据挖掘→可视化），与本文「情报抽取流水线」六步骤的引用意图一致。**[抽查，两个独立工具，结果一致]**
+正文用途：Introduction 新增段与 §8.4（科技文本挖掘服务于科研管理与技术监测的经典定位）。
+
+### 26. Rammer C, Es-Sadki N. 2023. Using big data for generating firm-level innovation indicators — A literature review. **Technological Forecasting and Social Change**, 197, 122874. DOI: 10.1016/j.techfore.2023.122874
+
+**✅ Verified — 须使用期刊正式版本而非 SSRN 工作论文版本**。首轮 Undermind 语义检索先命中 SSRN 版本（2022，DOI 10.2139/ssrn.4072590）；用 `lookup_papers_by_metadata` 复查后命中期刊正式版本：**2023 年 Technological Forecasting and Social Change，DOI 10.1016/j.techfore.2023.122874**，34 次被引。WebSearch 独立确认 **vol. 197, article 122874 (2023)**（ScienceDirect 条目页 S0040162523005590 + RePEc/ResearchGate 记录）。参考文献列表按期刊版本著录。**[抽查，两个独立工具，首轮结果不一致，已按正式期刊版本修正]**
+正文用途：Introduction 新增段与 §8.4（「超越专利与论文」的企业级创新指标扩展主要走网络/招聘/交易数据，而非行政审批记录）。
+
+### 27. Shi Y, Ren P, Zhang Y, Gong X, Hu M, Liang H. 2021. Information extraction from FDA drug labeling to enhance product-specific guidance assessment using natural language processing. **Frontiers in Research Metrics and Analytics**, 6, 670006. DOI: 10.3389/frma.2021.670006
+
+**✅ Verified**。Undermind 命中，确认期刊 Frontiers in Research Metrics and Analytics、年份 2021、DOI 10.3389/frma.2021.670006。WebSearch 独立确认完整作者列表 **Yiwen Shi, Ping Ren, Yi Zhang, Xiajing Gong, Meng Hu, Hualou Liang**，**vol. 6, article 670006，2021-06-10 发表**，并命中 PubMed 记录 PMID 34179681 与 PMC8222600（第三个独立来源）。**[抽查，三个独立来源：Undermind + WebSearch + PubMed 记录页，结果一致]**
+正文用途：§8.4（方法可移植性——药品审批语料的信息抽取已在规模化开展，本文的「按测量方分层」诊断可直接接入）。
+
+## 新增文献的引用位置对照
+
+| 文献 | Introduction 新增段 | §3.4 | §8.4 |
+|---|---|---|---|
+| Losiewicz et al. 2000 | ✔ | | ✔ |
+| Antons et al. 2020 | ✔ | | ✔ |
+| Rammer and Es-Sadki 2023 | ✔ | | ✔ |
+| Franceschini et al. 2016 | | ✔ | ✔ |
+| Jaffe and de Rassenfosse 2017 | | | ✔（2 处） |
+| Shi et al. 2021 | | | ✔ |
+
+## 本次核验的方法学说明与限制
+
+- 6 条全部为**真实存在、可在出版商官网定位**的正式出版物；未出现任何编造条目。
+- 两处「工作论文 vs 期刊正式版本」的陷阱被主动检出并修正（Rammer & Es-Sadki 采用 TFSC 版本；
+  Jaffe & de Rassenfosse 采用 JASIST 版本而非 NBER w21868），处理方式与上文第 3 条
+  Grennan & Town 的修正原则一致。
+- 本轮**未能**取得其中任何一条的全文 PDF（Undermind 仅对 Jaffe17 与 Shi21 标注有 PDF，
+  本次未下载阅读）；因此正文对这 6 条的引用一律限于**其摘要与题名所明确支持的一般性论断**
+  （如「文本挖掘主要建立在专利与论文语料上」「Scopus/WoS 存在系统性著录错误」），
+  **不引用任何具体数字**。此限制与 Gong et al. 2026 的「标题级引用」处理属同一谨慎口径。

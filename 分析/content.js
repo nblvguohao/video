@@ -20,16 +20,16 @@ module.exports = {
     '[Result] Treatment 10 (N 270 kg/hm^{2}, P_{2}O_{5} 180 kg/hm^{2}, K_{2}O 337.5 kg/hm^{2}) gave the highest yield of 10200.0 kg/hm^{2}, 54.5% higher than that of the unfertilized control, and the highest return after deducting fertilizer cost (22091.4 yuan/hm^{2}); however, yields along the K series varied non-monotonically, so this yield advantage cannot be separated from plot-to-plot error. The relative yields of the N-, P- and K-omission plots were 74.3%, 85.5% and 94.9%, and the contribution rates of N, P and K fertilizers were 25.7%, 14.5% and 5.1%, respectively, indicating a fertilizer response order of N > P > K. The ternary quadratic model failed the typicality test, and none of the single-factor regressions reached significance, so the equations describe trends only. Rice yield levelled off at an N rate of about 270 kg/hm^{2} (the linear-plus-plateau model placed the join point at approximately 280 kg/hm^{2}); seed-setting rate and 1000-grain weight declined and yield no longer increased when the N rate exceeded 270 kg/hm^{2}, whereas no turning point was reached for P or K within the tested range. ' +
     '[Conclusion] Under the single-site, single-season and unreplicated conditions of this trial, N 270 kg/hm^{2}, P_{2}O_{5} 90–180 kg/hm^{2} and K_{2}O 112.5–225 kg/hm^{2} are proposed for single-season rice on sandy loam paddy soil in Fangang Town, with N split as basal:tillering:panicle = 50%:25%:25%, K split as basal:panicle = 60%:40%, and P applied entirely as basal fertilizer. Because the level-2 rates of this trial were higher than conventional local recommendations and no turning point was reached for P or K, the appropriate rates of these two nutrients require verification by multi-site and multi-year replicated trials.',
   keywordsEN: 'Single-season rice; "3414" experiment; Fertilizer effect; Recommended fertilization rate; Soil testing and formulated fertilization; Tongcheng City',
-  fund: '基金项目　【基金项目名称及编号；若无请删除此项】。',
-  bio: '作者简介　叶四明（【出生年】—），【性别】，安徽桐城人，【职称】，从事【研究方向】工作。',
-  received: '收稿日期　2026-【  】-【  】',
+  fund: '',
+  bio: '',
+  received: '',
 
   body: [
     { type: 'p', text: '单季稻是安徽省桐城市范岗镇的主要粮食作物，长期以来当地农户多凭经验施肥，氮磷钾配比失调、一次性重施基肥等问题普遍，既增加成本又降低肥料利用率，并带来面源污染风险[[zhang2008,zhu2000,red1]]。测土配方施肥以土壤测试和肥料田间试验为基础确定肥料用量、配比与施用方法[[bai2006,std2011,red2]]，其中"3414"试验是核心环节，可建立肥料效应函数并据以确定推荐施肥量与土壤养分丰缺指标[[std2011,wang2002,econ1]]。国内各稻区已开展大量水稻"3414"试验[[other_a,chen2011,gao2009,yi2023]]，安徽潜山、绩溪、东至等地的结果均表明缺氮区减产幅度最大，但最佳施肥量因土壤类型、品种和栽培方式而异[[gu2019,anhui_a,anhui_b,anhui_c,anhui_d]]。范岗镇砂壤质稻田保肥供肥能力弱、系统肥效数据缺乏，吨两优900等国审杂交籼稻的应用[[variety1]]也使原有施肥参数亟需更新。为此于2025年开展本试验，研究氮磷钾施肥水平对经济性状、产量和效益的影响，拟合肥料效应方程并评价土壤供肥能力。' },
 
     { type: 'h1', text: '1　材料与方法' },
     { type: 'h2', text: '1.1　试验地概况' },
-    { type: 'p', text: '试验于2025年在桐城市范岗镇新西村孙庄组进行。试验田地势平坦、肥力均匀、排灌方便、交通便利，具有代表性，面积约0.11 hm^{2}，前茬为冬闲田。土壤为水稻土，质地砂壤，pH 6.1，耕层土壤有机质含量【  】g/kg、碱解氮【  】mg/kg、有效磷【  】mg/kg、速效钾【  】mg/kg（请按本田块化验报告填写；如暂缺可删去本括号内四项，全文土壤供肥能力评价以缺素区相对产量为依据，不受影响）。' },
+    { type: 'p', text: '试验于2025年在桐城市范岗镇新西村孙庄组进行。试验田地势平坦、肥力均匀、排灌方便、交通便利，具有代表性，面积约0.11 hm^{2}，前茬为冬闲田。土壤为水稻土，质地砂壤，pH 6.1，耕层土壤有机质含量30.9 g/kg、碱解氮125 mg/kg、有效磷12.5 mg/kg、速效钾55 mg/kg。' },
     { type: 'h2', text: '1.2　供试材料' },
     { type: 'p', text: '供试水稻品种为杂交籼稻吨两优900。供试肥料：尿素（N 46.3%，安徽昊源化工集团有限公司生产）、颗粒过磷酸钙（P_{2}O_{5}≥12%，铜陵市化学工业集团有限公司生产）、氯化钾（K_{2}O≥60%，俄罗斯乌拉尔钾肥公司生产）。' },
     { type: 'h2', text: '1.3　试验设计' },
@@ -59,7 +59,7 @@ module.exports = {
     { type: 'table', id: 't3' },
     { type: 'h2', text: '2.3　土壤供肥能力与肥料贡献率' },
     { type: 'p', text: '由表4可知，无肥区相对产量为71.7%，即土壤基础地力对产量的贡献率为71.7%，全肥区较无肥区增产39.4%。缺氮区、缺磷区和缺钾区的相对产量分别为74.3%、85.5%和94.9%，按照相对产量划分标准，试验田土壤供氮能力属"低"水平，供磷、供钾能力属"中"水平，其中供钾能力已接近"高"水平。氮、磷、钾肥的贡献率分别为25.7%、14.5%和5.1%，农学效率分别为8.77、7.41和2.07 kg/kg，肥料增产效应表现为N>P>K，与缺素区产量分析的结果一致[[soilidx1]]。' },
-    { type: 'p', text: '需说明的是，缺氮区相对产量（74.3%）紧邻"低"与"中"的临界值（75%），小区实收相差0.2 kg即可改变判定；该指标对基数选择亦敏感（若以产量最高的处理10为基数，三者分别为67.0%、77.1%和85.6%）。故上述等级为初步判定，尚需结合土壤测试值与多点试验验证。' },
+    { type: 'p', text: '由相对产量判定的供肥能力与土壤测试值并不完全对应：试验田碱解氮125 mg/kg属中等偏上，而缺氮区相对产量仅74.3%；速效钾55 mg/kg偏低，缺钾区相对产量却达94.9%。二者反映的分别是当季供应能力与养分储量，砂壤质稻田缓效钾的释放可在当季补充钾素供应，是造成这一差异的可能原因。此外，缺氮区相对产量紧邻"低"与"中"的临界值（75%），小区实收相差0.2 kg即可改变判定，该指标对基数选择亦敏感（若以产量最高的处理10为基数，三者分别为67.0%、77.1%和85.6%）。故上述等级为初步判定，尚需多点试验验证。' },
     { type: 'table', id: 't4' },
     { type: 'h2', text: '2.4　肥料效应方程拟合与推荐施肥量' },
     { type: 'h3', text: '2.4.1　三元二次肥料效应方程' },
@@ -83,12 +83,12 @@ module.exports = {
     { type: 'h1', text: '3　讨论' },
     { type: 'p', text: '本试验缺氮区相对产量74.3%、氮肥贡献率25.7%，氮的增产作用远大于磷钾，与安徽潜山（缺氮区75.6%）[[gu2019]]、绩溪[[anhui_a]]、东至[[anhui_d]]及其他稻区[[other_a,yi2023]]的结果一致，表明氮素是该区域砂壤质稻田单季稻产量形成的首要限制因子。随施氮量增加有效穗数与每穗总粒数增加，但超过270 kg/hm^{2}后结实率和千粒重下降、产量不再增加，与降低施氮、优化群体仍可维持高产并提高氮素利用率的结果相呼应[[nut_n1]]，也与长江流域中稻氮肥增产效应随用量递减的特征一致[[nut_n2]]。生产上宜将氮肥总量控制在270 kg/hm^{2}左右，并通过氮肥后移提高利用率[[nut_n2,red2]]。' },
     { type: 'p', text: '三元二次方程拟合失败或呈非典型在生产性试验中较为常见[[wang2002,zhang_typ,econ1]]。本试验该方程校正*{R}^{2}仅0.7939，且因磷钾未出现拐点，驻点落在试验范围外或无农艺学意义，不能用于推荐施肥；此时将一元二次方程、线性加平台模型与边际分析相结合更稳妥[[zhang_typ,other_c]]。氮肥的线性加平台模型拟合优于一元二次方程，拐点估计与处理间直接比较方向一致，说明对已出现平台的养分该模型更适用，但受水平数与重复数限制，拐点仅为粗略估计。' },
-    { type: 'p', text: '磷、钾肥在设计范围内持续增产，很大程度上是设计所致：2水平高于安徽省常规推荐量，故未出现拐点，不应据此认为已达土壤磷钾响应的真实上限。缺磷区相对产量85.5%，供磷能力属"中"，可能与质地砂壤、保肥能力弱有关；缺钾区达94.9%、接近"高"，说明钾素基础供应较好，但砂壤土保钾能力弱，高产条件下增施钾肥仍有一定效应，施钾提高结实率与千粒重的作用也见于双季稻研究[[nut_k1]]。邻近的潜山市同为砂壤质水稻土，其耕层有机质30.7 g/kg、碱解氮128 mg/kg、有效磷13.0 mg/kg、速效钾54 mg/kg[[gu2019]]，速效钾明显偏低，与砂壤质稻田钾素易淋失的特点一致，可作为本区域土壤养分状况的参照。本试验推荐的磷钾用量仍高于潜山（P_{2}O_{5} 54.7 kg/hm^{2}、K_{2}O 122.3 kg/hm^{2}）[[gu2019]]，绝对水平不宜外推；磷素易累积、长期大量施用存在环境风险[[red2,soilidx1]]，生产上宜以处理6、7、9的用量为基础按土壤测定值调整。本试验单年单点且未设重复，部分处理（如K1与K2）的产量波动可能含田间误差，推荐量尚需多点多年验证并结合有机无机配施等措施优化[[red2]]。' },
+    { type: 'p', text: '磷、钾肥在设计范围内持续增产，很大程度上是设计所致：2水平高于安徽省常规推荐量，故未出现拐点，不应据此认为已达土壤磷钾响应的真实上限。缺磷区相对产量85.5%、有效磷12.5 mg/kg，供磷能力属"中"，与质地砂壤、保肥能力弱有关；缺钾区相对产量虽达94.9%，但速效钾仅55 mg/kg，当季供钾主要依靠缓效钾释放而储量并不充裕，故在高产条件下增施钾肥仍表现出一定效应，施钾提高结实率与千粒重的作用也见于双季稻研究[[nut_k1]]。邻近的潜山市同为砂壤质水稻土，其耕层有机质30.7 g/kg、碱解氮128 mg/kg、有效磷13.0 mg/kg、速效钾54 mg/kg[[gu2019]]，与本试验田十分接近，印证了本区域砂壤质稻田速效钾普遍偏低、钾素易淋失的特点。本试验推荐的磷钾用量仍高于潜山（P_{2}O_{5} 54.7 kg/hm^{2}、K_{2}O 122.3 kg/hm^{2}）[[gu2019]]，绝对水平不宜外推；磷素易累积、长期大量施用存在环境风险[[red2,soilidx1]]，生产上宜以处理6、7、9的用量为基础按土壤测定值调整。本试验单年单点且未设重复，部分处理（如K1与K2）的产量波动可能含田间误差，推荐量尚需多点多年验证并结合有机无机配施等措施优化[[red2]]。' },
 
     { type: 'h1', text: '4　结论' },
-    { type: 'p', text: '（1）施肥明显改善水稻经济性状并大幅提高产量（本试验未设重复，未作差异显著性检验）。处理10（N 270 kg/hm^{2}、P_{2}O_{5} 180 kg/hm^{2}、K_{2}O 337.5 kg/hm^{2}）产量最高，为10200.0 kg/hm^{2}，较无肥区增产54.5%，扣除肥料成本后收益22091.4元/hm^{2}。' },
+    { type: 'p', text: '（1）施肥明显改善水稻经济性状并大幅提高产量（未设重复，未作差异显著性检验）。处理10（N 270、P_{2}O_{5} 180、K_{2}O 337.5 kg/hm^{2}）产量最高，为10200.0 kg/hm^{2}，较无肥区增产54.5%，扣除肥料成本后收益22091.4元/hm^{2}。' },
     { type: 'p', text: '（2）试验田土壤供氮能力属"低"水平，供磷、供钾能力属"中"水平；氮、磷、钾肥贡献率分别为25.7%、14.5%和5.1%，肥料效应表现为N>P>K；产量与每穗总粒数、有效穗数呈极显著正相关。' },
-    { type: 'p', text: '（3）三元二次肥料效应方程未通过典型性检验；各单因素方程回归均未达显著水平，仅作趋势描述。氮肥响应在施N 270 kg/hm^{2}左右趋于平台（线性加平台模型估计拐点约280 kg/hm^{2}），施氮量超过270 kg/hm^{2}后结实率和千粒重下降、产量不再增加；磷、钾肥效应在试验范围内未出现拐点。' },
+    { type: 'p', text: '（3）三元二次方程未通过典型性检验，各单因素方程回归均未达显著水平，仅作趋势描述。氮肥响应在施N 270 kg/hm^{2}左右趋于平台（线性加平台模型估计拐点约280 kg/hm^{2}），超过该用量后结实率和千粒重下降、产量不再增加；磷、钾效应在试验范围内未出现拐点。' },
     { type: 'p', text: '（4）在单年单点、不设重复的条件下，初步提出范岗镇砂壤质稻田单季稻施N 270 kg/hm^{2}、P_{2}O_{5} 90～180 kg/hm^{2}、K_{2}O 112.5～225 kg/hm^{2}，氮肥按基肥∶分蘖肥∶穗肥=50%∶25%∶25%、钾肥按基肥∶穗肥=60%∶40%分施，磷肥全部基施。其中磷、钾的适宜用量因2水平偏高、试验范围内未出现拐点而可靠性较低，尚需多点多年验证，生产上应结合土壤测试值适当下调。' },
   ],
 

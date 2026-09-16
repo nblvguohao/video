@@ -210,7 +210,7 @@ for (const b of C.body) {
   } else if (b.type === 'figure') {
     const f = C.figures[b.id];
     const img = fs.readFileSync(path.join(__dirname, f.file));
-    const w = 642, h = Math.round(642 * 1464 / 4015);
+    const w = 566, h = Math.round(566 * 1464 / 4015);
     body.push(new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 120, after: 40 }, keepNext: true,
       children: [new ImageRun({ type: 'png', data: img, transformation: { width: w, height: h } })] }));
     body.push(P(f.caption, { font: F_HEI, size: SZ.xiaowu, align: AlignmentType.CENTER, indent: {}, spacing: { after: 160, line: 240 } }));
@@ -218,12 +218,12 @@ for (const b of C.body) {
 }
 
 // ---------- 参考文献 ----------
-body.push(P('参考文献', { font: F_HEI, size: SZ.xiaosi, align: AlignmentType.LEFT, indent: {}, spacing: { before: 200, after: 80 }, keepNext: true }));
+body.push(P('参考文献', { font: F_HEI, size: SZ.xiaosi, align: AlignmentType.LEFT, indent: {}, spacing: { before: 140, after: 60 }, keepNext: true }));
 const uncited = REFS.filter(r => !refIndex.has(r.key)).map(r => r.key);
 if (uncited.length) console.warn('警告：未被引用的文献键：' + uncited.join(', '));
 refOrder.forEach((key, i) => {
   const r = REFS.find(x => x.key === key);
-  body.push(new Paragraph({ alignment: AlignmentType.LEFT, spacing: { line: 276, lineRule: 'auto', after: 0 },
+  body.push(new Paragraph({ alignment: AlignmentType.LEFT, spacing: { line: 235, lineRule: 'auto', after: 0 },
     indent: { left: 480, hanging: 480 },
     children: [...runs(`[${i + 1}]`, { font: F_SONG, size: SZ.xiaowu }), new TextRun({ text: '\t', font: F_SONG, size: SZ.xiaowu }), ...runs(r.text, { font: F_SONG, size: SZ.xiaowu })],
     tabStops: [{ type: TabStopType.LEFT, position: 480 }] }));
@@ -243,7 +243,7 @@ const doc = new Document({
   creator: '', title: C.titleCN,
   styles: { default: { document: { run: { font: F_SONG, size: SZ.wuhao, color: BLACK } } } },
   sections: [{
-    properties: { titlePage: true, page: { size: { width: 11906, height: 16838 }, margin: { top: 1300, bottom: 1300, left: 1420, right: 1420, footer: 560 } } },
+    properties: { titlePage: true, page: { size: { width: 11906, height: 16838 }, margin: { top: 1180, bottom: 1180, left: 1420, right: 1420, footer: 520 } } },
     footers: { first: firstFooter, default: defaultFooter },
     children: body,
   }],

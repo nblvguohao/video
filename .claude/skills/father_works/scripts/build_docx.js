@@ -67,7 +67,7 @@ function runs(text, base) {
 const P = (text, o = {}) => new Paragraph(Object.assign({
   children: runs(text, { font: o.font || F_SONG, size: o.size || SZ.wuhao, bold: o.bold, italics: o.italics }),
   alignment: o.align || AlignmentType.JUSTIFIED,
-  spacing: Object.assign({ line: 360, lineRule: 'auto', before: 0, after: 0 }, o.spacing || {}),
+  spacing: Object.assign({ line: 300, lineRule: 'auto', before: 0, after: 0 }, o.spacing || {}),
   indent: o.indent === undefined ? { firstLine: 420 } : o.indent,
   keepNext: o.keepNext, keepLines: o.keepLines,
 }, o.para || {}));
@@ -95,7 +95,7 @@ body.push(new Paragraph({ alignment: AlignmentType.JUSTIFIED, spacing: { line: 3
   ...runs('Key words　', { font: F_TNR, size: SZ.xiaowu, bold: true }), ...runs(C.keywordsEN, { font: F_TNR, size: SZ.xiaowu })] }));
 
 // ---------- 表格 ----------
-const TEXT_W = 11906 - 2 * 1700; // A4 宽 − 左右页边距
+const TEXT_W = 11906 - 2 * 1420; // A4 宽 − 左右页边距
 function cellRuns(text, opts = {}) {
   return runs(String(text), { font: F_SONG, size: SZ.xiaowu, bold: opts.bold });
 }
@@ -152,9 +152,10 @@ const tableBuilders = {
     rows.map(r => [r.no, f1(r.ph), f1(r.pl), f1(r.eff_hm2), f1(r.tot), f1(r.fg), f1(r.sr), f1(r.tgw)]),
     [0.8, 1, 1, 1.4, 1.3, 1.3, 1, 1]),
   t3: () => threeLineTable(
-    [['处理', '施肥组合', '小区产量/kg', '折合产量/(kg/' + sup2 + ')', '比CK增产/(kg/' + sup2 + ')', '增产率/%', '位次']],
-    rows.map(r => [r.no, `N_{${r.label[1]}}P_{${r.label[3]}}K_{${r.label[5]}}`, f1(r.plot_kg), f1(r.y_hm2), f1(r.inc_vs_ck), f1(r.inc_pct), r.rank]),
-    [0.8, 1.1, 1.1, 1.4, 1.5, 1, 0.8]),
+    [['处理', '施肥组合', '折合产量/(kg/' + sup2 + ')', '增产率/%', '位次', '产值/(元/' + sup2 + ')', '肥料成本/(元/' + sup2 + ')', '扣肥料成本后收益/(元/' + sup2 + ')', '产投比']],
+    rows.map(r => [r.no, `N_{${r.label[1]}}P_{${r.label[3]}}K_{${r.label[5]}}`, f1(r.y_hm2), f1(r.inc_pct), r.rank,
+                   f1(r.value), f1(r.cost), f1(r.net), r.ratio === null ? '—' : f2(r.ratio)]),
+    [0.6, 1.0, 1.25, 0.8, 0.6, 1.15, 1.2, 1.35, 0.8]),
   t4: () => {
     const de = D.deficiency; const full = rows[5].y_hm2;
     const grade = v => v < 50 ? '极低' : v <= 75 ? '低' : v <= 95 ? '中' : '高';
@@ -188,10 +189,6 @@ const tableBuilders = {
     [['因素', '施肥水平变化', '边际产量/(kg/' + sup2 + ')', '边际产值/(元/' + sup2 + ')', '边际肥料成本/(元/' + sup2 + ')', '边际产投比']],
     D.marginal.map(m => [m.f === 'N' ? 'N' : (m.f === 'P' ? 'P_{2}O_{5}' : 'K_{2}O'), `${m.f}${m.from}→${m.f}${m.to}`, f1(m.dy), f1(m.dval), f1(m.cost), f2(m.ratio)]),
     [0.8, 1.2, 1.3, 1.3, 1.5, 1.0]),
-  t7: () => threeLineTable(
-    [['处理', '产量/(kg/' + sup2 + ')', '产值/(元/' + sup2 + ')', '肥料成本/(元/' + sup2 + ')', '纯收益/(元/' + sup2 + ')', '增产值/(元/' + sup2 + ')', '增收/(元/' + sup2 + ')', '产投比']],
-    rows.map(r => [r.no, f1(r.y_hm2), f1(r.value), f1(r.cost), f1(r.net), f1(r.incval), f1(r.incnet), r.ratio === null ? '—' : f2(r.ratio)]),
-    [0.7, 1.2, 1.2, 1.3, 1.2, 1.2, 1.2, 0.9]),
 };
 const tableNotesExtra = {
   t4: '　氮磷钾肥综合贡献率为28.3%［=（全肥区产量－无肥区产量）/全肥区产量×100］。因各单养分贡献率系分别以相应缺素区计算，养分间存在交互作用，三者之和（45.3%）与综合贡献率含义不同，不可相加比较。',
@@ -213,7 +210,7 @@ for (const b of C.body) {
   } else if (b.type === 'figure') {
     const f = C.figures[b.id];
     const img = fs.readFileSync(path.join(__dirname, f.file));
-    const w = 642, h = Math.round(642 * 1464 / 4015);
+    const w = 566, h = Math.round(566 * 1464 / 4015);
     body.push(new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 120, after: 40 }, keepNext: true,
       children: [new ImageRun({ type: 'png', data: img, transformation: { width: w, height: h } })] }));
     body.push(P(f.caption, { font: F_HEI, size: SZ.xiaowu, align: AlignmentType.CENTER, indent: {}, spacing: { after: 160, line: 240 } }));
@@ -221,12 +218,12 @@ for (const b of C.body) {
 }
 
 // ---------- 参考文献 ----------
-body.push(P('参考文献', { font: F_HEI, size: SZ.xiaosi, align: AlignmentType.LEFT, indent: {}, spacing: { before: 200, after: 80 }, keepNext: true }));
+body.push(P('参考文献', { font: F_HEI, size: SZ.xiaosi, align: AlignmentType.LEFT, indent: {}, spacing: { before: 140, after: 60 }, keepNext: true }));
 const uncited = REFS.filter(r => !refIndex.has(r.key)).map(r => r.key);
 if (uncited.length) console.warn('警告：未被引用的文献键：' + uncited.join(', '));
 refOrder.forEach((key, i) => {
   const r = REFS.find(x => x.key === key);
-  body.push(new Paragraph({ alignment: AlignmentType.LEFT, spacing: { line: 276, lineRule: 'auto', after: 0 },
+  body.push(new Paragraph({ alignment: AlignmentType.LEFT, spacing: { line: 235, lineRule: 'auto', after: 0 },
     indent: { left: 480, hanging: 480 },
     children: [...runs(`[${i + 1}]`, { font: F_SONG, size: SZ.xiaowu }), new TextRun({ text: '\t', font: F_SONG, size: SZ.xiaowu }), ...runs(r.text, { font: F_SONG, size: SZ.xiaowu })],
     tabStops: [{ type: TabStopType.LEFT, position: 480 }] }));
@@ -246,7 +243,7 @@ const doc = new Document({
   creator: '', title: C.titleCN,
   styles: { default: { document: { run: { font: F_SONG, size: SZ.wuhao, color: BLACK } } } },
   sections: [{
-    properties: { titlePage: true, page: { size: { width: 11906, height: 16838 }, margin: { top: 1440, bottom: 1440, left: 1700, right: 1700, footer: 600 } } },
+    properties: { titlePage: true, page: { size: { width: 11906, height: 16838 }, margin: { top: 1180, bottom: 1180, left: 1420, right: 1420, footer: 520 } } },
     footers: { first: firstFooter, default: defaultFooter },
     children: body,
   }],

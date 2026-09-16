@@ -1,8 +1,6 @@
 # Figure Captions
 
-**Manuscript:** "Mining administrative approval records for technology assessment: record-level
-trial-channel indicators and third-party-assayed grain quality in China's rice variety
-registrations, 2017–2022"
+**Manuscript:** "Rice variety approval records as an innovation indicator source: trial channel, third-party-assayed grain quality, and who measures what enters the market in China, 2017–2022"
 
 > Final main-text numbering (6 figures), per `manuscript/figure_table_list.md`. Provided as a
 > standalone file in case the target journal requires captions submitted separately from the
@@ -43,12 +41,14 @@ yield gain over check, and the top-two quality-grade indicator.
 *Source: `manuscript/figures/fig6_randomization.png` / `.pdf` (original rendered-file name
 retained from the pre-merge working numbering).*
 
-**Fig. 6.** Anhui Winall Hi-Tech Seed Co. mechanism, two panels: (a) Winall's national
-approval share and channel-composition stack over time, alongside comparator applicants; (b)
-forest plot of Winall versus other applicants' trait differences, estimated separately within
-the unified channel and within the new (self-organised) channel.
-*Source: `manuscript/figures/fig5_winall_mechanism.png` (original rendered-file name
-retained). Two panels.*
+**Fig. 6.** Germplasm concentration across resolved parental lines, by trial channel.
+(a) Concentration curves over sterile (female) lines, cumulative share of approvals against
+cumulative share of distinct lines ordered most-frequent-first, one curve per channel and arm;
+the diagonal marks an even spread across lines. (b) Sterile-line Herfindahl-Hirschman index by
+channel and arm, with 95% percentile bootstrap intervals (2,000 resamples). The interval is
+drawn as its own segment rather than as error bars, because a percentile bootstrap interval for
+the HHI need not bracket the point estimate.
+*Source: `manuscript/figures/fig6_germplasm_concentration.png`. Two panels.*
 
 ---
 

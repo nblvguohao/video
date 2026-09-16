@@ -2,10 +2,11 @@
 
 Dear Editor,
 
-We are pleased to submit our manuscript, "Mining administrative approval records for
-technology assessment: record-level trial-channel indicators and third-party-assayed grain
-quality in China's rice variety registrations, 2017–2022," for consideration as a Research
-Article in the *Journal of Integrative Agriculture*.
+We are pleased to submit our manuscript, "Rice variety approval records as an innovation indicator source: trial channel,
+third-party-assayed grain quality, and who measures what enters the market in China,
+2017–2022," for consideration as a Research
+Article in the Agricultural Economics and Management section of the *Journal of Integrative
+Agriculture*.
 
 **Contribution.** China's 2016 reform of variety approval let seed enterprises and breeder
 consortia organise their own trials, but no prior study has observed which trial channel a
@@ -77,11 +78,10 @@ previously, and is not under consideration for publication elsewhere, in whole o
 any language.
 
 **Conflict of interest.** The authors declare no conflict of interest. This manuscript
-discusses Anhui Winall Hi-Tech Seed Co. (§7) only through its publicly available
-variety-approval records, as a counter-case that helps rule out an alternative explanation
-for our main result; the manuscript does not evaluate the financial performance or business
-standing of Winall or any other company, and the authors have no financial or other
-relationship with this or any other company discussed in the manuscript.
+conducts no analysis at the level of any named organisation: all applicant-side
+quantities are aggregated to entry route or to germplasm lineage, and no individual firm or
+institute is evaluated anywhere in the paper. The authors have no financial or other
+relationship with any organisation appearing in the underlying approval records.
 
 **Suggested reviewers.** We have no specific reviewer suggestions to offer at this time and
 leave this to the editorial office's discretion.

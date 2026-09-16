@@ -1,14 +1,12 @@
 # Tables
 
-**Manuscript:** "Mining administrative approval records for technology assessment: record-level
-trial-channel indicators and third-party-assayed grain quality in China's rice variety
-registrations, 2017–2022"
+**Manuscript:** "Rice variety approval records as an innovation indicator source: trial channel, third-party-assayed grain quality, and who measures what enters the market in China, 2017–2022"
 
 > Final main-text numbering (5 tables), per `manuscript/figure_table_list.md`. Provided as a
 > standalone file in case the target journal requires tables submitted separately from the
 > manuscript body. Source data files are listed for each; Supplementary Table S1 is in
 > `submission/supplementary_material.md`. **v3 update (2026-09-16):** the former Supplementary
-> Table S1 (Winall financial panel) was removed and the former Table S2 renumbered to S1; see
+> The former Supplementary Table S1 was removed and Table S2 renumbered to S1; see
 > `manuscript/review/change_log_v2_to_v3.md`.
 >
 > **v4 check (2026-09-16):** the v3 → v4 reframing changed no table. Numbering (Table 1–5 in
@@ -145,7 +143,7 @@ records); this coefficient (n = 21) is reported in the source CSV but flagged in
 ## Table 4. Robustness matrix (R1–R16)
 
 Caption: Robustness matrix, R1–R16, including all checks that qualify or fail to support the
-headline result. Compiled from `manuscript/tables/table_r10_drop_winall_robustness.csv`,
+headline result. Compiled from the R10 robustness output,
 `table_breakpoint_scan_full.csv`, `table_event_study_by_year.csv`, and the robustness-section
 point estimates in main text §6. First cited in §6.7.
 
@@ -160,7 +158,7 @@ point estimates in main text §6. First cited in §6.7.
 | R7 | Manski worst-case bounds (4 unbalanced-missingness outcomes) | Head-rice, chalkiness sign-stable; top-two grade crosses zero — downgraded to secondary |
 | R8 | Missingness balance (Supplementary Fig. S1) | Most outcomes balanced within ~2pp; 3 exceptions motivate R7 |
 | R9 | Within-applicant subsample (10 applicants, 51 records) | Underpowered (MDE exceeds main coefficient on every outcome); not informative either way |
-| R10 | Drop Winall-linked records | Headline result intact: head-rice −1.368pp (p=0.006), chalkiness +0.940pp (p=0.034), stated grade −0.104 (p=0.011) |
+| R10 | Drop the dominant sterile-line family | Headline result intact: head-rice −1.368pp (p=0.006), chalkiness +0.940pp (p=0.034), stated grade −0.104 (p=0.011) |
 | R11 | Provincial replication (2021–2022) | 3 of 4 outcomes underpowered/undetermined; stated-grade outcome adequately powered and corroborating (β=−0.468, p=0.001) |
 | R12 | Pre-declared placebos | Seed-setting, 1000-grain weight non-significant as required; plant height (not a placebo) significant, reported as auxiliary |
 | R13 | Pre-reform time placebo (2005–2016) | No significant coefficient on any of 6 outcomes; opposite sign to real design |
@@ -170,35 +168,37 @@ point estimates in main text §6. First cited in §6.7.
 
 ---
 
-## Table 5. Winall Hi-Tech channel composition and within-channel positioning
+## Table 5. Germplasm concentration across resolved parental lines
 
-Caption: Winall Hi-Tech: channel composition (unified vs. new-channel share) and
-within-channel trait-positioning coefficients. First cited in §7.
-*Source: `manuscript/tables/table5_winall_positioning.csv` (positioning) +
-`manuscript/tables/table5b_winall_channel_choice_logit.csv` (channel-choice logit).*
+Caption: Germplasm concentration across resolved parental lines, by trial channel and arm.
+National approvals in the two dominant mid-season indica trial groups; sterile (female) lines
+of the originating cross, resolved from the announcement's variety-source field (§3.1; 95.6%
+of national records resolve). HHI is the Herfindahl–Hirschman index across sterile lines.
+Distinct-line counts are reported both raw and rarefied to the smaller group's *n*, because
+distinct counts rise mechanically with sample size. The difference in HHI is tested by a
+stratified bootstrap (2,000 resamples, percentile interval) and a label-permutation test
+(2,000 permutations).
 
-### 5a. Channel share
+| Arm | Channel | *n* | Distinct sterile lines | Rarefied | HHI | Top line share | Distinct restorer lines | HHI (restorer) |
+|---|---|---:|---:|---:|---:|---:|---:|---:|
+| Arm 1 (2019–2022) | Unified | 521 | 238 | 238.0 | 0.01281 | 7.5% | 342 | 0.00574 |
+| Arm 1 (2019–2022) | Consortium | 542 | 298 | 290.0 | 0.00846 | 4.6% | 396 | 0.00477 |
+| Arm 2 (2017) | Unified | 85 | 61 | 58.6 | 0.02644 | 8.2% | 77 | 0.01481 |
+| Arm 2 (2017) | Green channel | 81 | 43 | 43.0 | 0.06447 | 19.8% | 67 | 0.01844 |
 
-| Group | n | Share Unified |
-|---|---|---|
-| Winall | 166 | 60.2% |
-| Others | 1,101 | 47.5% |
+**Between-channel difference in sterile-line HHI (new channel − Unified)**
 
-### 5b. Channel-choice logit (Winall coefficient, α)
+| Arm | Observed | 95% bootstrap CI | Permutation *p* | *n* (Unified / new) |
+|---|---:|---|---:|---|
+| Arm 1: Consortium − Unified | −0.00435 | [−0.00829, −0.00078] | 0.016 | 521 / 542 |
+| Arm 2: Green − Unified | +0.03804 | [+0.00931, +0.07553] | 0.009 | 85 / 81 |
 
-| Specification | n | α | SE | p | Odds ratio |
-|---|---|---|---|---|---|
-| Year × trial-group FE, all national groups | 1,246 | −0.728 | 0.182 | 6.7×10⁻⁵ | 0.483 |
-| Year × trial-group FE, two indica groups only | 849 | −0.558 | 0.201 | 0.0054 | 0.572 |
-| No fixed effects, all national groups | 1,267 | −0.516 | 0.170 | 0.0024 | 0.597 |
+*The two self-organised channels differ from the unified trial in opposite directions, each
+matching the number of breeding programmes its rules admit: green-channel trials are run by a
+single certified enterprise and draw on a narrower base, while consortium trials pool five or
+more breeders and draw on a broader one. Because differently spelled variants of the same line
+are not merged (§3.1), reported concentration is a lower bound and the contrasts are biased
+toward finding no difference.*
 
-### 5c. Within-channel positioning (ρ, Winall vs. others)
-
-| Sub-sample | Outcome | ρ | SE | p | n |
-|---|---|---|---|---|---|
-| Unified | Head-rice percentage (%) | +2.212 | 0.593 | 1.9×10⁻⁴ | 495 |
-| Unified | Quality grade stated (0/1) | +0.098 | 0.028 | 4.2×10⁻⁴ | 501 |
-| Unified | Chalkiness degree (%) | −0.692 | 0.188 | 2.3×10⁻⁴ | 494 |
-| New (Consortium+Green) | Head-rice percentage (%) | −0.452 | 0.752 | 0.548 | 494 |
-| New (Consortium+Green) | Quality grade stated (0/1) | +0.045 | 0.034 | 0.184 | 503 |
-| New (Consortium+Green) | Chalkiness degree (%) | +0.200 | 0.446 | 0.655 | 495 |
+Source: `scripts/analysis/germplasm_concentration.py`;
+`manuscript/tables/table_germplasm_concentration.csv`.

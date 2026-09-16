@@ -1,8 +1,8 @@
 # Highlights
 
-**Manuscript:** "Mining administrative approval records for technology assessment:
-record-level trial-channel indicators and third-party-assayed grain quality in China's rice
-variety registrations, 2017–2022"
+**Manuscript:** "Rice variety approval records as an innovation indicator source: trial channel,
+third-party-assayed grain quality, and who measures what enters the market in China,
+2017–2022"
 
 > 5 bullets, each ≤85 characters including spaces, per `plan/04_format_spec.md` §3.
 > Copied verbatim from the Highlights block of `manuscript/manuscript_v4.md` (character

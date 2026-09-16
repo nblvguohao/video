@@ -40,4 +40,4 @@ The variety-approval text corpus underlying this study was compiled from publicl
 
 ## Ethical approval
 
-Not applicable. This study did not involve human participants or animal experiments; it uses only publicly available government variety-approval announcements and publicly disclosed company financial filings.
+Not applicable. This study did not involve human participants or animal experiments; it uses only publicly available government variety-approval announcements.

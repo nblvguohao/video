@@ -63,7 +63,52 @@ for the 7-table→5-table cut) — was resolved in this session:
 No substantive number, coefficient, or conclusion was changed in this session — only figure/
 table numbering, one added pointer sentence, and the new submission-package files.
 
-## 3. Review-report index
+## 3. v2 → v3 summary (this session, 2026-09-16)
+
+Full detail in `manuscript/review/change_log_v2_to_v3.md`. At the author team's explicit
+request, all discussion of Anhui Winall Hi-Tech Seed Co.'s financial performance, business
+strategy, or corporate governance was removed from the paper. To avoid one-sidedness, the
+paper was not edited to keep only positive Winall content: instead, the entire financial/
+business narrative — positive and negative alike — was removed, leaving §7 focused solely on
+the two findings load-bearing for the paper's identification argument (Winall's trial-channel
+choice, and its within-channel quality positioning). No statistical coefficient, p-value, or
+sample size anywhere in the paper was changed.
+
+- **§7 (Mechanism)**: deleted the paragraph reporting Winall's order-grain gross margin
+  (2024/2025H1/FY2025), 2025 attributable net profit and loss-making swing, 2024 qualified
+  audit opinion, 2026 fine and ST-Winall status change, and the China Seed Group tender offer.
+  Retained the channel-choice logit (§7 para. 2) and within-channel positioning (§7 para. 3)
+  results, and the robustness/scope paragraphs around them, unchanged.
+- **Non-claim 10** (§4.7): rewritten from a claim about Winall's financial-success status
+  (which cited the now-removed margin/loss/audit/penalty figures) to a scope statement that
+  this paper does not evaluate any applicant firm's financial performance, business strategy,
+  or corporate governance.
+- **Supplementary Table S1** (Winall/comparator financial panel, formerly Table 6): removed
+  in full from `submission/supplementary_material.md`; not retained in any edited or
+  positive-only form, since with the financial narrative gone the table had no remaining role.
+  Former Supplementary Table S2 (enterprise-vs-institution descriptive comparison, unaffected —
+  it is a full-sample analysis, not Winall-specific) is renumbered **Table S1**.
+- **Fig. 6** (Winall mechanism figure): former panel (c) — order-grain revenue share and R&D
+  intensity time series, annotated with the 2025 loss and 2026 ST event — removed from
+  `manuscript/scripts/fig5_mechanism.py`; figure re-rendered as a two-panel image at
+  `manuscript/figures/fig5_winall_mechanism.png`. Panels (a) and (b) are otherwise unchanged.
+- **Ethical approval statement**: "publicly disclosed company financial filings" removed from
+  the data-source description, since the paper no longer draws on any such filings; now reads
+  "publicly available government variety-approval announcements" only.
+- **Cover letter**: conflict-of-interest paragraph reworded to describe Winall's role via its
+  public variety-approval records only, dropping the reference to "publicly disclosed
+  financial and regulatory facts."
+- **Submission checklist, figure captions, tables list**: updated to reflect the Table S1
+  removal/renumbering and the two-panel Fig. 6; checklist items P7 and P11 (Winall
+  negative-fact sourcing and financial-panel imputation labelling) closed as no longer
+  applicable.
+- Not changed: any Non-claim other than #10; any CF1–CF8 conflicting-evidence item; any
+  robustness check (R1–R16); any coefficient, CI, p-value, or n in Sections 5–6; Table 5
+  (Winall channel-choice and positioning results); Table 4 (robustness matrix, including R10's
+  drop-Winall check); the Discussion's treatment of the Ministry's 2022 industry-wide
+  rectification campaign (an industry-policy point, not a Winall-specific fact).
+
+## 4. Review-report index
 
 | Report | Location | Role |
 |---|---|---|
@@ -75,7 +120,7 @@ table numbering, one added pointer sentence, and the new submission-package file
 | Reference check | `manuscript/review/reference_check.md` | Verified 10 format-spec-mandatory references as real but uncited (B4); flagged Table 6 data-provenance gap |
 | Final proof log | `manuscript/review/final_proof_log.md` | Confirmed the v1→v2 diff matches the change log exactly; closed 5 of 5 assigned issues; left word count and figure/table compression open (the latter resolved this session) |
 
-## 4. Approximate git timeline (this repository, session-relevant commits)
+## 5. Approximate git timeline (this repository, session-relevant commits)
 
 Reconstructed from `git log`; exact hashes omitted as unnecessary — see repository history
 for authoritative commit metadata.
@@ -100,6 +145,11 @@ for authoritative commit metadata.
 9. Final proofing pass: LaTeX math rendering fixed in the DOCX/PDF builders; `build_log.md`
    and `final_proof_log.md` completed, confirming the v1→v2 diff matches the change log and
    closing five of five assigned review issues.
-10. **This session**: figure/table compression decision made and executed throughout
-    `manuscript_v2.md` and `figure_table_list.md`; `manuscript.docx`/`manuscript.pdf`
-    rebuilt; full submission package assembled under `submission/`.
+10. Figure/table compression decision made and executed throughout `manuscript_v2.md` and
+    `figure_table_list.md`; `manuscript.docx`/`manuscript.pdf` rebuilt; full submission
+    package assembled under `submission/`.
+11. **This session**: `manuscript_v3.md` produced by author request, removing all discussion
+    of Winall Hi-Tech Seed's financial performance, business strategy, and corporate
+    governance (§7 financial-facts paragraph, Non-claim 10, former Supplementary Table S1,
+    and Fig. 6's former panel (c)); `manuscript.docx`/`manuscript.pdf` rebuilt from
+    `manuscript_v3.md`; submission-package files updated to match.

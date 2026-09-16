@@ -53,5 +53,4 @@ against the CRediT roles that apply; a role may be shared by more than one autho
 ## Ethical approval
 
 Not applicable. This study did not involve human participants or animal experiments; it uses
-only publicly available government variety-approval announcements and publicly disclosed
-company financial filings.
+only publicly available government variety-approval announcements.

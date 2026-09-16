@@ -5,8 +5,10 @@ third-party-assayed grain-quality gap in China's rice variety approvals, 2017–
 
 > Final main-text numbering (5 tables), per `manuscript/figure_table_list.md`. Provided as a
 > standalone file in case the target journal requires tables submitted separately from the
-> manuscript body. Source data files are listed for each; Supplementary Tables S1–S2 are in
-> `submission/supplementary_material.md`.
+> manuscript body. Source data files are listed for each; Supplementary Table S1 is in
+> `submission/supplementary_material.md`. **v3 update (2026-09-16):** the former Supplementary
+> Table S1 (Winall financial panel) was removed and the former Table S2 renumbered to S1; see
+> `manuscript/review/change_log_v2_to_v3.md`.
 
 ---
 

@@ -6,15 +6,22 @@ third-party-assayed grain-quality gap in China's rice variety approvals, 2017–
 > Checked against `plan/04_format_spec.md`. [x] = done by this automated pipeline and
 > verifiable in the files as they stand. [ ] = requires action by the human author team before
 > submission; this pipeline cannot complete these items.
+>
+> **v3 update (2026-09-16):** the manuscript no longer discusses Winall Hi-Tech Seed's
+> financial performance, business strategy, or corporate governance anywhere in the paper, per
+> author request; see `manuscript/review/change_log_v2_to_v3.md`. Checklist items below that
+> referred to that content have been struck through or rewritten accordingly.
 
 ## 1. Article type and structure
 
 - [x] Article type: Research Article.
 - [x] Section order maps onto the official template (Institutional background nested after
       Introduction; Mechanism nested after Results, before Discussion) — see
-      `manuscript/manuscript_v2.md` headings.
-- [ ] **Word count** — current draft is approximately 14,500 words (13,900 excluding
-      References), above the 8,000–10,000-word informal target noted in `04_format_spec.md`
+      `manuscript/manuscript_v3.md` headings.
+- [ ] **Word count** — the v3 draft is approximately 14,100 words (13,600 excluding
+      References; slightly shorter than v2's ~14,500/13,900 after the v2→v3 Winall
+      financial-narrative deletion, see `manuscript/review/change_log_v2_to_v3.md`), still
+      above the 8,000–10,000-word informal target noted in `04_format_spec.md`
       §1 and flagged as still open in `manuscript/review/final_proof_log.md`. **Author
       action required**: either further compress the manuscript or confirm with the
       editorial office (informally, or at submission) that JIA's Research Articles have no
@@ -47,8 +54,10 @@ third-party-assayed grain-quality gap in China's rice variety approvals, 2017–
 - [x] No "fraud/manipulation" language; "measurement discretion" used throughout.
 - [x] Winall section length checked qualitatively against the ≤15%-of-manuscript guideline
       (§7 is one of nine main sections and does not dominate the text).
-- [x] Every positive statement about Winall's quality positioning is paired, in the same or
-      an adjacent paragraph, with its negative financial facts (§7).
+- [x] **(v3)** §7 contains no discussion of Winall's financial performance, business strategy,
+      or corporate governance; it is confined to the trial-channel-choice and within-channel
+      quality-positioning evidence that supports the paper's identification argument (see
+      Non-claim 10, §4.7, and `manuscript/review/change_log_v2_to_v3.md`).
 - [x] No profit/revenue conversion of regression coefficients (§7 explicitly disclaims this).
 - [x] No "ranked by integration depth" framing (§7 explicitly disclaims this).
 - [x] Non-claims subsection present as its own numbered list at the end of §4 (12 items).
@@ -58,10 +67,14 @@ third-party-assayed grain-quality gap in China's rice variety approvals, 2017–
 
 ## 5. Figures and tables
 
-- [x] **Figure/table compression to the 6-figure/5-table target — RESOLVED this session.**
+- [x] **Figure/table compression to the 6-figure/5-table target — RESOLVED in the v2 session.**
       See `manuscript/figure_table_list.md` for the decision (Table 6/7 → Supplementary
       Table S1/S2; old Fig. 6 → Supplementary Fig. S1; old Fig. 7 → Fig. 6). Main text now
       carries exactly Fig. 1–6 and Table 1–5.
+- [x] **(v3)** Former Supplementary Table S1 (Winall financial panel) removed entirely; former
+      Table S2 renumbered to Table S1. Fig. 6 reduced from three panels to two (panel (c),
+      Winall's financial time series, removed). See
+      `manuscript/review/change_log_v2_to_v3.md`.
 - [x] Every in-text figure/table citation checked against the new numbering by exhaustive
       grep; no stale reference to the old Table 6/7 or Fig. 7 numbering remains in the main
       text (one deliberate historical cross-reference in §7 is spelled out explicitly as
@@ -155,11 +168,11 @@ place to track them before final submission.
 | **P4** | Field-by-field agreement rate between a 50-record random sample and the original MARA announcement text | The MARA announcement portal was not reachable from the automated session's network; this is the one step that would upgrade "the source is public MARA announcements" from an assertion to a verified fact — see manuscript §3.4 | High |
 | **P5** | Full text of Gong et al. (2026) | Currently cited at title-level only; needed before attributing any specific figure to it | Medium |
 | **P6** | JIA's actual APC/fee schedule and review-cycle length | Search sources disagreed significantly | Medium (also see item 9 above / P12) |
-| **P7** | Public documentary source for each individual Winall negative fact (fine amount, qualified audit opinion, ST status change, tender-offer stake percentage) | Fine amounts, audit opinions, and equity-stake percentages must each be traceable to a citable public filing before submission, for compliance and libel-avoidance reasons | Medium-high (compliance) |
+| **P7** | ~~Public documentary source for each individual Winall negative fact~~ | **Closed in v3**: the manuscript no longer reports any Winall financial/regulatory fact (fine, audit opinion, ST status, tender offer), so this compliance requirement no longer applies | Closed |
 | **P8** | Manual spot-check of the 30 unlabelled 2018 announcements | Requires a human to read the original announcement text and judge whether "no channel wording" is a documentation-format quirk rather than a genuine channel omission | Medium |
 | **P9** | Whether to submit this paper alone or alongside a companion paper (Proposal A) | If both are submitted around the same time, the cover letter must disclose the companion relationship to avoid a salami-slicing concern; current cover letter does not mention a companion paper | Medium |
-| **P10** | Whether to fall back to Rice Science (dropping the Winall/company-financials strand) if both JIA and CAER reject the paper | Conflicts with the project's own hard constraint to keep the Winall counter-case; only the author team can authorise this trade-off if triggered | Low (only relevant if triggered) |
-| **P11** | Labelling of imputed ("推算"/estimated) vs. directly observed values in `evidence/05_competitor_financials.csv` | Must be visibly distinguished in any published table drawing on this file; Supplementary Table S1 in this package already carries the `value_type_order_grain`/note flags from the source CSV, but the author team should re-verify this distinction is preserved in any further edits | Medium |
+| **P10** | Whether to fall back to Rice Science if both JIA and CAER reject the paper | Only the author team can authorise this trade-off if triggered; the paper's Winall strand is now confined to channel-choice/quality-positioning evidence, not company financials, so this no longer conflicts with the no-financial-narrative constraint | Low (only relevant if triggered) |
+| **P11** | ~~Labelling of imputed vs. directly observed values in the Winall/comparator financial panel~~ | **Closed in v3**: the financial panel (former Supplementary Table S1) has been removed from the submission package entirely | Closed |
 | **P12** | JIA's APC now reported as US$1,800 from 2026, conflicting with earlier "no OA fee" reports | Budget/cost-structure decision only the author team (or their institution) can make | Medium-high |
 
 ## Summary
@@ -168,7 +181,8 @@ place to track them before final submission.
   text is at exactly 6 figures / 5 tables; see `manuscript/figure_table_list.md` for the
   decision record and `submission/supplementary_material.md` for the moved content.
 - **Manuscript rebuild: DONE.** `submission/manuscript.docx` and `submission/manuscript.pdf`
-  regenerated successfully from the renumbered `manuscript/manuscript_v2.md`.
+  regenerated successfully from `manuscript/manuscript_v3.md`, the version with all
+  Winall financial/business content removed (see `manuscript/review/change_log_v2_to_v3.md`).
 - **Everything under "author action required" above is a genuine gap that only the human
   author team, an institutional account, or a live network connection to MARA/the journal's
   own site can close** — none of it was skipped by oversight; each is cross-referenced to the

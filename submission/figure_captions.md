@@ -5,7 +5,9 @@ third-party-assayed grain-quality gap in China's rice variety approvals, 2017–
 
 > Final main-text numbering (6 figures), per `manuscript/figure_table_list.md`. Provided as a
 > standalone file in case the target journal requires captions submitted separately from the
-> figure image files. Source image files are listed for each.
+> figure image files. Source image files are listed for each. **v3 update (2026-09-16):** Fig.
+> 6's former panel (c), reporting Winall's financial performance, has been removed; see the
+> Fig. 6 entry below and `manuscript/review/change_log_v2_to_v3.md`.
 
 ---
 
@@ -36,15 +38,17 @@ yield gain over check, and the top-two quality-grade indicator.
 *Source: `manuscript/figures/fig6_randomization.png` / `.pdf` (original rendered-file name
 retained from the pre-merge working numbering).*
 
-**Fig. 6.** Anhui Winall Hi-Tech Seed Co. mechanism, three panels: (a) Winall's national
+**Fig. 6.** Anhui Winall Hi-Tech Seed Co. mechanism, two panels: (a) Winall's national
 approval share and channel-composition stack over time, alongside comparator applicants; (b)
 forest plot of Winall versus other applicants' trait differences, estimated separately within
-the unified channel and within the new (self-organised) channel; (c) order-grain revenue share
-and R&D-intensity time series, with the 2025 net-loss and 2026 ST (special-treatment) status
-change annotated.
+the unified channel and within the new (self-organised) channel.
 *Source: `manuscript/figures/fig5_winall_mechanism.png` (original rendered-file name
-retained; renumbered from Fig. 7 to Fig. 6 in this submission, see
-`manuscript/figure_table_list.md`).*
+retained; renumbered from Fig. 7 to Fig. 6 in the v2 submission, see
+`manuscript/figure_table_list.md`). In v3, a former third panel (c) — order-grain revenue
+share and R&D-intensity time series, with the 2025 net-loss and 2026 ST status change
+annotated — was removed at author request, since it reported firm-level financial
+performance; the figure now has two panels only (see
+`manuscript/review/change_log_v2_to_v3.md`).*
 
 ---
 

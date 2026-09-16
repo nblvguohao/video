@@ -56,10 +56,11 @@ previously, and is not under consideration for publication elsewhere, in whole o
 any language.
 
 **Conflict of interest.** The authors declare no conflict of interest. This manuscript
-reports publicly disclosed financial and regulatory facts about Anhui Winall Hi-Tech Seed Co.
-(§7) as a counter-case that helps rule out an alternative explanation for our main result; the
-authors have no financial or other relationship with this or any other company discussed in
-the manuscript.
+discusses Anhui Winall Hi-Tech Seed Co. (§7) only through its publicly available
+variety-approval records, as a counter-case that helps rule out an alternative explanation
+for our main result; the manuscript does not evaluate the financial performance or business
+standing of Winall or any other company, and the authors have no financial or other
+relationship with this or any other company discussed in the manuscript.
 
 **Suggested reviewers.** We have no specific reviewer suggestions to offer at this time and
 leave this to the editorial office's discretion.

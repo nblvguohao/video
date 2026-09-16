@@ -3,6 +3,9 @@
 **Reviewer line:** R-B + R-E of `plan/06_v4_review_brief.md`
 **Manuscript under review:** `manuscript/manuscript_v4.md` (660 lines)
 **Comparators:** `manuscript/manuscript_v3.md`, `manuscript/manuscript_v2.md`
+**Also read:** `manuscript/review/v4/VERIFY_entity_rule.md` (coordinating session's independent
+re-run of the §3.1 entity rule), whose open question — does §7 depend on the lineage reading or
+the corporate-applicant reading? — is adjudicated in **R-B.7** below, with my own re-computation.
 **Numeric authority:** `manuscript/review/v4/GROUND_TRUTH.md`, cross-checked directly against
 `manuscript/tables/table3_main_results.csv`, `table7_enterprise_vs_public.csv`,
 `table5_winall_positioning.csv`, `table5b_winall_channel_choice_logit.csv`,
@@ -59,10 +62,25 @@ only remaining job in v2 was to source the deleted table, and — most seriously
 residue surviving in three journal-facing submission files**, including a figure caption that
 still names "the 2025 net-loss and 2026 ST status change."
 
+**Separately (R-B.7), §7 describes lineage-derived records in corporate-agency language.** The
+`winall` indicator is, as §3.1 correctly states, a germplasm-lineage construct. §7's prose is
+uniformly in the corporate-filing register — "its share of national approvals", "where Winall
+applied", "channel choice", "Winall's own entrants", "its varieties". I checked the data: in
+§7's own sample of n = 166, **only 54 records (32.5%) name the firm or a 荃银-branded affiliate
+as applicant**; 37 (22.3%) are named filings by other organisations (江苏中江种业, 中国种子集团,
+湖北省种子集团, 北京金色农华, and — pointedly, in a section rebutting an enterprise-versus-public-
+institute alternative — 中国水稻研究所, 四川农业大学 and 中国农业科学院深圳农业基因组研究所); 75
+(45.2%) have no applicant field at all. **The good news, which I computed and which the paper
+should report: the finding survives and the pooled estimate is conservative** — the
+applicant-confirmed subset uses the unified channel **66.7%** of the time, versus 60.2% pooled
+and 47.5% for the comparison group. So this is a disclosure-and-wording defect, not a broken
+result. But it is a must-fix, because a referee who checks will find that two-thirds of
+"Winall's own entrants" are not Winall's filings.
+
 **Recommendation: Minor revision.** No result needs re-running and no argument needs
 rebuilding. The fixes are surgical: two number corrections, one sentence rewrite, one sentence
-relocation, three provenance notes stripped from submission files, and a short neutralising
-addition to §7.
+relocation, three provenance notes stripped from submission files, a realignment of §7's prose
+to the lineage construct it actually implements, and a short neutralising addition to §7.
 
 ---
 
@@ -317,6 +335,176 @@ Checked and clear:
 One minor heading/content mismatch, pre-existing: §7 is titled "**Mechanism**: Winall Hi-Tech
 Seed as a counter-case" while line 525 states the section is "not evidence of a causal
 mechanism." Suggest retitling to "A counter-case: Winall Hi-Tech Seed".
+
+### R-B.7 — MUST FIX: §7's argument is written in the corporate-applicant register, but the indicator is a germplasm-lineage construct
+
+This addresses the open question in `VERIFY_entity_rule.md` lines 73–75. My determination:
+**§7's argument as written depends on the corporate-applicant reading**, not the lineage
+reading. Not one load-bearing sentence in the section survives translation into lineage terms
+without losing its force.
+
+#### (a) Sentence-by-sentence: every load-bearing sentence ascribes corporate agency
+
+I checked every sentence in §7 (and §1, §4.6) that describes these records. Quoting, with the
+agency-bearing language in bold:
+
+| Line | Sentence | Register |
+|---|---|---|
+| 517 | "If so, the quality gap would reflect ***who* enters through each door**" | applicant — the alternative explanation is itself about applicant identity |
+| 517 | "**its share of national approvals** in the two major indica trial groups rose from 0–12% in 2005–2015 to 23–31% in 2022–2024" | corporate — an ownership share |
+| 517 | "**it is a certified** breeding-production-extension enterprise and a MARA 'strong-advantage' seed company" | corporate — a legal status held by an entity |
+| 517 | "If enterprises are simply the more careless **applicants**, Winall should be **the entrant** that looks most like the new channel" | applicant — the syllogism's major premise |
+| 519 | "Winall-linked records … **used the unified channel** 60.2% of the time" | corporate — "used" ascribes a decision to an agent |
+| 519 | "A logit for **channel choice** … confirms this is not an artefact of **when or where Winall applied**" | corporate — *applied* is a filing act |
+| 519 | "being Winall-linked is associated with roughly half the odds of **entering through a new channel**" | corporate |
+| 519 | "Within the unified channel, **Winall's own entrants** also outperform other unified entrants" | corporate — the strongest ownership phrase in the paper |
+| 519 | "A firm … should retain some of this edge wherever **its varieties** enter" | corporate |
+| 525 | "the comparison is **Winall against *all* other applicants** pooled together" | applicant — the control group is defined by applicant identity |
+| 51 | "the single largest beneficiary of rising **national-approval share** among integrated seed enterprises" | corporate |
+
+The decisive one is line 517: *"If enterprises are simply the more careless **applicants**,
+Winall should be **the entrant** that looks most like the new channel."* That is the major
+premise of the whole counter-case. Under the lineage reading it becomes "if enterprises are
+careless applicants, then varieties descended from 荃-series germplasm should look most like the
+new channel" — a non-sequitur, because a germplasm pool is not an applicant and has no
+channel-choice behaviour. The channel is chosen by whoever files. **The syllogism requires the
+treated group to be the firm's own filings.**
+
+#### (b) What the data actually contains (my independent re-computation)
+
+Reproducing §7's sample from `evidence/data/analysis_rice_channel.pkl` — national (国审)
+approvals, approval years 2017 and 2019–2022 — recovers the manuscript's figures exactly
+(n = 166 firm-linked at 60.2% unified; n = 1,101 others at 47.5%), confirming I am looking at
+the right group. Decomposing that group by whether the applicant string names the firm:
+
+| Subset | n | % of 166 | Unified-channel share |
+|---|---|---|---|
+| **All firm-linked records (the manuscript's group)** | **166** | 100% | **60.2%** |
+| (a) applicant names 荃银 (firm or a 荃银-branded affiliate) | 54 | 32.5% | **66.7%** |
+| (b) applicant does not name 荃银 | 112 | 67.5% | 57.1% |
+| (b1) — applicant field missing/unknown | 75 | 45.2% | 60.0% |
+| (b2) — applicant **named, and it is another organisation** | 37 | 22.3% | 51.4% |
+| Comparison group ("all other applicants") | 1,101 | — | 47.5% |
+
+Reproduction (the whole check is six lines, and the authors should run it before submission):
+
+```python
+import pandas as pd
+d = pd.read_pickle('evidence/data/analysis_rice_channel.pkl')
+s = d[(d.level == '国审') & (d.approval_year.isin([2017, 2019, 2020, 2021, 2022]))]
+w = s[s.winall == True]                      # n = 166, matches §7
+named = w.applicant.astype(str).str.contains('荃银')
+for lbl, g in [('all', w), ('applicant names firm', w[named]), ('does not', w[~named])]:
+    print(lbl, len(g), round((g.channel == 'Unified').mean() * 100, 1))
+```
+
+Subset (a) is generous to the authors: I counted any applicant string containing 荃银, which
+sweeps in 安徽荃银超大种业, 安徽荃银禾丰种业, 四川荃银种业, 湖北荃银高科种业, 广东荃银种业,
+上海中科荃银分子育种 and 安徽荃银农业高科技研究所 as the firm. **32.5% is therefore an upper bound
+on applicant confirmation.** So roughly **two-thirds of the records the manuscript calls
+"Winall's own entrants" are not confirmed as the firm's filings, and 22.3% are positively
+identified as someone else's.**
+
+The named third-party filers in §7's sample are: 江苏中江种业 (5), 中国种子集团 (4), 江西天涯种业
+(3), 安徽喜多收种业 (3), 湖北省种子集团 (2), 北京金色农华 (2), and a tail of singletons including
+**四川农业大学水稻研究所, 四川农业大学, 中国水稻研究所, 中国农业科学院深圳农业基因组研究所,
+江苏丘陵地区镇江农业科学研究所 and 合肥信达高科农业科学研究所**. That last group is a specific,
+pointed problem rather than a general dilution one: §7's entire job is to rebut an
+**enterprise-versus-public-research-institute** alternative, and the treated group — the
+"enterprise" side of that test — contains public research institutes and a national academy
+institute.
+
+A second, related contamination: **17 named organisations appear as applicants in *both* the
+treated and the comparison group, accounting for 100 of the 1,101 comparison-group records
+(9.1%)** — 中国水稻研究所 (14), 北京金色农华 (14), 中国种子集团 (12), 科荟种业 (9), and others. So
+under the applicant reading, "Winall against all other applicants" is not a clean partition:
+the same firms sit on both sides of the comparison.
+
+#### (c) The finding nevertheless survives — and the paper should say so with this number
+
+This is the part the authors will want. The applicant-confirmed subset does **not** weaken the
+result; it strengthens it. Records that genuinely name the firm use the unified channel
+**66.7%** of the time — further from the 47.5% comparison group than the pooled 60.2% — while
+the third-party-filed records (51.4%) sit close to the comparison group and pull the pooled
+estimate toward zero. **The conservative-bias claim at §3.1 line 146 and §7 line 519 therefore
+happens to hold for the treated group as well as for the unrecalled records, but the manuscript
+does not know this and does not argue it.** `VERIFY_entity_rule.md` line 64 is right that "the
+sign of the bias is no longer guaranteed" — it is guaranteed only because I checked, and the
+check is not in the paper.
+
+#### (d) Why the lineage construct is nonetheless the right choice, and what that implies
+
+Two facts make it impossible simply to switch §7 to the applicant reading:
+
+1. **The applicant reading is not computable across the sample.** §3.3 line 219 states the
+   applicant field "is entirely missing for national approvals in 2016, 2017, 2018 and 2021
+   (904 records)." Recomputing the approval-share series under an applicant-only definition
+   returns **0.0% for 2017 and 0.0% for 2021** — two of the five years in §7's own window —
+   purely because the field is absent. This is exactly the structural gap §3.1 line 138 gives as
+   the reason the entity rule exists ("the announcements do not carry a stable applicant
+   identifier … for four approval years the applicant field is absent altogether"). The rule is
+   well motivated; the prose is what is wrong.
+2. **Resolving the 37 third-party filings would require exactly the research the paper has
+   excised.** Deciding whether 江苏中江种业 or 湖北省种子集团 is a group subsidiary, a licensee, or
+   an arm's-length purchaser of germplasm requires corporate-ownership information — precisely
+   what Non-claim 10 (line 413) commits the paper not to introduce ("This paper does not evaluate
+   the overall financial performance, business strategy, or corporate governance of any applicant
+   firm"). The paper cannot tighten the applicant reading without re-entering the territory v3
+   removed.
+
+The resolution therefore runs the other way: **make §7's prose match the lineage construct the
+indicator actually implements.** This is a wording fix, not a re-analysis, and it has a useful
+side effect — it is simultaneously a large part of the de-branding required by **M4**, because
+germplasm-lineage language stops attributing agency, market success and product quality to a
+named corporate entity.
+
+#### (e) One further number this undermines
+
+§7 line 517's "**its share of national approvals** in the two major indica trial groups rose
+from 0–12% in 2005–2015 to 23–31% in 2022–2024" — the evidentiary basis for the "single largest
+beneficiary" superlative — has three problems once the indicator is read correctly:
+
+- It is a **lineage** share, not a corporate approval share, so "its share" is the wrong
+  possessive. Recomputing under the applicant-named reading gives 11.2% / 28.3% / 25.6% for
+  2022–2024, and is undefined for 2017 and 2021.
+- The 2022 value does not reproduce cleanly: on the lineage flag over the two indica trial
+  groups I get 21.3% for 2022 (2023: 32.1%, 2024: 30.8%), against the stated lower bound of 23%.
+  The authors should confirm the exact stratum; I may be using a slightly different denominator.
+- **Two of the three years cited lie outside the paper's own analysis window and inside the
+  period the paper says it cannot trust.** §3.1 line 112 reports the corpus captures 85 of 409
+  announcements for 2023 and 61 of 405 for 2024 — roughly 21% and 15% coverage — and Non-claim 7
+  (line 410) bars approval counts as an outcome for exactly this reason. Using 2023–2024
+  approval shares to crown a named company "the single largest beneficiary" leans on the two
+  worst-covered years in the corpus.
+
+#### Fix
+
+One disclosure paragraph in §3.1 and a wording pass over §7. No re-analysis.
+
+1. **§3.1 (after line 146)** — add: (i) the filter is `applicant_type != 'Unknown'`
+   (n = 1,426), so a replicator can reproduce it; (ii) the precision-1.000 validation target
+   shares the pedigree field with the rule under test, so it is a consistency check rather than
+   an independent gold standard; (iii) the indicator is deliberately lineage-based and roughly
+   two-thirds of firm-linked records do not name the firm as applicant — intended, because the
+   counter-case concerns the firm's germplasm, and because the applicant field is absent for four
+   approval years; (iv) state the treated-group composition alongside the existing
+   false-negative argument, since §3.1 currently argues conservativeness only for unrecalled
+   records.
+2. **§7 line 519** — replace corporate-agency wording with lineage wording throughout:
+   "Winall-linked records **used** the unified channel" → "**entered through** the unified
+   channel"; "when or where **Winall applied**" → "when or where these varieties **were
+   submitted**"; "**Winall's own entrants**" → "**varieties in this lineage**". Retain "channel
+   choice" only if the sentence makes clear the choice is the filing applicant's.
+3. **§7 line 519 or a footnote** — report the decomposition in (b) and the conservativeness
+   result in (c). Three sentences. It converts the section's biggest exposure into a robustness
+   check the authors performed, which is strictly better than a referee performing it.
+4. **§7 line 525** — add a third scope limit: the treated group is defined by germplasm lineage,
+   includes filings by other organisations (some of them public research institutes), and shares
+   applicants with the comparison group, so the contrast is a lineage contrast and not a
+   firm-versus-rivals contrast.
+5. **§7 line 517 and §1 line 51** — drop "its share of national approvals" as a possessive and
+   the "single largest beneficiary" superlative (already required by **M4**), or restrict the
+   series to the 2017–2022 analysis window.
 
 ---
 
@@ -599,14 +787,16 @@ Non-claim 10 is the v3 rewrite (neutral scope statement, not a substituted favou
 characterisation) and has survived v4 unchanged — correct as far as it goes, but see R-B.4 for
 why its *financial-only* scope is now the wrong scope.
 
-**One caveat on the three new numbers.** `0.770`, `1.000` and `1,426` (§3.1 L146, §7 L519) are
-the only numeric additions in v4 that are results rather than bibliography. They are not
-re-derived in this revision — `change_log_v3_to_v4.md` §12 concedes "本次未重跑验证脚本" and
-that if a referee asks, the authors must re-run the labelled-subset validation. A precision of
-exactly **1.000** on a regex-plus-pedigree entity rule is the kind of round number a referee
-will query, and it is now load-bearing for §7's "biased toward zero" claim. Recommend either
-re-running the validation before submission or adding a confidence interval. This is a
-disclosure point, not an invariance violation.
+**One note on the three new numbers.** `0.770`, `1.000` and `1,426` (§3.1 L146, §7 L519) are
+the only numeric additions in v4 that are results rather than bibliography, and
+`change_log_v3_to_v4.md` §12 concedes they were carried from planning documents without
+re-execution ("本次未重跑验证脚本"). The coordinating session has since re-run the validation
+(`VERIFY_entity_rule.md`) and **all three reproduce exactly** — labelled subset n = 1,426,
+TP = 107, FP = 0 → precision 1.0000, FN = 32 → recall 0.7698. I re-derived the labelled subset
+independently and confirm n = 1,426 under `applicant_type != 'Unknown'` (2,386 − 960). **These
+figures are verified; do not treat them as unsupported.** What they need is not re-computation
+but the disclosure described in **R-B.7** — the filter definition, the fact that the validation
+target shares the pedigree field with the rule under test, and the treated-group composition.
 
 ### R-E.7 — Over-claiming on the two non-significant panel coefficients (partially upheld)
 
@@ -668,6 +858,8 @@ honesty.
 | **M4** | §7 is uniformly favourable about a named listed company (6 favourable statements, 0 counterweights; the only named commercial actor in the paper). De-brand the superlatives, neutralise or relocate the within-unified positioning result, and extend Non-claim 10 beyond *financial* evaluation to cover breeding capability, product quality and market standing. | §1, §7, §9, §4.7 NC10 | 51, 517, 519, 565, 413 |
 | **M5** | Financial residue in journal-facing submission files: `submission/figure_captions.md` L55 still names "the 2025 net-loss and 2026 ST status change"; L10, `submission/supplementary_material.md` L13–15 and `submission/tables.md` L11 narrate the removal and disclose that it was "at the author team's request". Strip all removal-provenance notes from files the editor reads; keep the history in the internal change logs only. | submission package | see cells |
 | **M6** | Relocate the Xie et al. (2023) sentence out of the gap between S4 and the "It is not." payoff — it is an orphaned citation (its v2 job was to source the deleted table) sitting across the section's key transition. | §7 | 517 |
+| **M7** | §7 describes a germplasm-lineage indicator in corporate-agency language ("its share of national approvals", "where Winall applied", "Winall's own entrants", "its varieties"). In §7's own n = 166, only 54 records (32.5%) name the firm or a 荃银 affiliate as applicant; 37 (22.3%) are other organisations' filings, including public research institutes; 17 applicants appear in both treated and comparison groups. Rewrite §7 in lineage terms and add the third scope limit. | §1, §7 | 51, 517, 519, 525 |
+| **M8** | Add the §3.1 disclosure paragraph: the `applicant_type != 'Unknown'` filter; the precision-1.000 target shares the pedigree field with the rule under test; ~two-thirds of firm-linked records carry a third-party or missing applicant, which is intended under the lineage construct; and the treated-group composition, since the conservative-bias argument currently covers only false negatives. Report the decomposition and the conservativeness check from R-B.7(b)–(c) — the applicant-confirmed subset is at 66.7% unified vs 60.2% pooled vs 47.5% comparison, so the pooled estimate is conservative. | §3.1, §7 | 146, 519 |
 
 ## Suggested
 
@@ -678,7 +870,7 @@ honesty.
 | S3 | Name the case-selection issue in §7's scope limits: the counter-case is selected on success, so it tests whether the *most successful* enterprise is careless, not whether enterprises are. | §7 | 525 |
 | S4 | Retitle §7 from "Mechanism: …" to "A counter-case: …" — L525 explicitly disclaims a causal mechanism. | §7 | 513 |
 | S5 | R5's "only the top-two quality-grade indicator is borderline (see R7)" reads as a BH statement but refers to the Manski bound; say so. | §6.1 | 469 |
-| S6 | Either re-run the entity-resolution validation or attach an interval to the precision of **1.000** — a round 1.000 on a regex-plus-pedigree rule invites a referee query, and it is load-bearing for §7's "biased toward zero" claim. `change_log_v3_to_v4.md` §12 already records that it was not re-run. | §3.1, §7 | 146, 519 |
+| S6 | The "23–31% in 2022–2024" approval-share range: 2022 comes out at 21.3% on my recomputation (two indica trial groups, lineage flag), and two of the three cited years lie outside the 2017–2022 analysis window in a period where the corpus captures ~21% and ~15% of announcements (§3.1 L112). Confirm the stratum, or restrict the series to 2017–2022. | §7 | 517 |
 | S7 | CF1's Arm-2 bacterial-blight coefficient (−0.562, p = 0.074, n = 82) appears only in Table 3, not in prose — a pre-existing gap already noted in `review/format_check.md` item 16. One sentence in §5.3 closes it. | §5.3 | 437 |
 
 ---
@@ -694,17 +886,27 @@ one-character fixes — but M1 must be fixed because the manuscript body current
 own submitted Table 3 four times, and because the project's own verification note certifies the
 mismatch as "exact", meaning the error will survive any re-check that trusts that note.
 
-On R-B I return a **qualified pass on logic, a fail on ethics**. The counter-case argument holds
-end to end and lost no premise to the excision — I traced all twelve steps and confirmed the
-deleted paragraph was self-declared as orthogonal to the identification argument. But v3's
-stated defence against one-sidedness ("cut the positive material too") balanced only the
-*financial* register, while the praise that actually matters is non-financial, was never in
-scope for the cut, and now stands entirely uncountered in a section about the paper's only named
-commercial actor. Combined with the financial facts still legible in the submission package's own
-figure caption (M5) and the bare "The authors declare no conflict of interest", this is the
-finding most likely to cost the paper an editorial screen. M3–M6 fix it without touching a single
-estimate.
+On R-B I return a **qualified pass on logic, a fail on ethics and on construct description**.
+The counter-case argument holds end to end and lost no premise to the excision — I traced all
+twelve steps and confirmed the deleted paragraph was self-declared as orthogonal to the
+identification argument. But v3's stated defence against one-sidedness ("cut the positive
+material too") balanced only the *financial* register, while the praise that actually matters is
+non-financial, was never in scope for the cut, and now stands entirely uncountered in a section
+about the paper's only named commercial actor. Combined with the financial facts still legible
+in the submission package's own figure caption (M5) and the bare "The authors declare no
+conflict of interest", this is the finding most likely to cost the paper an editorial screen.
 
-No v5 is required on these two lines — a targeted revision of §7 plus five numeric/package edits
-is sufficient. The revision should be re-checked only against the §7 rewrite and the four `0.554`
-sites; the rest of the numeric surface is verified and stable.
+Independently of the excisions, **M7/M8**: §7 argues in the corporate-applicant register over an
+indicator that is, by the paper's own definition, a germplasm-lineage construct — and only about
+a third of the treated records are confirmed as the firm's own filings. The result survives
+(indeed the pooled estimate is conservative: 66.7% unified among applicant-confirmed records
+versus 60.2% pooled and 47.5% comparison), so this costs the paper nothing substantive, but it
+must be disclosed rather than discovered. Conveniently, the fix — rewriting §7 in lineage terms
+— also does much of the de-branding that M4 requires, since lineage language cannot attribute
+market success or product quality to a corporate entity.
+
+M3–M8 fix all of this without touching a single estimate. No v5 is required on these two lines: a
+targeted revision of §7 plus the §3.1 disclosure paragraph, five numeric/package edits, and the
+submission-file cleanup is sufficient. The revision should be re-checked against the §7 rewrite,
+the new §3.1 paragraph, and the four `0.554` sites; the rest of the numeric surface is verified
+and stable.

@@ -18,8 +18,27 @@ import sys
 DEFAULT_LO, DEFAULT_HI = 3000, 4500
 
 
+CJK = r'[\u4e00-\u9fff\u3000-\u303f\uff00-\uffef]'   # 汉字 + 中文标点 + 全角符号
+
+
 def hanzi(s):
     return len(re.findall(r'[一-鿿]', s))
+
+
+def word_count(s):
+    """三种字数口径。作者/编辑说"字数太多"时用的几乎都是第三种（Word 状态栏）。
+
+    返回 (纯汉字, 汉字+中文标点, Word"字数")。
+
+    Word 的算法是：中文字符数（含中文标点）+ 非中文单词数，而**非中文部分按空白切分**——
+    `P2O5` 是 1 个词，`kg/hm2` 是 1 个词，`10200.0` 是 1 个词。用
+    `[A-Za-z]+` 和 `\d+` 分别去数会把 `P2O5` 拆成 4 个 token，在一篇满是化学式和
+    单位的农业论文里能虚高 10% 以上——照那个数去砍会砍过头。
+    """
+    han = len(re.findall(r'[一-鿿]', s))
+    cjk = len(re.findall(CJK, s))
+    latin = [t for t in re.sub(CJK, ' ', s).split() if re.search(r'[A-Za-z0-9]', t)]
+    return han, cjk, cjk + len(latin)
 
 
 def pdf_pages(path):
@@ -61,14 +80,18 @@ def main(argv):
     n_body = hanzi(body)
     n_abs = hanzi(abs_cn)
     n_all = hanzi(md)
+    w_body = word_count(body)
+    w_all = word_count(md)
 
     tables = len(re.findall(r'^\s*表\s*\d+[　\s]', md, re.M))
     figs = len(re.findall(r'^\s*图\s*\d+[　\s]', md, re.M))
     nrefs = len(re.findall(r'^\s*\[\d+\]', md, re.M))
 
-    print(f'正文汉字数        {n_body}')
+    print(f'{"":14}{"纯汉字":>8}{"汉字+标点":>11}{"Word字数":>10}')
+    print(f'{"正文":14}{w_body[0]:>8}{w_body[1]:>11}{w_body[2]:>10}')
+    print(f'{"全文":14}{w_all[0]:>8}{w_all[1]:>11}{w_all[2]:>10}')
     print(f'中文摘要汉字数    {n_abs}')
-    print(f'全文汉字数        {n_all}')
+    print('※ 三种口径可差近一倍。对方说"字数太多"时用的通常是最后一列（Word 状态栏）')
     print(f'表 / 图 / 参考文献 {tables} / {figs} / {nrefs}')
     if pdf_path:
         p = pdf_pages(pdf_path)

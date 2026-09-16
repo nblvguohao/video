@@ -144,18 +144,18 @@ const f2 = v => neg(v.toFixed(2));
 const sup2 = 'hm^{2}';
 const tableBuilders = {
   t1: () => threeLineTable(
-    [[{ t: '处理编号', rs: 2 }, { t: '处理', rs: 2 }, { t: '施肥水平', cs: 3 }, { t: '施肥量/(kg/' + sup2 + ')', cs: 3 }], [{ gap: 2 }, 'N', 'P_{2}O_{5}', 'K_{2}O', 'N', 'P_{2}O_{5}', 'K_{2}O']],
-    rows.map(r => [r.no, `N_{${r.label[1]}}P_{${r.label[3]}}K_{${r.label[5]}}`, r.label[1], r.label[3], r.label[5], f1(r.N), f1(r.P), f1(r.K)]),
-    [1.1, 1.3, 0.8, 0.8, 0.8, 1.2, 1.2, 1.2]),
+    [[{ t: '处理编号', rs: 2 }, { t: '处理', rs: 2 }, { t: '施肥量/(kg/' + sup2 + ')', cs: 3 }], [{ gap: 2 }, 'N', 'P_{2}O_{5}', 'K_{2}O']],
+    rows.map(r => [r.no, `N_{${r.label[1]}}P_{${r.label[3]}}K_{${r.label[5]}}`, f1(r.N), f1(r.P), f1(r.K)]),
+    [1.2, 1.6, 1.5, 1.5, 1.5]),
   t2: () => threeLineTable(
     [['处理', '株高/cm', '穗长/cm', '有效穗数/(万穗/' + sup2 + ')', '每穗总粒数/粒', '每穗实粒数/粒', '结实率/%', '千粒重/g']],
     rows.map(r => [r.no, f1(r.ph), f1(r.pl), f1(r.eff_hm2), f1(r.tot), f1(r.fg), f1(r.sr), f1(r.tgw)]),
     [0.8, 1, 1, 1.4, 1.3, 1.3, 1, 1]),
   t3: () => threeLineTable(
-    [['处理', '施肥组合', '折合产量/(kg/' + sup2 + ')', '增产率/%', '位次', '产值/(元/' + sup2 + ')', '肥料成本/(元/' + sup2 + ')', '扣肥料成本后收益/(元/' + sup2 + ')', '产投比']],
+    [['处理', '施肥组合', '折合产量/(kg/' + sup2 + ')', '增产率/%', '位次', '肥料成本/(元/' + sup2 + ')', '扣肥料成本后收益/(元/' + sup2 + ')', '产投比']],
     rows.map(r => [r.no, `N_{${r.label[1]}}P_{${r.label[3]}}K_{${r.label[5]}}`, f1(r.y_hm2), f1(r.inc_pct), r.rank,
-                   f1(r.value), f1(r.cost), f1(r.net), r.ratio === null ? '—' : f2(r.ratio)]),
-    [0.6, 1.0, 1.25, 0.8, 0.6, 1.15, 1.2, 1.35, 0.8]),
+                   f1(r.cost), f1(r.net), r.ratio === null ? '—' : f2(r.ratio)]),
+    [0.7, 1.2, 1.4, 0.9, 0.7, 1.3, 1.5, 0.9]),
   t4: () => {
     const de = D.deficiency; const full = rows[5].y_hm2;
     const grade = v => v < 50 ? '极低' : v <= 75 ? '低' : v <= 95 ? '中' : '高';
@@ -191,16 +191,16 @@ const tableBuilders = {
     [0.8, 1.2, 1.3, 1.3, 1.5, 1.0]),
 };
 const tableNotesExtra = {
-  t4: '　氮磷钾肥综合贡献率为28.3%［=（全肥区产量－无肥区产量）/全肥区产量×100］。因各单养分贡献率系分别以相应缺素区计算，养分间存在交互作用，三者之和（45.3%）与综合贡献率含义不同，不可相加比较。',
-  t5: '　*{F}、*{P}由4个施肥水平的产量拟合求得，残差自由度仅为1，各回归方程均未达显著水平，方程仅用于描述趋势。典型性检验仅适用于一元二次方程（一次项系数为正、二次项系数为负），线性及线性加平台模型不适用。^{b}由方程外推所得，超出试验设计范围，无实际农学意义，不作为推荐施肥依据。',
+  t4: '　氮磷钾肥综合贡献率为28.3%。因各单养分贡献率系分别以相应缺素区计算，养分间存在交互作用，三者之和与综合贡献率含义不同，不可相加比较。',
+  t5: '　残差自由度仅为1，各回归方程均未达显著水平，方程仅用于描述趋势。典型性检验仅适用于一元二次方程，线性及线性加平台模型不适用。^{b}由方程外推所得，超出试验设计范围，不作为推荐施肥依据。',
 };
 
 // ---------- 正文 ----------
 for (const b of C.body) {
   if (b.type === 'p') body.push(P(b.text));
-  else if (b.type === 'h1') body.push(P(b.text, { font: F_HEI, bold: true, size: SZ.xiaosi, align: AlignmentType.LEFT, indent: {}, spacing: { before: 160, after: 80 }, keepNext: true }));
-  else if (b.type === 'h2') body.push(P(b.text, { font: F_HEI, bold: true, size: SZ.wuhao, align: AlignmentType.LEFT, indent: {}, spacing: { before: 100, after: 40 }, keepNext: true }));
-  else if (b.type === 'h3') body.push(P(b.text, { font: F_HEI, size: SZ.wuhao, align: AlignmentType.LEFT, indent: {}, spacing: { before: 60, after: 20 }, keepNext: true }));
+  else if (b.type === 'h1') body.push(P(b.text, { font: F_HEI, bold: true, size: SZ.xiaosi, align: AlignmentType.LEFT, indent: {}, spacing: { before: 130, after: 60 }, keepNext: true }));
+  else if (b.type === 'h2') body.push(P(b.text, { font: F_HEI, bold: true, size: SZ.wuhao, align: AlignmentType.LEFT, indent: {}, spacing: { before: 80, after: 30 }, keepNext: true }));
+  else if (b.type === 'h3') body.push(P(b.text, { font: F_HEI, size: SZ.wuhao, align: AlignmentType.LEFT, indent: {}, spacing: { before: 45, after: 15 }, keepNext: true }));
   else if (b.type === 'eq') body.push(P(b.text, { align: AlignmentType.CENTER, indent: {}, spacing: { before: 40, after: 40 } }));
   else if (b.type === 'table') {
     const t = C.tables[b.id];
@@ -210,7 +210,7 @@ for (const b of C.body) {
   } else if (b.type === 'figure') {
     const f = C.figures[b.id];
     const img = fs.readFileSync(path.join(__dirname, f.file));
-    const w = 566, h = Math.round(566 * 1464 / 4015);
+    const w = 500, h = Math.round(500 * 1464 / 4015);
     body.push(new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 120, after: 40 }, keepNext: true,
       children: [new ImageRun({ type: 'png', data: img, transformation: { width: w, height: h } })] }));
     body.push(P(f.caption, { font: F_HEI, size: SZ.xiaowu, align: AlignmentType.CENTER, indent: {}, spacing: { after: 160, line: 240 } }));

@@ -63,7 +63,11 @@ def add_line_numbering(section):
     ln.set(qn('w:restart'), 'continuous')
     sectPr.append(ln)
 
-INLINE = re.compile(r'(\*\*.+?\*\*|\*.+?\*|\^.+?\^|~.+?~|`.+?`)')
+# Superscript/subscript spans must not straddle whitespace. The maths renderer leaves
+# literal carets behind (\beta^{3rd} -> "b^(3rd)"), and a greedy `\^.+?\^` would pair the
+# caret of one rendered symbol with the caret of the next, swallowing any **bold** between
+# them and emitting the asterisks as literal text.
+INLINE = re.compile(r'(\*\*.+?\*\*|\*.+?\*|\^[^\s^]+?\^|~[^\s~]+?~|`.+?`)')
 
 def add_runs(par, text, base_size=12):
     parts = INLINE.split(text)

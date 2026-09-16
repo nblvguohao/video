@@ -61,9 +61,22 @@ DOI 不变。**[抽查，两个独立工具：Undermind + WebSearch，结果不�
 
 **✅ Verified — 作者姓氏确认为 Hang（非 Han）**。Undermind `get_paper_info` 取得完整摘要，作者列表明确为 "S. Hang, Qi Wang, Yuan Wang, Haitao Xiang"，11,811 次品种试验、1990–2023、江西 1.42%/yr 等省级数字与 `01_theme_and_innovation.md` 引用一致。**已核实 `01` 文件与 `04_format_spec.md` 中均已正确写为 Hang，无需改动。**
 
-### 10. Gong J, Zhang X, Zhang J, Zeng B, Zhang X, Xu X, … Xie H A. 2026. Three-line hybrid rice in China: sustained improvements in yield, quality, and resistance over fifty years / 五十年持续改良. **Rice Science**. DOI: 10.1016/j.rsci.2026.04.004
+### 10. Gong J Y, Zhang X B, Zhang J F, Zeng B, Zhang X Q, Xu X, Cheng B Y, Hou Y X, Xia J H, Wu J L, Yang S H, Cheng S H, Han B, Xie H A, et al. 2026. Three-line hybrid rice in China: fifty years of sustained improvement in yield, quality, and stress resistance. **Rice Science**, 33. DOI: 10.1016/j.rsci.2026.04.004
 
-**❓ Unverifiable（全文仍未取得，见下方"特别任务"结果）**。DOI、期刊、年份（2026-04-01）、作者列表（含通讯作者 Hua-an Xie）经 Undermind 与 WebSearch 交叉确认一致，**引用本身可用**；但摘要与正文数字本次仍无法独立取得，任何具体数字（品种数、年代趋势幅度）在写入正文前必须继续标注"标题级引用，数字未核"。**注意到一个需要留意的细节**：WebSearch 检索到的标题措辞与本项目文档中的略有出入（见下方特别任务说明），DOI 相同，判断为同一篇文章的标题在不同索引器中的措辞差异，不影响引用有效性。
+**❓ Unverifiable at full-text level（题录已订正并确认）**。
+
+**v5 订正（2026-09-16，协调者独立复核）**：此前本条的标题与作者列表**均有误**，已修正：
+1. **标题**：此前记为 "sustained improvements in yield, quality, and resistance over fifty years"，
+   系转述而非原题。经 WebSearch 命中 ScienceDirect 条目页（`S167263082600048X`）确认，
+   正式标题为 **"Three-Line Hybrid Rice in China: Fifty Years of Sustained Improvement in
+   Yield, Quality, and Stress Resistance"**——注意是 **Stress Resistance**，非 resistance。
+   本文档此前把该差异判为"索引器措辞差异，不影响引用有效性"，**该判断是错的**，已推翻。
+2. **作者列表**：此前的 7 人列表是一个 ≥14 人列表被**静默截断**的结果（原记录中的省略号在
+   转录进正文时丢失）。已补全并加 et al.
+3. **卷号**：补入 Rice Science **vol. 33**。
+
+全文仍不可得（ScienceDirect 与 ricesci.org 出站受限），故正文维持"标题级引用、不引用任何具体
+数字"的处理，此处理本身是恰当的，应予保留。
 
 ### 11. Piepho H-P, Laidig F, Drobek T, Meyer U. 2014. Dissecting genetic and non-genetic sources of long-term yield trend in German official variety trials. **Theoretical and Applied Genetics**, 127, 1009–1018. DOI: 10.1007/s00122-014-2275-1
 
@@ -81,9 +94,12 @@ DOI 不变。**[抽查，两个独立工具：Undermind + WebSearch，结果不�
 
 **✅ Verified**（Undermind `get_paper_info` 取得完整摘要原文，与 `00_decision_log.md` A-7 引用的关键句——对照品种产量本身不稳定、遗传增益估计对长期对照选择极度敏感——逐句核对一致）。
 
-### 15. Piepho H-P, Laidig F. 2024/2025. How many checks are needed per cycle in a plant breeding or variety testing programme? **Plant Breeding**. DOI: 10.1111/pbr.13240
+### 15. Piepho H-P, Laidig F. 2025. How many checks are needed per cycle in a plant breeding or variety testing programme? **Plant Breeding**, 144, 242–248. DOI: 10.1111/pbr.13240
 
-**⚠️ Check suggested — 卷期页两个来源不一致**。Undermind 记为 144(1)(2024)；WebSearch 检索到另一说法为 **vol. 144, pp. 242–248，正式出版年份可能为 2025（在线优先 2024）**。DOI 一致、内容一致（摘要核心句"用对照连接不同年份以评估遗传增益、建议保持较低对照更替率"经 Undermind 核实无误）。**建议投稿前用期刊官网或 CrossRef 直接核对最终印刷卷期页，本报告不下结论**，正文引用暂按 DOI 为准，卷期页标注"in press / 待印刷卷确认"。
+**✅ Verified（v5 订正，此前的 Check suggested 已关闭）**。协调者独立 WebSearch 命中 Wiley
+Online Library 正式条目，确认为 **Plant Breeding, vol. 144, pp. 242–248, 2025**，DOI
+10.1111/pbr.13240。此前记录在 2024 与 2025 之间悬而未决、卷期页标注"待印刷卷确认"，现已定案：
+**年份 2025，卷 144，页 242–248**。正文两处 in-text 引用已同步由 (2024) 改为 (2025)。
 
 ### 16. Shi X, Hu R. 2017. Rice variety improvement and the contribution of foreign germplasms in China. **Journal of Integrative Agriculture**, 16, 2337–2345. DOI: 10.1016/S2095-3119(16)61615-5
 

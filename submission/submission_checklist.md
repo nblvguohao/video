@@ -116,7 +116,8 @@ registrations, 2017–2022"
 
 - [x] Author-date system used throughout; reference list alphabetised; journal names spelled
       out in full.
-- [x] **(v4)** Reference list grew from 21 to 27 entries. The six additions are S&T-information
+- [x] **(v4)** Reference list grew from 18 to 24 entries (and the verification report in
+      `manuscript/references_verified.md` from 21 to 27 records). The six additions are S&T-information
       and information-science sources supporting the new framing — Antons et al. (2020),
       Franceschini et al. (2016), Jaffe and de Rassenfosse (2017), Losiewicz et al. (2000),
       Rammer and Es-Sadki (2023), Shi et al. (2021) — each verified against at least two

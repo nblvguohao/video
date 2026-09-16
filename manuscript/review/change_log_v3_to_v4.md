@@ -3,7 +3,9 @@
 > 日期：2026-09-16｜执行：v4 修订负责人代理
 > 规范输入：`plan/05_sti_reframing_brief.md` 第三节「v4 具体修改规范」（3.1–3.8 逐条执行）
 > 基线：`manuscript/manuscript_v3.md`（14,103 词）
-> 产出：`manuscript/manuscript_v4.md`（15,609 词）
+> 产出：`manuscript/manuscript_v4.md`（15,665 词，`wc -w` 口径；较 v3 净增 1,562 词，
+> 全部来自新增的情报学框架内容——Introduction 新段、§3 流水线导语与三处方法学定位段、
+> §8.4 新节、6 条新文献——同时压缩了 Introduction 制度史段与 §8.1 自我认证段）
 >
 > **本次修订的性质：框架与叙事重心调整，不是结果调整。**
 > 全部统计结果、样本量、系数、置信区间、p 值、稳健性结论、冲突证据（CF1–CF8）、
@@ -241,7 +243,10 @@ intelligible, and we draw on it in that narrower role.」
 
 ### 7.2 参考文献列表
 
-- 总条数：21 → **27**。
+- 参考文献列表条数：**18 → 24**（v3 的列表为 18 条；`references_verified.md` 另核验了
+  Seck 2023、Burris 2025、Rangnekar 2000 三条格式规范「必引」文献，但正文至今无自然引用点，
+  故不在列表内——该未决项沿用 v3 的处理，见 `submission/submission_checklist.md` §6）。
+- `references_verified.md` 核验条数：**21 → 27**。
 - 按姓氏字母顺序插入（Antons 置首；Franceschini 在 Duflo 与 Gong 之间；Jaffe 在 Huang 与 Laidig 之间；
   Losiewicz 在 Laidig 与 Lu 之间；Rammer 在 Raymond 之前；Shi Y 在 Shi X 之后）。
 - 期刊名全称、不用缩写、author-date 体系——全部符合 `plan/04_format_spec.md` §6。

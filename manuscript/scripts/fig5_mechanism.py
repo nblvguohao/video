@@ -15,8 +15,8 @@ plt.rcParams.update({
 df = pd.read_pickle("/home/user/video/evidence/data/analysis_rice_channel.pkl")
 national = df[df.level == "国审"].copy()
 
-fig = plt.figure(figsize=(11, 11))
-gs = fig.add_gridspec(3, 1, height_ratios=[1, 1.1, 1], hspace=0.55)
+fig = plt.figure(figsize=(11, 7.5))
+gs = fig.add_gridspec(2, 1, height_ratios=[1, 1.1], hspace=0.5)
 
 # =====================================================================
 # Panel (a): Winall's national approval share and channel composition, by year
@@ -99,79 +99,7 @@ handles, labels = ax_b.get_legend_handles_labels()
 uniq = dict(zip(labels, handles))
 ax_b.legend(uniq.values(), uniq.keys(), fontsize=7, loc="best", frameon=False)
 
-# =====================================================================
-# Panel (c): order-grain revenue share and R&D intensity over time,
-#            hollow markers = estimated (推算) values; vertical lines = 2025 loss / ST event
-# =====================================================================
-ax_c = fig.add_subplot(gs[2])
-
-og = pd.read_csv("/home/user/video/evidence/04_order_grain_timeseries.csv")
-cp = pd.read_csv("/home/user/video/evidence/company_panel.csv")
-cp_fy = cp[cp.period == "FY"].copy()
-cp_fy["rd_intensity_pct"] = cp_fy["rd_share_of_revenue_pct"]
-# fill R&D intensity from investment/revenue where the direct % field is missing
-mask = cp_fy["rd_intensity_pct"].isna() & cp_fy["rd_investment_yuan"].notna()
-cp_fy.loc[mask, "rd_intensity_pct"] = (cp_fy.loc[mask, "rd_investment_yuan"] /
-                                        cp_fy.loc[mask, "revenue_yuan"] * 100)
-
-def parse_period_to_year(p):
-    # "2015".."2025" -> that year; "2025H1" -> 2025.5 (mid-year); "2025Q1-Q3" -> 2025.75
-    if p.endswith("H1"):
-        return float(p[:-2]) + 0.5
-    if "Q1-Q3" in p:
-        return float(p.split("Q1-Q3")[0]) + 0.75
-    if p.endswith("Q1"):
-        return float(p[:-2]) + 0.15
-    try:
-        return float(p)
-    except ValueError:
-        return np.nan
-
-og["x"] = og["period"].apply(parse_period_to_year)
-og["is_estimated"] = og.apply(
-    lambda r: any("推算" in str(r[c]) for c in
-                  ["order_grain_revenue_100m_yuan", "order_grain_share_pct", "order_grain_gross_margin_pct"]),
-    axis=1)
-og["share_clean"] = og["order_grain_share_pct"].astype(str).str.replace(r"\(推算\)", "", regex=True)
-og["share_clean"] = pd.to_numeric(og["share_clean"], errors="coerce")
-
-obs = og[~og.is_estimated]
-est = og[og.is_estimated]
-ax_c.plot(og.sort_values("x")["x"], og.sort_values("x")["share_clean"], color="#DD8452", linewidth=1, alpha=0.6, zorder=1)
-ax_c.scatter(obs["x"], obs["share_clean"], marker="o", color="#DD8452", s=40,
-             label="Order-grain revenue share (%) — observed", zorder=3)
-ax_c.scatter(est["x"], est["share_clean"], marker="o", facecolors="none", edgecolors="#DD8452",
-             s=60, linewidths=1.5, label="Order-grain revenue share (%) — estimated (imputed)", zorder=3)
-ax_c.set_ylabel("Order-grain revenue\nshare of total revenue (%)", color="#DD8452")
-ax_c.tick_params(axis="y", labelcolor="#DD8452")
-ax_c.set_xlabel("Year")
-
-ax_c2 = ax_c.twinx()
-ax_c2.plot(cp_fy["year"], cp_fy["rd_intensity_pct"], color="#4C72B0", marker="^", markersize=5,
-           linewidth=1.2, label="R&D intensity (% of revenue) — observed")
-ax_c2.set_ylabel("R&D investment\n(% of revenue)", color="#4C72B0")
-ax_c2.tick_params(axis="y", labelcolor="#4C72B0")
-
-ax_c.set_xlim(2014.3, 2027.3)
-
-# annotate 2025 loss and 2026 ST event
-ax_c.axvline(2025, color="red", linestyle=":", linewidth=1.2)
-ax_c.text(2025.15, 8, "2025: net loss\n(-212M CNY,\nturned from profit)",
-          color="red", fontsize=7, va="bottom", ha="left")
-ax_c.axvline(2026.0, color="darkred", linestyle="-.", linewidth=1.2)
-ax_c.text(2026.15, 20, "2026-06: fined &\nrenamed ST Winall",
-          color="darkred", fontsize=7, va="bottom", ha="left")
-
-ax_c.set_title("(c) Order-grain revenue share and R&D intensity, 2015–2025\n"
-                "(hollow markers = estimated/imputed values; vertical lines = 2025 loss and 2026 ST/penalty event)",
-                fontsize=9, loc="left")
-
-h1, l1 = ax_c.get_legend_handles_labels()
-h2, l2 = ax_c2.get_legend_handles_labels()
-ax_c.legend(h1 + h2, l1 + l2, fontsize=7, loc="upper center", frameon=False, ncol=1,
-            bbox_to_anchor=(0.27, 1.02))
-
-fig.suptitle("Figure 5. Winall Hi-tech Seed as a counter-case: channel choice, within-channel trait gap, and financial context\n"
+fig.suptitle("Figure 5. Winall Hi-tech Seed as a counter-case: channel choice and within-channel trait gap\n"
              "Winall enters this paper as a counter-case that rules out an alternative explanation, not as a source of the main result.",
              fontsize=10, y=0.995)
 

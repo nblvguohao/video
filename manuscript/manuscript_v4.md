@@ -50,9 +50,9 @@ This paper makes three contributions.
 
 **Third**, it splits the reform into two treatments that do not overlap in time and shows that pooling them manufactures an average that never occurred: the green channel (2017) and consortium trials (2019–2022) differ in sign on at least one trait (the applicant-measured production-trial yield gain), so estimating them jointly as a single "new channel" would misstate the direction of the underlying gap. Within this design, we use Anhui Winall Hi-Tech Seed Co. — the single largest beneficiary of rising national-approval share among integrated seed enterprises over this period, and a firm the green channel was in principle designed to serve — as a counter-case, not as a source of the main result: it uses the unified trial more, not less, than its peers, which rules out "self-organised entrants are simply weaker firms" as an alternative explanation for the quality gap. This role is deliberately narrow, and the main results do not depend on this firm's records.
 
-This paper's approach — an institutional-economics reading of a Chinese crop-sector regulation, using approval-record text rather than a laboratory or field trial as its evidence base — sits alongside a strand of *Journal of Integrative Agriculture* scholarship on cognate topics: variety-improvement history and germplasm contribution (Shi and Hu, 2017), information asymmetry in farmers' seed-choice behaviour (Qiu et al., 2016), and contract-farming incentive design in Chinese agriculture (Huang et al., 2018). We situate the present paper alongside these three not because they share our method, but because they establish that JIA already publishes exactly this blend of institutional-economics-of-agriculture work on China's seed and farming sectors.
+This paper's approach — a text-mining reading of a Chinese crop-sector regulatory corpus, using approval-record text rather than a laboratory or field trial as its evidence base — sits alongside a strand of *Journal of Integrative Agriculture* scholarship on cognate topics: variety-improvement history and germplasm contribution (Shi and Hu, 2017), information asymmetry in farmers' seed-choice behaviour (Qiu et al., 2016), and contract-farming incentive design in Chinese agriculture (Huang et al., 2018). We situate the present paper alongside these three not because they share our method, but because they establish that JIA already publishes exactly this blend of institutional-economics-of-agriculture work on China's seed and farming sectors.
 
-The remainder of the paper proceeds as follows. Section 2 describes the institutional path from the unified regional trial to the green channel and consortium trials, and the quality-testing regime under NY/T 593. Section 3 describes the data and the construction and validation of the channel variable. Section 4 sets out the empirical strategy and states formally what the paper does and does not claim. Sections 5 and 6 report the main results and their robustness. Section 7 examines Winall Hi-Tech as a counter-case. Section 8 discusses the paper's contribution to the literature on self-certification and its policy implications, and Section 9 concludes.
+The remainder of the paper proceeds as follows. Section 2 describes the institutional path from the unified regional trial to the green channel and consortium trials, and the quality-testing regime under NY/T 593. Section 3 describes the intelligence-extraction pipeline, the data it produces, and the construction and validation of the channel variable. Section 4 sets out the empirical strategy and states formally what the paper does and does not claim. Sections 5 and 6 report the main results and their robustness. Section 7 examines Winall Hi-Tech as a counter-case. Section 8 discusses the paper's implications for S&T intelligence practice, its relation to the self-certification literature, and its policy implications; Section 9 concludes.
 
 ---
 
@@ -72,9 +72,29 @@ We report these five events — the 2014 green channel, the 2016 Measures establ
 
 ---
 
-# 3. Data
+# 3. Data and the intelligence-extraction pipeline
 
-## 3.1 Source and construction of the trial-channel variable
+Because the corpus underlying this paper is an unstructured administrative text collection
+rather than an existing dataset, the Data section doubles as a methods section for the
+extraction itself. We set it out as a six-step S&T intelligence pipeline, and flag each step
+where it occurs below: (i) **intelligence-source identification** — recognising variety-approval
+announcements as a high-density, record-level innovation corpus, and the trial-channel
+statement inside them as an extractable element (§3.1); (ii) **corpus acquisition** — obtaining
+the announcement text and documenting its two-step provenance (§3.1); (iii) **field extraction**
+— a regular-expression rule set that converts each announcement's running prose into typed
+fields (§3.1); (iv) **entity recognition and disambiguation** — resolving applicant and variety
+identity across announcements that name the same actor inconsistently, with a reported
+precision and recall against a labelled subset (§3.1); (v) **field-coverage and data-quality
+assessment** — per-field parse rates, missingness by arm, structural gaps in the source, and the
+outstanding cross-check against the primary announcements (§3.3–§3.4); and (vi) **indicator
+construction** — assembling the parsed fields into the 17 analysis variables, each labelled by
+its measuring party, and defining the strata over which they are compared (§3.2–§3.3). Steps
+(i)–(iv) are what a reader wanting to reproduce the corpus needs; step (v) is what a reader
+wanting to judge how far to trust any individual field needs, and we report it at field level
+rather than as a single corpus-wide quality statement, for reasons the paper's main result
+makes concrete.
+
+## 3.1 Intelligence source, corpus acquisition, field extraction and entity resolution (steps i–iv)
 
 The record-level unit of analysis in this paper is a *variety × ecological trial group*
 approval entry. The underlying corpus is a parsed compilation of China's national and

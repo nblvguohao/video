@@ -52,8 +52,14 @@ the HHI need not bracket the point estimate.
 
 ---
 
-## Supplementary figure (for reference; full caption in `supplementary_material.md`)
+## Supplementary figures (for reference; full captions in `supplementary_material.md`)
 
 **Supplementary Fig. S1.** Missingness-balance dumbbell plot: non-missing rate by arm for all
 17 outcomes, imbalanced variables (≥8 percentage points) flagged.
 *Source: `manuscript/figures/fig7_missingness_balance.png` / `.pdf`.*
+
+**Supplementary Fig. S4.** The six-step S&T intelligence-extraction pipeline (schematic of the
+§3 methods narrative), colour-grouped into reproducing the corpus (i–iv), judging field
+trustworthiness (v), and building analysis-ready indicators (vi).
+*Source: `manuscript/figures/figS4_intelligence_pipeline.png` / `.pdf`; editable native-shape
+version at `submission/figures_editable/figS4_intelligence_pipeline.pptx`.*

@@ -49,6 +49,26 @@ the figure restates visually what the reader already has in numbers.
 
 ---
 
+## Supplementary Fig. S4
+
+**Caption:** The paper's six-step S&T intelligence-extraction pipeline, schematically
+summarising the methods narrative of §3. Steps are colour-grouped into three phases: steps
+(i)–(iv), reproducing the corpus (intelligence-source identification, corpus acquisition,
+field extraction, entity recognition and disambiguation); step (v), judging field
+trustworthiness (field-coverage and data-quality assessment); and step (vi), building
+analysis-ready indicators (assembling parsed fields into the 17 outcome variables labelled by
+measuring party, across Arm 1 and Arm 2). Each step's box also reports its key verification
+statistic (extraction/resolution rate, coverage, or count) as stated in §3.1–3.3.
+*Source: `manuscript/figures/figS4_intelligence_pipeline.png` / `.pdf`. An editable version
+built from native, individually-editable shapes (not a picture) is provided at
+`submission/figures_editable/figS4_intelligence_pipeline.pptx`.*
+
+**Reason for placement in Supplementary Material:** it is a visual schematic of prose already
+given in full in §3, added as a reader aid rather than a new empirical result, so it does not
+count against the main text's 6-figure target.
+
+---
+
 ## Note on Supplementary Fig. S2 and Fig. S3
 
 Two further figures are provided for completeness:

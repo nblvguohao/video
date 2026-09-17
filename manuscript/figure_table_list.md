@@ -42,11 +42,13 @@ percentile bootstrap interval for the HHI need not bracket the point estimate.
 | Fig. S1 | Missingness-balance dumbbell plot, non-missing rate by arm for all 17 outcomes | `figures/fig7_missingness_balance.png` / `.pdf` | Content also in Table 2 and §6.1–6.2 |
 | Fig. S2 | Manski worst-case bounds for the three unbalanced-missingness outcomes | not yet rendered | Not cited by number; values in §6.2 prose |
 | Fig. S3 | Chained-check genetic-gain ladder (R15) with CV band | not yet rendered | Not cited by number; see Note S1 |
+| Fig. S4 | **Six-step S&T intelligence-extraction pipeline** (schematic of §3's methods narrative), colour-grouped into reproducing the corpus (i–iv), judging field trustworthiness (v), and building analysis-ready indicators (vi) | `figures/figS4_intelligence_pipeline.png` / `.pdf`; editable native-shape version at `submission/figures_editable/figS4_intelligence_pipeline.pptx` | Cited by number in §3; a visual complement to the prose pipeline description, not a new empirical result |
 | Note S1 | **Chained-check genetic-gain scale (R15): construction and full diagnostics** | moved from main §6.5 in v5 | §6.5 retains the verdict and four headline diagnostics |
 
 Fig. S2 and Fig. S3 remain unrendered. Neither is cited by number in the main text, so this
 does not block submission, but both should be rendered before final upload if the journal
-requires every named Supplementary figure as an image file.
+requires every named Supplementary figure as an image file. Fig. S4 (added in this
+proofreading pass) is rendered and cited by number in §3.
 
 ## Verification note (v5)
 

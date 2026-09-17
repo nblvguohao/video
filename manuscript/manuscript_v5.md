@@ -70,7 +70,8 @@ These five events — the 2014 green channel, the 2016 Measures, the 2021 revisi
 
 Because the corpus is an unstructured administrative text collection, this section doubles
 as a methods section for the extraction itself, set out as a six-step S&T intelligence
-pipeline: (i) **intelligence-source identification** — recognising approval announcements as
+pipeline (summarised schematically in Supplementary Fig. S4): (i) **intelligence-source
+identification** — recognising approval announcements as
 a high-density innovation corpus and the trial-channel statement as extractable (§3.1);
 (ii) **corpus acquisition**, documenting its two-step provenance (§3.1); (iii) **field
 extraction**, a regex rule set converting prose into typed fields (§3.1); (iv) **entity

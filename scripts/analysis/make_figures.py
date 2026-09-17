@@ -14,8 +14,10 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import statsmodels.formula.api as smf
+from plot_style import apply as apply_style
 
 warnings.filterwarnings("ignore")
+apply_style()
 
 DATA_PATH = "/home/user/video/evidence/data/analysis_rice_channel.pkl"
 TABLE3_PATH = "/home/user/video/manuscript/tables/table3_main_results.csv"
@@ -61,6 +63,9 @@ def fig2_forest():
 
     for ax, arm in zip(axes, ["Arm1_Consortium_vs_Unified", "Arm2_Green_vs_Unified"]):
         sub = t3[t3.arm == arm].set_index("outcome")
+        for i, outcome in enumerate(OUTCOME_ORDER):
+            if i % 2 == 0:
+                ax.axhspan(i - 0.5, i + 0.5, color="#9a9aa5", alpha=0.07, zorder=0, lw=0)
         for outcome in OUTCOME_ORDER:
             if outcome not in sub.index:
                 continue
@@ -71,12 +76,15 @@ def fig2_forest():
                 ax.text(0, y, "not estimable", va="center", ha="center", fontsize=7,
                         color="gray", style="italic")
                 continue
+            sig = row.get("p", 1.0) is not None and not pd.isna(row.get("p", None)) and row.get("p", 1.0) < 0.05
             ax.errorbar(row.beta, y, xerr=[[row.beta - row.ci_low], [row.ci_high - row.beta]],
-                        fmt="o", color=color, ecolor=color, capsize=3, markersize=5)
-        ax.axvline(0, color="black", lw=0.8, ls="--")
-        ax.set_title(arm_titles[arm], fontsize=10)
+                        fmt="o", color=color, ecolor=color, capsize=3.5, markersize=7 if sig else 5.5,
+                        markeredgecolor="white", markeredgewidth=0.8, elinewidth=1.6, zorder=3)
+        ax.axvline(0, color="#2a2a33", lw=1.0, ls="--", zorder=1)
+        ax.set_title(arm_titles[arm], fontsize=10.5, fontweight="bold")
         ax.set_xlabel(r"$\beta$ (95% CI)")
-        ax.grid(axis="x", alpha=0.3)
+        ax.grid(axis="x", alpha=0.5)
+        ax.grid(axis="y", alpha=0)
 
     axes[0].set_yticks(list(y_positions.values()))
     axes[0].set_yticklabels([OUTCOME_LABELS[o] for o in reversed(OUTCOME_ORDER)], fontsize=8)

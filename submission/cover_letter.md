@@ -80,6 +80,18 @@ Ministry's own 2022 rectification notice already took, not as a claim that regul
 unaware of the pattern our data show, and we would be glad to make this framing more explicit
 in the manuscript if the editorial office considers it necessary.
 
+**Why a 2017–2022 window at the time of this submission.** The empirical window ends in 2022
+not by choice but by data availability: the third-party compilation underlying this study
+has thin coverage from 2023 onward (85 of 409 announcements captured for 2023, 61 of 405 for
+2024, 2 for 2025 — §3.1, §3.4), so any extension of the window would trade a documented,
+verifiable sample for one too sparse to support the same identification strategy. This
+constraint gives the paper's window a specific value rather than only a limitation: 2017–2022
+is exactly the run-up period, including the last pre-rectification years, that a future study
+evaluating the Ministry's 2022 intervention will need as its baseline, and our record-level
+channel variable is, to our knowledge, the first to make that baseline measurable at all. We
+return to this in §8.5 (Limitation 5) and would welcome the editorial office's guidance on
+whether an explicit "data currency" note elsewhere in the manuscript would be useful.
+
 **Originality and prior submission.** This manuscript is original, has not been published
 previously, and is not under consideration for publication elsewhere, in whole or in part, in
 any language.

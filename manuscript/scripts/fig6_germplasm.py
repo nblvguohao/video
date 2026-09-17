@@ -7,11 +7,17 @@ Fig. 6 — germplasm concentration by trial channel, two panels.
 Replaces the former firm-level mechanism figure.
 """
 import re
+import sys
+import os
 import numpy as np
 import pandas as pd
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'scripts', 'analysis'))
+from plot_style import apply as apply_style, COLOR_UNIFIED, COLOR_CONSORTIUM, COLOR_GREEN
+
+apply_style()
 
 RNG = np.random.default_rng(20260916)
 B = 10000
@@ -57,7 +63,7 @@ n = n[n.trial_group.isin(INDICA) & n.mother.notna()]
 
 ARMS = [('Arm 1 (2019–2022)', 'Consortium', list(range(2019, 2023))),
         ('Arm 2 (2017)', 'Green', [2017])]
-COL = {'Unified': '#4C72B0', 'Consortium': '#DD8452', 'Green': '#C44E52'}
+COL = {'Unified': COLOR_UNIFIED, 'Consortium': COLOR_CONSORTIUM, 'Green': COLOR_GREEN}
 
 fig, axes = plt.subplots(1, 2, figsize=(11, 4.4))
 
@@ -111,6 +117,8 @@ ax.set_ylabel('sterile-line HHI (95% bootstrap CI)')
 ax.set_title('(b) Concentration with uncertainty', fontsize=10, loc='left')
 ax.grid(alpha=.25, axis='y')
 
+fig.suptitle('Fig. 6. Germplasm concentration across resolved parental lines, by trial channel',
+             fontsize=12, fontweight='bold', y=1.04)
 fig.tight_layout()
 for ext in ('png', 'pdf'):
     fig.savefig(f'{OUT}.{ext}', dpi=300, bbox_inches='tight')

@@ -149,7 +149,7 @@ point estimates in main text §6. First cited in §6.7.
 | R4 | 2018 unlabelled records coded Unified vs. excluded | Numerically identical — immaterial |
 | R5 | Benjamini–Hochberg FDR across 17 outcomes | 9/17 retain q<0.05, including all 6 headline coefficients |
 | R6 | Randomisation inference (500 permutations) | Head-rice, chalkiness, yield gain in extreme tail (RI p=0.002 each) |
-| R7 | Manski worst-case bounds (4 unbalanced-missingness outcomes) | Head-rice, chalkiness sign-stable; top-two grade crosses zero — downgraded to secondary |
+| R7 | Manski worst-case bounds (3 unbalanced-missingness outcomes) | Head-rice, chalkiness sign-stable; top-two grade crosses zero — downgraded to secondary |
 | R8 | Missingness balance (Supplementary Fig. S1) | Most outcomes balanced within ~2pp; 3 exceptions motivate R7 |
 | R9 | Within-applicant subsample (10 applicants, 51 records) | Underpowered (MDE exceeds main coefficient on every outcome); not informative either way |
 | R10 | Drop the dominant sterile-line family (荃9311A, 65 of 878 records) | Headline result intact: head-rice −1.368pp (p=0.006), chalkiness +0.940pp (p=0.034), stated grade −0.104 (p=0.011) |

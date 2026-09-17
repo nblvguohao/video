@@ -19,7 +19,7 @@ warnings.filterwarnings("ignore")
 
 DATA_PATH = "/home/user/video/evidence/data/analysis_rice_channel.pkl"
 TABLE3_PATH = "/home/user/video/manuscript/tables/table3_main_results.csv"
-FIG_DIR = "/home/user/video/figures"
+FIG_DIR = "/home/user/video/manuscript/figures"
 TRIAL_GROUPS = ["长江中下游中籼迟熟", "长江上游中籼迟熟"]
 
 OUTCOME_LABELS = {
@@ -141,7 +141,7 @@ def fig6_randomization():
         ax.set_title(label, fontsize=10)
         ax.legend(fontsize=8, loc="upper left" if obs < 0 else "upper right")
         ax.set_xlabel(r"permuted $\beta$ (within-cell reshuffle, x500)")
-    fig.suptitle("Fig. 6. Randomization inference: null distribution vs observed coefficient\n"
+    fig.suptitle("Fig. 5. Randomization inference: null distribution vs observed coefficient\n"
                   "(Arm 1, Consortium vs Unified, channel label permuted within cell)", fontsize=10)
     fig.tight_layout(rect=[0, 0, 1, 0.94])
     fig.savefig(f"{FIG_DIR}/fig6_randomization.png", dpi=300, bbox_inches="tight")
@@ -186,7 +186,7 @@ def fig7_missingness():
     ax.set_xlim(0, 105)
     ax.grid(axis="x", alpha=0.3)
     ax.legend(loc="lower right", fontsize=9)
-    ax.set_title("Fig. 7. Missingness balance across arms (Arm 1, 2019-2022)\n"
+    ax.set_title("Supplementary Fig. S1. Missingness balance across arms (Arm 1, 2019-2022)\n"
                  "orange line = imbalance >= 8pp (flagged in Robustness / Manski bounds)", fontsize=10)
     fig.tight_layout()
     fig.savefig(f"{FIG_DIR}/fig7_missingness_balance.png", dpi=300, bbox_inches="tight")

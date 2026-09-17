@@ -132,7 +132,16 @@ def build(md_path, out_path, paper='a4', margin=56, line_numbers=False):
     doc.save(out_path, incremental=True, encryption=pymupdf.PDF_ENCRYPT_KEEP)
     if line_numbers:
         add_line_numbers(out_path, mediabox, margin)
-    print('wrote', out_path, 'pages', pages)
+    # pymupdf.Story embeds <img> content as fully uncompressed raster streams (no Flate/DCT
+    # filter at all) - harmless in page count but inflates file size by ~50-60x for a
+    # figure-heavy manuscript. A final non-incremental save with deflate_images recompresses
+    # every image stream losslessly; garbage=4 also drops the now-orphaned incremental-update
+    # history from the two passes above.
+    doc = pymupdf.open(out_path)
+    doc.save(out_path + '.tmp', deflate=True, deflate_images=True, garbage=4)
+    doc.close()
+    os.replace(out_path + '.tmp', out_path)
+    print('wrote', out_path, 'pages', pages, f'({os.path.getsize(out_path) / 1e6:.1f} MB)')
 
 if __name__ == '__main__':
     a = [x for x in sys.argv[1:] if not x.startswith('--')]

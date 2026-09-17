@@ -26,9 +26,9 @@ applicants are just weaker breeders, and is the paper's central identification a
 **Methodological contribution to S&T information analysis.** The paper is equally a
 contribution to the analysis of scientific and technological information, and we would ask
 the editorial office to read it in that light as well. Crop variety approval announcements
-are a long-public but structurally unexploited intelligence source: they are issued as
-running prose and have therefore stayed outside an innovation-indicator toolkit still built
-mainly on patents, publications and, more recently, firm web data. We set out the full
+are a long-public source that no prior study has extracted at the record level we use here:
+they are issued as running prose, and the innovation-indicator toolkit is still built mainly
+on patents, publications and, more recently, firm web data rather than the regulatory record. We set out the full
 extraction pipeline — source identification, corpus acquisition, rule-based field
 extraction, entity recognition and disambiguation (with a reported resolution rate and a
 per-channel coverage check),
@@ -43,22 +43,25 @@ same diagnostic applies wherever applicant-supplied dossier material and indepen
 results are bound into one approval record — drug approval, medical-device registration, and
 patent examination — which we set out in §8.4.
 
-**Fit with the journal's scope.** This paper reads a Chinese crop-sector regulatory corpus by
-text mining, using approval-record text as its evidence base rather than a laboratory or
-field trial, and it addresses two *JIA* audiences at once: readers working on seed-sector
-institutions and rice quality, and readers building quantitative indicators of agricultural
-technology from official records. We believe it sits well within *JIA*'s established interest
-in this blend of institutional and seed-economics scholarship on China's agricultural sector.
-Specifically, we draw on and extend three lines of *JIA* scholarship: variety-improvement
-history and germplasm contribution in Chinese rice breeding (Shi and Hu, 2017); information
-asymmetry in Chinese farmers' seed-choice behaviour, which our paper's "who measures what"
-question extends one stage upstream from the farmer's purchase decision to the regulator's
-approval decision (Qiu et al., 2016); and incentive design in Chinese contract farming and
-agricultural institutions more broadly (Huang et al., 2018). We situate our paper alongside
-these three not because they share our specific method, but because they establish that
-*JIA* already publishes exactly this kind of institutional-economics-of-agriculture work on
-China's seed and farming sectors, which is why we believe this journal, rather than a purely
-agronomic or a purely economics venue, is the right home for this paper.
+**Fit with the journal's scope.** We are submitting to the Agricultural Economics and
+Management section specifically, whose stated scope includes "agricultural science and
+technology economy and policy" alongside food economy/agricultural policy and agricultural
+green development and policy. This paper is a direct instance of that first theme: it studies
+the institutional design of China's variety-approval trial system — who is authorised to
+measure a candidate technology's performance, and with what consequence for what reaches the
+market — using text-mined administrative records rather than a laboratory or field trial as
+its evidence base. It also addresses a second *JIA* audience: readers building quantitative
+indicators of agricultural technology from official records rather than from patents or
+publications. Specifically, we draw on and extend three lines of *JIA* scholarship:
+variety-improvement history and germplasm contribution in Chinese rice breeding (Shi and Hu,
+2017); information asymmetry in Chinese farmers' seed-choice behaviour, which our paper's
+"who measures what" question extends one stage upstream from the farmer's purchase decision
+to the regulator's approval decision (Qiu et al., 2016); and incentive design in Chinese
+contract farming and agricultural institutions more broadly (Huang et al., 2018). We situate
+our paper alongside these three, and within the section's own named theme, because together
+they establish that this is exactly the kind of agricultural science-and-technology-policy
+work *JIA* already publishes, rather than a submission better suited to a purely agronomic or
+a purely economics venue.
 
 **Alignment with current regulatory direction.** We note, in the interest of full
 transparency with the editorial office, that this paper's findings are consistent with the

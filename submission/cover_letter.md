@@ -2,9 +2,8 @@
 
 Dear Editor,
 
-We are pleased to submit our manuscript, "Rice variety approval records as an innovation indicator source: trial channel,
-third-party-assayed grain quality, and who measures what enters the market in China,
-2017–2022," for consideration as a Research
+We are pleased to submit our manuscript, "Who measures what enters the market? Trial channel and third-party-assayed grain quality in China's rice variety approvals, 2017–2022,"
+for consideration as a Research
 Article in the Agricultural Economics and Management section of the *Journal of Integrative
 Agriculture*.
 
@@ -23,25 +22,29 @@ measured by an independent third party deteriorates while performance measured b
 applicant does not — is inconsistent with a simple story that self-organised-channel
 applicants are just weaker breeders, and is the paper's central identification argument.
 
-**Methodological contribution to S&T information analysis.** The paper is equally a
-contribution to the analysis of scientific and technological information, and we would ask
-the editorial office to read it in that light as well. Crop variety approval announcements
-are a long-public source that no prior study has extracted at the record level we use here:
-they are issued as running prose, and the innovation-indicator toolkit is still built mainly
-on patents, publications and, more recently, firm web data rather than the regulatory record. We set out the full
-extraction pipeline — source identification, corpus acquisition, rule-based field
-extraction, entity recognition and disambiguation (with a reported resolution rate and a
-per-channel coverage check),
-field-coverage and data-quality assessment, and indicator construction — and produce a
-record-level system of 2,386 national approval records across 17 measured fields, each field
-labelled by the party that measured it. That labelling is what yields the paper's most
-portable finding: within a single official document, issued by one authority on one date,
-the evidential strength of different fields was *not* the same, and what predicted the
-difference was who performed the measurement. Standard data-quality assessment in this
-domain is source-level; our result argues it should be stratified by measuring party. The
-same diagnostic applies wherever applicant-supplied dossier material and independent assay
-results are bound into one approval record — drug approval, medical-device registration, and
-patent examination — which we set out in §8.4.
+**How the data were built, and why that matters for the policy conclusion.** Crop
+variety approval announcements are a long-public source that no prior study has extracted at
+the record level we use here: they are issued as running prose, so we set out the full
+extraction pipeline in §3 — source identification, corpus acquisition, rule-based field
+extraction, entity recognition and disambiguation, field-coverage and data-quality
+assessment, and indicator construction — producing a record-level system of 2,386 national
+approval records across 17 measured fields, each labelled by the party that measured it. That
+labelling is what makes the policy argument possible, not a separate contribution alongside
+it: within a single official document, issued by one authority on one date, the evidential
+strength of different fields was not the same, and what predicted the difference was who
+performed the measurement (§4.5, §8.1). §8.4 notes briefly that the same diagnostic applies
+wherever applicant-supplied material and independent assay results are bound into one
+official record — drug approval, medical-device registration, patent examination — but this
+is offered as a methodological aside supporting the paper's agricultural-policy conclusion
+(§8.3), not as a second, independent claim on the section's scope.
+
+**A note on manuscript structure.** Because this is a survey/administrative-data paper
+rather than a laboratory- or field-trial paper, we have organised what would conventionally
+be a single "Materials and methods" section into three sections that we believe serve a
+reader better for this kind of study: institutional background (§2), data and the
+extraction pipeline (§3), and empirical strategy (§4). Together these three sections
+constitute the paper's materials and methods; we are glad to relabel them under a single
+heading if the editorial office's production process expects it.
 
 **Fit with the journal's scope.** We are submitting to the Agricultural Economics and
 Management section specifically, whose stated scope includes "agricultural science and

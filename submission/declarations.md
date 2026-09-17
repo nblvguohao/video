@@ -1,6 +1,6 @@
 # Declarations
 
-**Manuscript:** "Rice variety approval records as an innovation indicator source: trial channel, third-party-assayed grain quality, and who measures what enters the market in China, 2017–2022"
+**Manuscript:** "Who measures what enters the market? Trial channel and third-party-assayed grain quality in China's rice variety approvals, 2017–2022"
 
 > Reproduced from the manuscript's own declarations block as a standalone file for submission
 > convenience. Placeholders marked "[Author to complete]" must be filled in by the author team
@@ -23,8 +23,7 @@ The authors declare no conflict of interest.
 ## Data availability statement
 
 The variety-approval text corpus underlying this study was compiled from publicly available
-Ministry of Agriculture and Rural Affairs announcements via a third-party aggregation (see
-Methods). Parsing scripts, the field dictionary, and the list of approval-record identifiers
+Ministry of Agriculture and Rural Affairs announcements via a third-party aggregation (§3). Parsing scripts, the field dictionary, and the list of approval-record identifiers
 used in the analysis are available at [repository link]. Due to the unresolved licensing
 status of the upstream aggregation, the full parsed dataset is not redistributed; researchers
 can reconstruct it from the cited public announcements using the provided scripts.

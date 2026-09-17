@@ -1,6 +1,6 @@
 # Tables
 
-**Manuscript:** "Rice variety approval records as an innovation indicator source: trial channel, third-party-assayed grain quality, and who measures what enters the market in China, 2017–2022"
+**Manuscript:** "Who measures what enters the market? Trial channel and third-party-assayed grain quality in China's rice variety approvals, 2017–2022"
 
 > Final main-text numbering (5 tables), per `manuscript/figure_table_list.md`. Provided as a
 > standalone file in case the target journal requires tables submitted separately from the

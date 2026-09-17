@@ -1,8 +1,6 @@
 # Highlights
 
-**Manuscript:** "Rice variety approval records as an innovation indicator source: trial channel,
-third-party-assayed grain quality, and who measures what enters the market in China,
-2017–2022"
+**Manuscript:** "Who measures what enters the market? Trial channel and third-party-assayed grain quality in China's rice variety approvals, 2017–2022"
 
 > 5 bullets, each ≤85 characters including spaces, per `plan/04_format_spec.md` §3.
 > Copied verbatim from the Highlights block of `manuscript/manuscript_v5.md` (character

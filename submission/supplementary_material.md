@@ -54,7 +54,7 @@ the figure restates visually what the reader already has in numbers.
 Two further figures are provided for completeness:
 
 - **Fig. S2** — Manski worst-case bounds: observed / best-case / worst-case interval bars for
-  the four unbalanced-missingness outcomes. Not yet rendered as an image file; the underlying
+  the three unbalanced-missingness outcomes. Not yet rendered as an image file; the underlying
   bound values are reported in main text §6.2 (R7) in prose.
 - **Fig. S3** — Chained-check genetic-gain ladder (R15): back-solved check-variety yield
   ladder across years with a coefficient-of-variation uncertainty band. Not yet rendered; the

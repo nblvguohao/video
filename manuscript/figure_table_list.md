@@ -40,7 +40,7 @@ percentile bootstrap interval for the HHI need not bracket the point estimate.
 |---|---|---|---|
 | Table S1 | Descriptive trait division of labour, enterprise vs public research institution (n = 408–411) | `tables/table7_enterprise_vs_public.csv` | Descriptive only; neither quality coefficient is significant |
 | Fig. S1 | Missingness-balance dumbbell plot, non-missing rate by arm for all 17 outcomes | `figures/fig7_missingness_balance.png` / `.pdf` | Content also in Table 2 and §6.1–6.2 |
-| Fig. S2 | Manski worst-case bounds for the four unbalanced-missingness outcomes | not yet rendered | Not cited by number; values in §6.2 prose |
+| Fig. S2 | Manski worst-case bounds for the three unbalanced-missingness outcomes | not yet rendered | Not cited by number; values in §6.2 prose |
 | Fig. S3 | Chained-check genetic-gain ladder (R15) with CV band | not yet rendered | Not cited by number; see Note S1 |
 | Note S1 | **Chained-check genetic-gain scale (R15): construction and full diagnostics** | moved from main §6.5 in v5 | §6.5 retains the verdict and four headline diagnostics |
 

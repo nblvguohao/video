@@ -221,3 +221,82 @@ Online Library 正式条目，确认为 **Plant Breeding, vol. 144, pp. 242–24
   本次未下载阅读）；因此正文对这 6 条的引用一律限于**其摘要与题名所明确支持的一般性论断**
   （如「文本挖掘主要建立在专利与论文语料上」「Scopus/WoS 存在系统性著录错误」），
   **不引用任何具体数字**。此限制与 Gong et al. 2026 的「标题级引用」处理属同一谨慎口径。
+
+---
+
+## 2026-09-17 补充核验：修复 Shi&Hu17 / Huang18 遗漏 + 扩充 9 条近年文献
+
+> 背景：投稿信（cover letter）一直声称正文"draws on and extend three lines of JIA
+> scholarship"（Shi and Hu, 2017；Qiu et al., 2016；Huang et al., 2018），但校对时发现
+> v5 正文和参考文献列表里只有 Qiu et al. 2016，另外两条在某次压缩改稿中被删掉、投稿信的
+> 措辞却没跟着改——这正是版本迭代遗留的数据/文本不一致问题。上文第 16、18 条早就核实过
+> 这两篇文献真实存在（Undermind + WebSearch 双工具一致），本次直接按已核实的著录信息把
+> 两条引用和参考文献条目补回正文（§7、§8.1），投稿信的三篇 JIA 文献声明由此恢复真实。
+>
+> 同时按用户要求"扩充参考文献，同时增加近几年的文章引用"，用 Workflow 工具派发 7 路并行
+> 检索（覆盖：中国种子监管改革近期文献、粮食质量认证文献、自我认证/第三方审计文献延伸、
+> 行政文本挖掘指标构建近期文献、2022 年整治行动后续影响），每条候选文献再单独派发一个
+> 独立验证 agent 用 WebSearch 交叉核实真实性与论断准确性（默认存疑，要求独立信源佐证才
+> 判定通过）。25 条候选中 23 条通过验证，2 条（Ham et al. 2021、Geng et al. 2026，均为
+> 真实存在的审计/认证文献）因其论断与候选摘要归纳不符而被拒绝，未采用。
+
+### 28. Abi Younes G, de Rassenfosse G. 2024. Replicable patent indicators using the Google Patents Public Datasets. **Australian Economic Review**, 57, 102–113. DOI: 10.1111/1467-8462.12545
+
+**✅ Verified**（WebSearch 交叉核实）。de Rassenfosse 为 Jaffe and de Rassenfosse (2017)（本文列表第 19 条）的共同作者，本文是该方法学脉络的延续，独立信源确认期刊/卷期/DOI 一致。
+正文用途：§8.4（专利指标构建方法的延伸）。
+
+### 29. Bian Y, Yan S, Yi Z, Guan X, Chen Y. 2022. Quality certification in agricultural supply chains: Implications from government information provision. **Production and Operations Management**, 31, 1456–1472. DOI: 10.1111/poms.13623
+
+**✅ Verified**（WebSearch 交叉核实，独立信源一致；线上版 2021、印刷卷期 2022）。
+正文用途：§2（第三方质量认证与政府信息供给的博弈论文献）。
+
+### 30. Bonsall S B, Gillette J R, Pundrich G, So E C. 2024. Conflicts of interest in subscriber-paid credit ratings. **Journal of Accounting and Economics**, 77, 101614. DOI: 10.1016/j.jacceco.2023.101614
+
+**✅ Verified**（WebSearch 交叉核实，期刊/卷/文章号一致）。
+正文用途：§8.1（"即使反转付费方也无法消除认证方利益冲突"的信用评级类比）。
+
+### 31. Deng H, Yu C, Jin Y, Pray C, Liu C, Deng L. 2025. How is China shaping global food supply chains? Insights from the seed industry. **European Review of Agricultural Economics**. DOI: 10.1093/erae/jbaf017（网络首发，正式卷期页尚未分配）
+
+**✅ Verified**（WebSearch 交叉核实，DOI 与期刊一致）。
+正文用途：§8.2（近年种业格局背景，佐证 2022 年之后监管关注并未停止）。
+
+### 32. Miao Y, Sun J, Liu R, Huang J, Sheng J. 2025. Bridging the quality-price gap: Unlocking consumer premiums for high-quality rice in China. **Foods**, 14, 1184. DOI: 10.3390/foods14071184
+
+**✅ Verified**（WebSearch 交叉核实，期刊/卷/文章号一致）。
+正文用途：§2（消费者为可验证的稻米品质支付真实溢价，佐证第三方质量认证的信息价值）。
+
+### 33. Qin Y, Su K. 2026. From lab to market: Industrialization barriers and regulation optimization for new breeding technologies in China. **GM Crops & Food**. DOI: 10.1080/21645698.2025.2610592（网络首发 2026-01-12，正式卷期页尚未分配；PMC12803001）
+
+**✅ Verified**（WebSearch 交叉核实，DOI 与 PubMed/PMC 记录一致）。
+正文用途：§8.2（近年监管/制度文献仍在识别品种权执法等未解决的缺口，佐证本文窗口期的持续相关性）。
+
+### 34. Wang S, Wang S, Zhao C, et al. 2024. 中国品种审定制度概况及国内外比较 (Overview of China's crop variety approval system and comparison with other countries). **粮油食品科技 (Science and Technology of Cereals, Oils and Foods)**, 32, 211–218. DOI: 10.16210/j.cnki.1007-7561.2024.05.026
+
+**✅ Verified**（WebSearch 交叉核实，中国社会科学院农村发展研究所关联作者，PDF 可在
+rdi.cass.cn 定位）。中文文献，供中国读者/审稿人核对制度背景之用，属常见做法。
+正文用途：§2（中国品种审定制度改革的国内官方综述视角，与国际比较）。
+
+### 35. Xu S. 2021. Rethinking the liberation of China's seed market: A comparative study of China's regulatory frameworks with EU and US. **Agroecology and Sustainable Food Systems**, 251–272. DOI: 10.1080/21683565.2021.1989104
+
+**⚠️ 部分核验 — 卷号未独立确认**。WebSearch 交叉核实确认标题、作者、期刊、DOI、页码一致；
+卷号因该刊网络代理受限未能独立核实，参考文献列表中如实省略卷号而非编造，**投稿前须由
+作者核对官方记录补全**（与 Piepho and Laidig 2025 此前的卷期页核验方式一致——不确定的
+就标注，不猜测）。
+正文用途：§2（中国种子治理模式转型的比较制度研究）。
+
+### 36. Zheng Y, Bar T. 2023. Certifier competition and audit grades: An empirical examination using food safety certification. **Applied Economic Perspectives and Policy**, 45, 182–196. DOI: 10.1002/aepp.13211
+
+**✅ Verified**（WebSearch 交叉核实；Bar 为 Bar and Zheng (2019)（本文列表第 6 条）的共同
+作者，本文是同一研究脉络的后续延伸，独立信源确认期刊/卷期/DOI 一致）。
+正文用途：§8.1（认证方竞争与审核宽松度的实证延伸，直接承接 Bar and Zheng 2019）。
+
+## 本轮方法学说明与限制
+
+- 本轮验证工具为 WebSearch（无法访问 CrossRef/ScienceDirect/DOAJ/AGRIS 等官方 API，
+  该环境的出站网络代理对这些域名有限制），核验强度略低于此前使用 Undermind
+  直接命中摘要全文的轮次；但每条均要求至少一个独立搜索结果的信源佐证，且设有专门的
+  「大胆假设-独立反驳」验证步骤（默认存疑，未获独立确认则判定不通过），2 条候选文献
+  因此在采用前被剔除。
+- Xu (2021) 卷号未获独立确认，参考文献列表中如实留空而非编造，标注留待作者投稿前核对。
+- Deng et al. 2025 与 Qin and Su 2026 为网络首发（online first），尚无正式卷期页，
+  参考文献列表按此如实著录。

@@ -2,10 +2,9 @@
 
 **Manuscript:** "Rice variety approval records as an innovation indicator source: trial channel, third-party-assayed grain quality, and who measures what enters the market in China, 2017–2022"
 
-> Copied verbatim from `manuscript/sections/declarations.md` (final version), reproduced here
-> as a standalone file for submission convenience. Placeholders marked "[Author to complete]"
-> must be filled in by the author team before submission — see
-> `submission/submission_checklist.md`.
+> Reproduced from the manuscript's own declarations block as a standalone file for submission
+> convenience. Placeholders marked "[Author to complete]" must be filled in by the author team
+> before submission — see `internal/submission_checklist.md`.
 
 ---
 

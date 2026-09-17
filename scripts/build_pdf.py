@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Render a Markdown manuscript to PDF with PyMuPDF's Story engine (LibreOffice is unavailable here).
 
-Usage: python3 scripts/build_pdf.py manuscript/manuscript_v2.md submission/manuscript.pdf
+Usage: python3 scripts/build_pdf.py manuscript/manuscript_v2.md submission/manuscript.pdf [--line-numbers]
 """
 import re, sys, os
 import markdown, pymupdf
@@ -74,7 +74,33 @@ def md_to_html(md_text):
     html = re.sub(r'<p>(\s*(?:<strong>)?(?:Fig\.|Figure|Table)\s*\d[^<]*)', r'<p class="caption">\1', html)
     return html
 
-def build(md_path, out_path, paper='a4', margin=56):
+def add_line_numbers(out_path, mediabox, margin):
+    """Continuous line numbering in the left margin, matching the convention used by
+    scripts/build_docx.py's --line-numbers (Word's w:lnNumType countBy=1 restart=continuous):
+    every rendered text line gets the next number, counting across the whole document."""
+    doc = pymupdf.open(out_path)
+    counter = 0
+    num_x = mediabox.x0 + margin - 30
+    for page in doc:
+        blocks = page.get_text('dict')['blocks']
+        lines = []
+        for b in blocks:
+            if b.get('type') != 0:
+                continue
+            for ln in b.get('lines', []):
+                if not ln.get('spans'):
+                    continue
+                lines.append(ln['bbox'])
+        lines.sort(key=lambda bbox: (round(bbox[1], 1), bbox[0]))
+        for bbox in lines:
+            counter += 1
+            y = bbox[3] - 2
+            page.insert_text((num_x, y), str(counter), fontsize=7, fontname='tiro', color=(0.55, 0.55, 0.55))
+    doc.save(out_path, incremental=True, encryption=pymupdf.PDF_ENCRYPT_KEEP)
+    doc.close()
+    print(f'added continuous line numbers, {counter} lines')
+
+def build(md_path, out_path, paper='a4', margin=56, line_numbers=False):
     md_text = open(md_path, encoding='utf-8').read()
     base = os.path.dirname(os.path.abspath(md_path))
     html = md_to_html(md_text)
@@ -104,9 +130,12 @@ def build(md_path, out_path, paper='a4', margin=56):
     for i, page in enumerate(doc):
         page.insert_text((mediabox.width / 2 - 8, mediabox.height - 30), str(i + 1), fontsize=9, fontname='tiro')
     doc.save(out_path, incremental=True, encryption=pymupdf.PDF_ENCRYPT_KEEP)
+    if line_numbers:
+        add_line_numbers(out_path, mediabox, margin)
     print('wrote', out_path, 'pages', pages)
 
 if __name__ == '__main__':
-    if len(sys.argv) < 3:
+    a = [x for x in sys.argv[1:] if not x.startswith('--')]
+    if len(a) < 2:
         print(__doc__); sys.exit(1)
-    build(sys.argv[1], sys.argv[2])
+    build(a[0], a[1], line_numbers='--line-numbers' in sys.argv)

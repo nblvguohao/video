@@ -2,13 +2,24 @@
 
 *Running title:* Trial channel and third-party grain quality in Chinese rice approvals
 
-**Authors:** [Author(s) to complete — given name and surname, in submission order]
+**Authors:** Liu Ning¹, Lu Kai²*
 
-**Affiliations:** [Author(s) to complete. Note: the first author's affiliation must be the
-S&T information/intelligence institute, listed first, to satisfy the first-affiliation
-requirement.]
+**Affiliations:**
+¹ Anhui Winall Hi-Tech Seed Co., Ltd., Hefei, China
+² Institute of Agricultural Economics and Information, Anhui Academy of Agricultural
+Sciences, Hefei, China
 
-**Corresponding author:** [name, postal address, e-mail, ORCID]
+**Corresponding author:** Lu Kai (² above). [Postal address and e-mail — author to complete.]
+ORCID: to be provided for both authors.
+
+> **Flag for author confirmation — not yet resolved.** An earlier planning note (superseded
+> by this draft; see `plan/03_target_journal.md` / `manuscript/review/v4/00_SYNTHESIS_and_v5_plan.md`)
+> recorded that the *first* author's affiliation needed to be the S&T information/intelligence
+> institute to satisfy a discipline-classification "first-affiliation requirement" relevant to
+> institutional research-performance evaluation. As given, the order is reversed — Liu Ning
+> (Winall Hi-Tech Seed, a company) is first author, and Lu Kai (the S&T information institute)
+> is corresponding, not first. Please confirm this ordering is intended notwithstanding that
+> earlier note, since only the author team knows which evaluation regime, if any, applies.
 
 ---
 
@@ -38,17 +49,17 @@ rice variety approval; grain quality; trial channel; seed regulation; administra
 
 Variety approval decides which rice varieties may be sold as certified seed in China. Until 2016 the state held a monopoly on the trials that produced this decision; the 2016 revision of the *Measures for the Administration of Crop Variety Approval* ended it, letting certified integrated seed-breeding-extension enterprises run their own "green-channel" trials and consortia of five or more breeders organise their own regional trials. Both channels replace the government as the party that runs the trial in which agronomic performance is measured; neither replaces the ministry-designated third-party laboratories that measure grain-processing and appearance quality once a candidate reaches the approval stage. This split — self-organised measurement of performance, third-party measurement of quality, inside the same approval file — is the object of this paper. We ask not how large the reform was, but *who measures what enters the market*.
 
-Observing that split requires a field nobody has extracted. Approval announcements have been read at scale before, but always as year-indexed trait series, since they are running prose yielding only whatever parsing a given study needs. Innovation measurement more broadly rests on a few curated indicator families, and its text-mining methods were developed over patent and publication corpora (Losiewicz et al., 2000; Antons et al., 2020) rather than over the regulatory record (Rammer and Es-Sadki, 2023). A single variety-approval record carries the applicant, the trial the variety was tested in, the named check it was compared against, and more than a dozen measured agronomic, grain-quality and resistance fields — each, crucially for what follows, with an identifiable measuring party. Our first contribution is to parse that structure into a record-level indicator system carrying the trial channel, and our second is to show what it reveals once the fields are separated by who measured them.
+Observing that split requires a field nobody has extracted. Approval announcements have been read at scale before, but always as year-indexed trait series. Innovation measurement rests on a few curated indicator families, and its text-mining methods were developed over patent and publication corpora (Losiewicz et al., 2000; Antons et al., 2020) rather than over the regulatory record (Rammer and Es-Sadki, 2023). A single variety-approval record carries the applicant, the trial the variety was tested in, the named check it was compared against, and more than a dozen measured agronomic, grain-quality and resistance fields — each, crucially for what follows, with an identifiable measuring party.
 
-This question has not been answered because it has not been asked in a form the data could answer. Two studies evaluate this same reform as a *period* variable — before versus after 2016 — applied to licensing-fee data (Xiang et al., 2025, who find no significant effect) and to national approval panels (Zhao et al., 2022); neither observes which trial a variety actually passed through, so neither can distinguish a change in *how much* enters the market from a change in *what* enters it. A related literature reads approved-variety trait trends by *calendar year* rather than by channel: Lu et al. (2024) classify quality-trait trajectories for 17,785 approved varieties, and Hang et al. (2024) track agronomic-trait evolution across 11,811 regional-trial entries; both attribute trait change to *when* a variety was approved rather than to *which door* it entered through. This paper's structural-break analysis (§5.5) and "closing window" discussion (§8.2) ask the channel-conditional version of the same question a year-indexed reading cannot. A recent title-level review of fifty years of three-line hybrid rice trends (Gong et al., 2026) situates this trait trajectory over a longer horizon; its full text was not accessible to us, so we cite it only for scope. No existing study has a record-level channel variable to test whether self-organised and state-run entrants differ in what they bring to market — this is the gap we close.
+Two studies evaluate this same reform as a *period* variable — before versus after 2016 — applied to licensing-fee data (Xiang et al., 2025, who find no significant effect) and to national approval panels (Zhao et al., 2022); neither observes which trial a variety actually passed through, so neither can distinguish a change in *how much* enters the market from a change in *what* enters it. A related literature reads approved-variety trait trends by *calendar year* rather than by channel: Lu et al. (2024) classify quality-trait trajectories for 17,785 approved varieties, and Hang et al. (2024) track agronomic-trait evolution across 11,811 regional-trial entries; both attribute trait change to *when* a variety was approved rather than to *which door* it entered through. This paper's structural-break analysis (§5.5) and "closing window" discussion (§8.2) ask the channel-conditional version of the same question a year-indexed reading cannot. A recent title-level review of fifty-year hybrid-rice trends (Gong et al., 2026; full text inaccessible, cited for scope only) situates this trajectory over a longer horizon. No existing study has a record-level channel variable to test whether self-organised and state-run entrants differ in what they bring to market — this is the gap we close.
 
-We close it using a feature of the announcements that has not previously been exploited: each states, in its own text, the name of the trial the variety was tested in. Parsing this text lets us assign every record to a channel and compare self-organised with unified-trial entrants within the same approval year, ecological trial group, and named check. Because the green channel is concentrated in 2017 and consortium trials begin only in 2019, the two barely overlap in time; we treat them as separate treatments rather than pooling them into one "new channel."
+We close it using a feature of the announcements: each states, in its own text, the name of the trial the variety was tested in. Parsing this text lets us assign every record to a channel and compare self-organised with unified-trial entrants within the same approval year, ecological trial group, and named check. Because the green channel is concentrated in 2017 and consortium trials begin only in 2019, the two barely overlap in time; we treat them as separate treatments rather than pooling them into one "new channel."
 
 The paper's estimand is a **composition effect on the entering population**: conditional on year, trial group and check, how do the traits of varieties entering through a self-organised channel differ from those entering through the unified trial. This is not the effect of moving one variety between channels, since assignment is not random and applicants self-select into it; it is the difference in what each door lets through. We do not estimate, and do not claim, a causal effect of the reform on trait levels or on grain quality — the identification strategy concerns the *entering population*, not the *time trend*.
 
-This paper makes three contributions. **First**, an S&T-intelligence extraction pipeline over an unstructured administrative corpus yields the first record-level trial-channel variable for China's approval system — read from announcement wording rather than imposed as a before/after indicator — and a 17-field indicator set labelled by measuring party. **Second**, the coexistence of applicant-measured and third-party-measured traits within one approval file becomes an identification argument, distinct from the randomised self-certification literature's two measurements of the same attribute (Duflo et al., 2013; Bar and Zheng, 2019): here we have two *different* attributes measured by two different parties in a single document. Grain-processing and appearance quality are measured by third-party laboratories uniformly across channels; agronomic performance is measured by the applicant's own trial when self-organised. A pure breeding-ability difference predicts both move together; we instead find a sign separation — third-party quality lower, applicant-measured performance unchanged or higher (§4.5, §5) — that such an account cannot generate on its own, though it cannot alone rule out a difference in channel-specific admission thresholds. **Third**, splitting the reform into two non-overlapping treatments shows pooling them would misstate the gap's direction, since the green channel (2017) and consortium trials (2019–2022) differ in sign on at least one trait. A second indicator — germplasm concentration across parental lines from the same announcements — serves as a counter-case: consortium entrants draw on a significantly broader sterile-line base than the unified entrants they are compared against, so a narrower breeding base cannot explain their deficit. No analysis in the paper is conducted at the level of a named organisation.
+This paper makes three contributions. **First**, an S&T-intelligence extraction pipeline over an unstructured administrative corpus yields the first record-level trial-channel variable for China's approval system — read from announcement wording rather than imposed as a before/after indicator — and a 17-field indicator set labelled by measuring party. **Second**, the coexistence of applicant-measured and third-party-measured traits within one approval file becomes an identification argument, unlike randomised self-certification designs that compare two measurements of the same attribute (Duflo et al., 2013; Bar and Zheng, 2019): here two *different* attributes are measured by two different parties in one document. Grain-processing and appearance quality are measured by third-party laboratories uniformly across channels; agronomic performance is measured by the applicant's own trial when self-organised. A pure breeding-ability difference predicts both move together; we instead find a sign separation — third-party quality lower, applicant-measured performance unchanged or higher (§4.5, §5) — that such an account cannot generate on its own, though it cannot alone rule out a difference in channel-specific admission thresholds. **Third**, splitting the reform into two non-overlapping treatments shows pooling them would misstate the gap's direction, since the green channel (2017) and consortium trials (2019–2022) differ in sign on at least one trait. A second indicator, germplasm concentration across parental lines, serves as a counter-case: consortium entrants draw on a significantly broader sterile-line base than the unified entrants compared against, so a narrower breeding base cannot explain their deficit. No analysis in the paper is conducted at the level of a named organisation.
 
-Section 2 covers institutional background; Section 3 the extraction pipeline; Section 4 the empirical strategy and its limits; Sections 5–6 results and robustness; Section 7 the germplasm counter-case; Section 8 S&T intelligence and policy implications; Section 9 concludes.
+§2 covers institutional background; §3 the extraction pipeline; §4 empirical strategy and its limits; §5–6 results and robustness; §7 the germplasm counter-case; §8 S&T intelligence and policy implications; §9 concludes.
 
 ---
 
@@ -70,20 +81,19 @@ These five events — the 2014 green channel, the 2016 Measures, the 2021 revisi
 
 Because the corpus is an unstructured administrative text collection, this section doubles
 as a methods section for the extraction itself, set out as a six-step S&T intelligence
-pipeline (summarised schematically in Supplementary Fig. S4): (i) **intelligence-source
-identification** — recognising approval announcements as
-a high-density innovation corpus and the trial-channel statement as extractable (§3.1);
-(ii) **corpus acquisition**, documenting its two-step provenance (§3.1); (iii) **field
-extraction**, a regex rule set converting prose into typed fields (§3.1); (iv) **entity
-recognition and disambiguation**, resolving the variety-source field into parental-line
-entities with a resolution rate and per-channel coverage check (§3.1); (v) **field-coverage
-and data-quality assessment**, per-field parse rates, missingness, structural gaps, and the
-outstanding cross-check against primary announcements (§3.3–3.4); and (vi) **indicator
-construction**, assembling parsed fields into 17 analysis variables labelled by measuring
-party, over the strata compared (§3.2–3.3). Steps (i)–(iv) are what reproducing the corpus
-needs; step (v) is what judging any individual field's trustworthiness needs, reported at
-field level rather than as one corpus-wide statement, for reasons the main result makes
-concrete.
+pipeline schematised in Supplementary Fig. S4: (i) **intelligence-source identification**,
+(ii) **corpus acquisition**, (iii) **field extraction**, (iv) **entity recognition and
+disambiguation**, (v) **field-coverage and data-quality assessment**, and (vi) **indicator
+construction**. Steps (i)–(iv) are what reproducing the corpus needs; step (v) is what
+judging any individual field's trustworthiness needs, reported at field level rather than as
+one corpus-wide statement; step (vi) assembles the fields judged trustworthy into the
+paper's 17 analysis variables.
+
+![Supplementary Fig. S4](figures/figS4_intelligence_pipeline.png)
+
+**Supplementary Fig. S4.** The six-step S&T intelligence-extraction pipeline, schematically
+summarising the methods narrative of this section: steps (i)–(iv) reproducing the corpus,
+step (v) judging field trustworthiness, and step (vi) building analysis-ready indicators.
 
 ## 3.1 Intelligence source, corpus acquisition, field extraction and entity resolution (steps i–iv)
 
@@ -110,6 +120,13 @@ of national records; the channel label itself is unrecoverable for 233 of 234 na
 records approved in 2018 (99.6%), treated as a documentation-format gap rather than evidence
 that self-organised trials did not exist that year (Fig. 1, Table 1; R4 in §6 shows this
 coding choice is immaterial).
+
+![Fig. 1](figures/fig1_channel_stacked.png)
+
+**Fig. 1.** 2005–2022 national rice approvals by trial channel, stacked area chart, with
+vertical markers for the 2014 green channel, 2016 revision of the *Measures* establishing
+consortium trials, the 2021 approval-standard revision, the 2022 essentially-derived-variety
+(EDV) provision, and the 2022 special-rectification notice.
 
 Step (iv), entity recognition and disambiguation, resolves the free-text variety-source
 field into the two parental lines of the originating cross — sterile (female) line, a
@@ -344,6 +361,12 @@ accordingly.
 
 The main analysis layer restricts to national-level (国审) approvals in the two dominant indica trial groups (middle-and-lower-Yangtze; upper-Yangtze mid-season) in years the channel variable actually varies — 2017 and 2019–2022 — yielding **n = 878** (Unified 406, Consortium 405, Green 67). Since the green channel (2017) and consortium trials (2019–2022) do not overlap, we estimate two separate arms (§4.3): **Arm 1** compares Consortium (n = 405) with Unified (n = 354) within 2019–2022 (pre-outcome-drop n = 759, later n = 520–759 by missingness); **Arm 2** compares Green (n = 67) with Unified (n = 52) within 2017 (n = 119, 2–3 identifying cells). Table 3 reports both arms for all 17 outcomes, split into third-party-assayed and applicant-self-reported blocks; Fig. 2 plots the same 34 estimates as a forest plot, colour-coded by measuring party.
 
+![Fig. 2](figures/fig2_forest_main.png)
+
+**Fig. 2.** Main forest plot: β and 95% confidence intervals for all 17 outcome variables,
+Arm 1 (Consortium vs. Unified, 2019–2022) and Arm 2 (Green vs. Unified, 2017), colour-coded
+by measuring party (applicant-self-reported vs. third-party-assayed).
+
 ## 5.2 Arm 1: Consortium versus Unified, 2019–2022
 
 Consortium entrants show a consistent, statistically robust deficit on every third-party-assayed grain-processing and appearance trait in the main quality block (Table 3; Fig. 2, left panel). Head-rice percentage is 1.844 pp lower (95% CI [−2.636, −1.052], p = 5.1 × 10⁻⁶, n = 742); chalkiness degree is 1.108 pp higher, i.e. worse (95% CI [0.248, 1.969], p = 0.012, n = 739); and the probability a national/industry quality grade is stated at all (`quality_stated`) is 12.2 pp lower (95% CI [−0.211, −0.033], p = 0.008, n = 750). Among graded records, the probability of the top two national tiers (`quality_top2`) is also lower by 9.1 pp (p = 0.009, n = 618), though this does not survive Manski worst-case bounds (§6.2) and is treated as secondary. Gel consistency moves the same way (β = −1.814 mm, p = 0.015, n = 728). Amylose content and grain length–width ratio show no significant difference; neck-blast resistance is not estimable in Arm 2 (§5.3) and shows no Arm 1 gap (p = 0.28).
@@ -362,21 +385,34 @@ Two results diverge from Arm 1 and are reported, not deferred. Production-trial 
 
 A year-by-year re-estimation of the Arm-1-style channel gap (HC1 SEs, years both channels co-exist: 2017 and 2019–2022; 2018 excluded, a parsing default rather than a real assignment) shows two patterns that must be reported separately. Chalkiness narrows monotonically from +2.71 pp in 2017 (p = 1.1 × 10⁻⁸) to +1.63 (2019), +0.92 (2020), +0.89 (2021) and +0.77 pp (2022, p = 0.038) — genuine convergence. The stated-grade gap weakens on balance (−0.327 to −0.052) but non-monotonically, non-significant in 2020 and 2022. Head-rice shows **no convergence**: −0.61 pp in 2017 (n.s.), widening to −2.63 (2020, p = 0.0003), −1.48 (2021, p = 0.021) and −3.03 pp (2022, p = 0.006) — its largest values in the most recent years. Regional-trial yield gain fluctuates between −0.63 pp (2017, n.s.) and +0.93 pp (2022), mostly positive from 2019 onward, with no clear convergence or divergence pattern (Fig. 3; full values in Supplementary Material). We therefore do not claim the quality gap is generally closing: only chalkiness, and more weakly stated grade, converge; head-rice — arguably the more material trait — does not.
 
+![Fig. 3](figures/fig3_event_study.png)
+
+**Fig. 3.** Event-study-style line plot: year-by-year channel gap (self-organised minus
+Unified) for head-rice percentage, chalkiness degree, stated quality grade, and
+regional-trial yield gain over check, 2017 and 2019–2022.
+
 ## 5.5 Structural breakpoints predate the 2016 reform
 
 An unknown-breakpoint (sup-Wald/Quandt) scan over 2009–2019, on the full 2005–2022 national two-trial-group layer, asks whether the quality traits behind Arm 1's headline result break structurally at the 2016 reform. They do not. Regional-trial yield per mu breaks at **2017** (Wald = 230.3, p < 10⁻⁵⁰, n = 1,167; Fig. 4), consistent with a level shift when the new channels opened. But the three quality traits central to this paper's argument break *earlier*: head-rice at **2015** (Wald = 73.9, p < 10⁻¹⁶), chalkiness at **2009** (Wald = 22.9, p = 1.1 × 10⁻⁵), and the top-two quality-grade indicator at **2015** (Wald = 45.5, p = 1.3 × 10⁻¹⁰) — all one to seven years before the reform. Yield gain over check shows no robust break: the 2018 candidate is marginally significant under HC1 (Wald = 6.55, p = 0.038) but not under classical SEs (Wald = 5.40, p = 0.067), and its non-missing rate jumps from 21–22% in 2016–2017 to 100% in 2018, confounding the apparent break with reporting completeness rather than a real discontinuity. Fig. 4 also plots growth duration for context only (peak at 2018, Wald = 226.8), since it is not one of the third-party-assayed traits this section addresses; full scan values are in the Supplementary Material.
+
+![Fig. 4](figures/fig4_breakpoint_scan.png)
+
+**Fig. 4.** Unknown-breakpoint (sup-Wald) scan: Wald statistic by candidate break year
+(2009–2019), one line per trait (regional-trial yield, head-rice percentage, chalkiness
+degree, top-two quality grade, yield gain over check, growth duration), peak years
+annotated.
 
 These results support a falsification claim, not a positive dating claim: whatever quality trend is visible pre-2016 was already underway, so attributing it to the reform — rather than to the *channel gap conditional on year* this paper estimates (§5.2–5.3) — would be mistaken. The result also bears on the year-indexed readings of the same corpus by Lu et al. (2024) and Hang et al. (2024): our break years (2015, 2009) sit inside their trend windows, consistent with, though not a direct test of, gradual rather than reform-triggered change. The two approaches are complementary: a year-indexed design cannot distinguish, as our Arm 1/Arm 2 comparison does, whether varieties entering through one channel look different from contemporaries in another.
 
 ## 5.6 Summary
 
-Table 3 and Fig. 2 present the full set of 17 outcome variables for both arms, including the outcomes that run against the paper's central narrative (bacterial-blight resistance, Arm 2's reversed production-trial yield gain, Arm 2's non-estimable regional-trial yield gain). The pattern that survives across both arms is a consistent, third-party-assayed grain-processing and appearance-quality deficit among self-organised-trial entrants, paired with an applicant-measured yield performance that is, if anything, higher — a sign separation inconsistent with a pure breeding-ability account, but not by itself sufficient to rule out differing entry thresholds across channels. Section 6 subjects this pattern to sixteen pre-specified and one additional robustness checks, several of which qualify or fail to replicate parts of the headline result, and reports all of them.
+Table 3 and Fig. 2 present the full set of 17 outcome variables for both arms, including the outcomes that run against the paper's central narrative (bacterial-blight resistance, Arm 2's reversed production-trial yield gain, Arm 2's non-estimable regional-trial yield gain). The pattern that survives across both arms is a consistent, third-party-assayed grain-processing and appearance-quality deficit among self-organised-trial entrants, paired with an applicant-measured yield performance that is, if anything, higher — a sign separation inconsistent with a pure breeding-ability account, but not by itself sufficient to rule out differing entry thresholds across channels. Section 6 subjects this pattern to seventeen robustness checks, several of which qualify or fail to replicate parts of the headline result, and reports all of them.
 
 ---
 
 # 6. Robustness, placebos and bounds
 
-This section reports seventeen robustness checks (R1–R17) against the Arm-1 headline results of Section 5 (head-rice −1.844 pp, chalkiness +1.108 pp, stated quality grade −0.122, regional-trial yield gain +0.553 pp, production-trial yield gain +0.919 pp, bacterial-blight grade −0.190; see Table 3 and §5.2 for full CIs, p-values and n). No check is omitted, and where a check does not support the main result, we say so and report the number. Checks that leave the headline pattern essentially unchanged (R1–R6, R8, R10, R12–R14, R17) are reported briefly, with full statistics left in Table 3/Table 4; checks that qualify or complicate the headline pattern (R7, R9, R11) are given full treatment, since these are the ones a reader needs explained rather than tabulated. R15 is the one exception to that arrangement: its verdict and headline diagnostics are reported in §6.5, with its construction and full diagnostics in the Supplementary Material.
+This section reports seventeen robustness checks (R1–R17) against the Arm-1 headline results of Section 5 (head-rice −1.844 pp, chalkiness +1.108 pp, stated quality grade −0.122, regional-trial yield gain +0.553 pp, production-trial yield gain +0.919 pp, bacterial-blight grade −0.190; see Table 3 and §5.2 for full CIs, p-values and n). No check is omitted, and where a check does not support the main result, we say so and report the number. Checks leaving the headline pattern unchanged (R1–R6, R8, R10, R12–R14, R17) are reported briefly, full statistics in Table 4; checks that qualify it (R7, R9, R11) are given full treatment. R15 is the one exception: its verdict and headline diagnostics are reported in §6.5, with construction and full diagnostics in the Supplementary Material.
 
 ## 6.1 Checks that leave the headline pattern unchanged (R1–R6, R8, R10, R12–R14, R17)
 
@@ -394,6 +430,17 @@ Full statistics for every check below are in Table 4; this section states only t
 - **R13 (pre-reform time placebo).** A pseudo-treatment built the same way in 2005–2016, before any channel existed, returns no significant coefficient on any outcome, with the opposite sign for both headline quality traits — weakening one confound without ruling out $H_{threshold}$ (§4.5).
 - **R14 (cluster by variety).** Re-clustering at the variety level (36 varieties, 72 multi-zone records) leaves all headline coefficients significant at p ≤ 0.0014.
 - **R17 (quality-grading standard composition).** Records are graded under NY/T 593 or GB/T 17891, and which is in force shifts across the window (2017 predominantly GB/T, 2019–2022 predominantly NY/T 593). Within each arm's own window the standard does not vary by channel (Arm 1: 99.2% vs 99.2% NY/T 593; Arm 2: entirely GB/T both sides), so the year × trial-group × check cell absorbs the switch; the check independently recovers the disclosure result from raw shares (+13.0 pp and +32.6 pp). The quality contrasts are not an artefact of which standard applied.
+
+![Fig. 5](figures/fig6_randomization.png)
+
+**Fig. 5.** Randomisation-inference null distributions (500 within-cell permutations)
+versus the observed coefficient, four panels: head-rice percentage, chalkiness degree,
+regional-trial yield gain over check, and the top-two quality-grade indicator.
+
+![Supplementary Fig. S1](figures/fig7_missingness_balance.png)
+
+**Supplementary Fig. S1.** Missingness-balance dumbbell plot: non-missing rate by arm for
+all 17 outcomes, imbalanced variables (≥8 percentage points) flagged.
 
 ## 6.2 Manski worst-case bounds (R7)
 
@@ -433,9 +480,20 @@ Table 4 collects all seventeen checks (R1–R17), including two that qualify a h
 
 The sign separation in Sections 5–6 is consistent with measurement discretion in self-organised trials, but equally consistent with a cruder alternative: the self-organised channels may simply admit varieties bred from a narrower germplasm base, so the quality deficit records *what* enters rather than *how* it is measured. The announcements support a direct test, since each names the cross that produced the variety.
 
-We resolve the variety-source field into the sterile (female) and restorer (male) line of the originating cross, succeeding for 2,304 of 2,386 national records (96.6%; §3.1 gives the extraction rule and failure profile). The indicator is computed on the same stratum as the main estimates — the two dominant indica trial groups, since pooling unrelated breeding pools would inflate any contrast — using the Herfindahl–Hirschman index across sterile lines, distinct-line counts (rarefied to the smaller group), and top-line share, with a stratified bootstrap and label-permutation test for the between-channel difference. Extraction coverage is 99.7–100% in all four channel-by-arm groups, so differential parsing failure cannot drive the comparison.
+We resolve the variety-source field into the sterile (female) and restorer (male) line of the originating cross, succeeding for 2,304 of 2,386 national records (96.6%; §3.1 gives the extraction rule and failure profile). The indicator is computed on the same stratum as the main estimates — the two dominant indica trial groups — using the Herfindahl–Hirschman index across sterile lines, distinct-line counts (rarefied to the smaller group), and top-line share, with a stratified bootstrap and label-permutation test for the between-channel difference. Extraction coverage is 99.7–100% in all four channel-by-arm groups, so differential parsing failure cannot drive the comparison.
 
 Consortium entrants draw on a **broader** sterile-line base than contemporaneous unified entrants (Table 5; Fig. 6): HHI 0.0124 against 0.0186 (difference −0.0062, 95% CI [−0.0130, −0.0009], permutation *p* = 0.022) — 212 distinct lines against 156 (193.0 rarefied), top-line share 5.7% against 9.1%. This is what consortium rules, pooling five or more breeding programmes, predict.
+
+![Fig. 6](figures/fig6_germplasm_concentration.png)
+
+**Fig. 6.** Germplasm concentration across resolved parental lines, by trial channel.
+(a) Concentration curves over sterile (female) lines, cumulative share of approvals against
+cumulative share of distinct lines ordered most-frequent-first, one curve per channel and
+arm, computed on the two dominant mid-season indica trial groups; the diagonal marks an even
+spread across lines. (b) Sterile-line Herfindahl-Hirschman index by channel and arm, with
+95% percentile bootstrap intervals (2,000 resamples). The interval is drawn as its own
+segment rather than as error bars, because a percentile bootstrap interval for the HHI need
+not bracket the point estimate.
 
 Green-channel entrants are directionally more concentrated (HHI 0.0778 against 0.0562, top share 22.4% against 11.5%), matching what a single-enterprise-run channel predicts, but at 67 against 52 records the interval spans zero (+0.0215, 95% CI [−0.0240, +0.0671], *p* = 0.344); we report Arm 2 for completeness and rest nothing on it. An earlier version of this analysis, computed across all national trial groups rather than the estimation stratum, returned a significant Arm-2 contrast; restricted to the correct stratum, it does not survive.
 
@@ -453,31 +511,31 @@ Three scope limits apply. Concentration across parental lines measures breeding-
 
 ## 8.1 Why the sign separation arises: self-certification as theoretical support
 
-The regulatory-economics literature on self-certification is not this paper's frame, but supplies the mechanism that makes the sign separation intelligible. Duflo et al. (2013) randomly assigned polluting Indian plants to regulator-paid versus plant-paid auditors and observed the *same* readings diverge systematically; Bar and Zheng (2019) show firms endogenously choose certifiers with a history of lenient grading — the closest analogue to the channel self-selection alternative this paper cannot close off (§4; R9/R11). Grennan and Town (2020) compare device outcomes *across* two regulatory systems, where ours compares *within* one system across two pathways a single reform created; Renckens and Auld (2022) show private-audit efficiency varies with auditor incentives. Together these establish that reported values move with who was asked to measure — the interpretation the sign separation invites, reported as consistent with measurement discretion rather than proof of it, since none of these designs is directly available here (we observe two different attributes measured by two parties, not one attribute measured twice). Qiu et al. (2016) describe a related asymmetry one stage downstream in the same seed system: using survey data from maize farmers across four leading production provinces, they find that farmers with less information about a variety's true performance are more likely to adopt a new variety specifically to hedge production risk, rather than on an expectation of higher yield, and they recommend better seed-market information provision as the remedy. Their setting is maize, not rice, and their asymmetry sits between seller and farmer rather than applicant and regulator, so the mechanism does not transfer mechanically; but the two results compound rather than merely sit adjacent. If approval records, or the extension and seed-dealer materials derived from them, are among the signals a farmer's information set draws on, then a third-party-assayed quality signal that this paper shows is weaker for self-organised-channel entrants does not stop at the regulator's desk — it propagates into exactly the farmer-level information gap Qiu et al. document, at the very first point in the seed system where measured quality is recorded. Better information provision at the point Qiu et al. study presupposes that the underlying record is a reliable input to provision in the first place; this paper's finding is that, for one entry route, it is a weaker one.
+The regulatory-economics literature on self-certification is not this paper's frame, but supplies the mechanism that makes the sign separation intelligible. Duflo et al. (2013) randomly assigned polluting Indian plants to regulator-paid versus plant-paid auditors and observed the *same* readings diverge systematically; Bar and Zheng (2019) show firms endogenously choose certifiers with a history of lenient grading — the closest analogue to the channel self-selection alternative this paper cannot close off (§4; R9/R11). Grennan and Town (2020) compare device outcomes *across* two regulatory systems, where ours compares *within* one system across two pathways a single reform created; Renckens and Auld (2022) show private-audit efficiency varies with auditor incentives. Together these establish that reported values move with who was asked to measure — the interpretation the sign separation invites, reported as consistent with measurement discretion rather than proof of it, since none of these designs is directly available here (we observe two different attributes measured by two parties, not one attribute measured twice). Qiu et al. (2016) document a related asymmetry one stage downstream in the same seed system: maize farmers with less information about true variety performance are more likely to adopt for risk-hedging than for expected yield gain, and recommend better seed-market information provision. Their setting (maize, seller-to-farmer) does not transfer mechanically to ours (rice, applicant-to-regulator), but the two results compound: if approval records feed the signals a farmer's information set draws on, a weaker third-party-assayed quality signal for self-organised-channel entrants propagates into the very information gap Qiu et al. document, at the point the underlying record is first produced.
 
 ## 8.2 Is the identified variation disappearing? A qualified answer
 
-MARA has, since 2022, conducted a special rectification campaign targeting the green channel and consortium trials, raising the question of whether the gap documented here is a closing window rather than a stable feature. The year-by-year re-estimation in §5.4 answers this outcome by outcome, not uniformly: the chalkiness gap declines roughly monotonically, consistent with narrowing as regulatory attention increases; the stated-grade gap weakens more faintly and non-monotonically, non-significant in two of four post-2017 years; the head-rice gap does not narrow at all, its largest and most significant values in the most recent years (Fig. 3). We therefore do not claim the variation is disappearing as a blanket statement — that holds for chalkiness, holds weakly for stated grade, and does not hold for head-rice, the paper's cleanest estimate. Coverage falls sharply after 2022, so this paper cannot verify further convergence beyond its window. Read against the calendar-year trends in Lu et al. (2024) and Hang et al. (2024), our channel-conditional gap shows a mix of convergence and non-convergence within six years, suggesting their long-run trajectory and our channel-specific gap are not the same object.
+MARA has, since 2022, conducted a special rectification campaign targeting the green channel and consortium trials, raising the question of whether the gap documented here is a closing window rather than a stable feature. The year-by-year re-estimation in §5.4 answers this outcome by outcome, not uniformly: the chalkiness gap declines roughly monotonically, consistent with narrowing as regulatory attention increases; the stated-grade gap weakens more faintly and non-monotonically, non-significant in two of four post-2017 years; the head-rice gap does not narrow at all, its largest and most significant values in the most recent years (Fig. 3). We therefore do not claim the variation is disappearing as a blanket statement — that holds for chalkiness, holds weakly for stated grade, and does not hold for head-rice, the paper's cleanest estimate. Coverage falls sharply after 2022, so this paper cannot verify further convergence beyond its window.
 
 One further result belongs here. The province-level replication (§6.4) is underpowered for three of four headline outcomes — their provincial non-significance is "undetermined," not evidence against the national result — and adequately powered and corroborating for stated quality grade. That split runs against a common but incorrect reading of provincial null results in this literature: the evidence should be described precisely, one outcome significant and adequately powered, three underpowered, not summarised as either "confirms" or "does not replicate."
 
 ## 8.3 Policy implications
 
-The evidence supports three specific recommendations, each grounded in a result already reported rather than in new analysis, and a fourth cautions against a plausible-sounding but wrong one.
+Three recommendations follow from results already reported, plus one caution against a plausible-sounding but wrong one.
 
-**Target verification at the trait that is not converging.** §5.4 shows the third-party quality traits do not respond uniformly to the post-2022 tightening: chalkiness narrows monotonically toward zero and stated quality grade weakens on balance, but head-rice percentage shows no convergence at all, with its largest and most significant gaps in the most recent years of the sample. Whatever verification effort the current rectification campaign applies, it appears to be reaching chalkiness and, more weakly, stated grade, but not head-rice. A regulator prioritising where to add independent re-assay capacity, rather than spreading it evenly across traits, has a specific, falsifiable target in this result.
+**Target verification at the trait that is not converging.** §5.4 shows the third-party quality traits do not respond uniformly to the post-2022 tightening: chalkiness narrows monotonically toward zero and stated quality grade weakens on balance, but head-rice percentage shows no convergence at all, with its largest and most significant gaps in the most recent years of the sample. Whatever verification effort the current rectification campaign applies appears to reach chalkiness and, more weakly, stated grade, but not head-rice — a specific, falsifiable target for a regulator prioritising where to add independent re-assay capacity rather than spreading it evenly.
 
 **Do not fix this by tightening consortium composition rules.** A natural regulatory instinct — narrow eligibility for consortium trials, or require a more diverse breeding-base among participating consortium members, on the theory that a narrower germplasm pool produces weaker varieties — is directly contraindicated by §7: consortium entrants draw on a significantly *broader* sterile-line base than the unified-trial entrants they are compared against (HHI 0.0124 vs. 0.0186), yet still show the quality deficit. The lever this paper's evidence points to is measurement and verification at the point of testing, not the composition rules governing who may form a consortium.
 
 **Treat non-disclosure as an automatic verification trigger.** §6.6 shows the gap in whether a national quality grade is stated at all survives, and strengthens, once announcement length and field-completeness are controlled for (β = −0.122 to −0.146, p = 0.0005) — ruling out the alternative that self-organised-channel announcements are simply thinner on detail. A cheap, low-discretion rule follows directly: an approval record entering through a self-organised channel without a stated national or industry quality grade should trigger mandatory third-party re-verification before market approval, rather than resting on periodic or discretionary spot-checks.
 
-**This is not a claim of regulatory blindness, and does not need to be one to matter.** Independent spot-checks of self-organised trials are already the Ministry's own initiative since 2022 (§2); this paper's contribution is not to report that verification is needed, which the 2022 notice already establishes, but to say *which trait, which mechanism, and which trigger* — head-rice specifically, verification rather than consortium composition, and non-disclosure specifically — using evidence a regulator would otherwise have to construct from the same announcements this paper already parsed.
+**This is not a claim of regulatory blindness, and does not need to be one to matter.** Independent spot-checks are already the Ministry's own initiative since 2022 (§2); this paper's contribution is not that verification is needed, but *which trait, which mechanism, and which trigger* — head-rice, verification over consortium composition, and non-disclosure — using evidence otherwise requiring separate construction from the same announcements this paper already parsed.
 
 ## 8.4 A methodological note for building indicators from administrative records
 
-The result behind §8.3's recommendations rests on a general data-quality point worth stating on its own, since it bears on any technology-assessment exercise built from administrative rather than laboratory data. Approval, registration and licensing records are a source class technology-policy measurement has under-used relative to patents and publications (Rammer and Es-Sadki, 2023), chiefly because they are published as prose; §3 shows they repay parsing, at the cost of most analyst effort falling on entity resolution and data-quality assessment (§3.1, §3.4) rather than extraction.
+The result behind §8.3's recommendations rests on a general data-quality point relevant to any technology-assessment exercise built from administrative rather than laboratory data: approval, registration and licensing records are under-used relative to patents and publications (Rammer and Es-Sadki, 2023) chiefly because they are published as prose; §3 shows they repay parsing, at the cost of most analyst effort falling on entity resolution and data-quality assessment (§3.1, §3.4) rather than extraction.
 
-The specific quality lesson is that **reliability is a property of a field, not of a source.** Within one document, issued by one authority on one date, fields differed in evidential strength according to who measured them: laboratory-assayed quality moved one way, applicant-recorded yield the other (§4.5). Standard data-quality assessment of administrative and scientometric sources is conducted at the source level — coverage, error rates, classification accuracy (Franceschini et al., 2016; Jaffe and de Rassenfosse, 2017) — but a source that passes such an audit can still contain fields of very different evidential value, exactly as this one does. For technology-assessment work built on approval or registration corpora, the practical implication is the same one §8.3 turns into a policy rule for this dataset: tag each field with its measuring party, and treat a contrast confined to the independently-assayed fields as more credible than one confined to the self-reported fields. The same structure — applicant-supplied material bound with independent assay results in one official record — recurs in drug approval (Shi et al., 2021) and patent examination (Jaffe and de Rassenfosse, 2017), so the diagnostic is not specific to seed regulation; but its use here is to support the agricultural-policy recommendations in §8.3, not to generalise beyond them.
+The specific quality lesson is that **reliability is a property of a field, not of a source.** Within one document, issued by one authority on one date, fields differed in evidential strength according to who measured them: laboratory-assayed quality moved one way, applicant-recorded yield the other (§4.5). Standard data-quality assessment of administrative and scientometric sources is conducted at the source level — coverage, error rates, classification accuracy (Franceschini et al., 2016; Jaffe and de Rassenfosse, 2017) — but a source that passes such an audit can still contain fields of very different evidential value. The practical implication, turned into a policy rule for this dataset in §8.3, is to tag each field with its measuring party and treat a contrast confined to the independently-assayed fields as more credible than one confined to the self-reported fields. The same structure — applicant-supplied material bound with independent assay results in one official record — recurs in drug approval (Shi et al., 2021) and patent examination (Jaffe and de Rassenfosse, 2017), so the diagnostic is not specific to seed regulation; but its use here is to support the agricultural-policy recommendations in §8.3, not to generalise beyond them.
 
 ## 8.5 Limitations
 
@@ -495,13 +553,22 @@ This is a composition effect on the population entering each pathway, not a caus
 
 ## Acknowledgements
 
-[Author to complete: funding sources, reviewer thanks, etc.]
+The authors thank the editors and anonymous reviewers for their time and constructive
+comments on this manuscript. This work was supported by [grant name and number — author to
+provide].
 
 ---
 
 ## Conflict of interest
 
-The authors declare no conflict of interest.
+Liu Ning is an employee of Anhui Winall Hi-Tech Seed Co., Ltd., a seed enterprise whose
+national variety-approval records fall within the dataset analysed in this study. No
+analysis in this paper is conducted at the level of any named organisation, and no
+individual applicant's breeding capability, performance or conduct is evaluated (§4.7,
+Non-claim 10); all applicant-side quantities are aggregated to entry route or to germplasm
+lineage. The authors disclose this affiliation in the interest of full transparency and
+leave it to the editorial office's judgement whether additional safeguards are warranted.
+Beyond this disclosure, the authors declare no other conflict of interest.
 
 ---
 
@@ -513,17 +580,17 @@ The variety-approval text corpus underlying this study was compiled from publicl
 
 ## CRediT author contributions
 
-*(Placeholder — to be completed by the author team before submission. List each named author against the CRediT roles that apply; a role may be shared by more than one author.)*
+Both authors jointly share all CRediT roles below.
 
-- **Conceptualization**: [Author(s) to complete]
-- **Methodology**: [Author(s) to complete]
-- **Formal analysis**: [Author(s) to complete]
-- **Investigation**: [Author(s) to complete]
-- **Data curation**: [Author(s) to complete]
-- **Writing – original draft**: [Author(s) to complete]
-- **Writing – review & editing**: [Author(s) to complete]
-- **Visualization**: [Author(s) to complete]
-- **Supervision**: [Author(s) to complete]
+- **Conceptualization**: Liu Ning, Lu Kai
+- **Methodology**: Liu Ning, Lu Kai
+- **Formal analysis**: Liu Ning, Lu Kai
+- **Investigation**: Liu Ning, Lu Kai
+- **Data curation**: Liu Ning, Lu Kai
+- **Writing – original draft**: Liu Ning, Lu Kai
+- **Writing – review & editing**: Liu Ning, Lu Kai
+- **Visualization**: Liu Ning, Lu Kai
+- **Supervision**: Liu Ning, Lu Kai
 
 ---
 

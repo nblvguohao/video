@@ -84,11 +84,15 @@ in the manuscript if the editorial office considers it necessary.
 previously, and is not under consideration for publication elsewhere, in whole or in part, in
 any language.
 
-**Conflict of interest.** The authors declare no conflict of interest. This manuscript
-conducts no analysis at the level of any named organisation: all applicant-side
-quantities are aggregated to entry route or to germplasm lineage, and no individual firm or
-institute is evaluated anywhere in the paper. The authors have no financial or other
-relationship with any organisation appearing in the underlying approval records.
+**Conflict of interest.** We disclose that Liu Ning is an employee of Anhui Winall Hi-Tech
+Seed Co., Ltd., a seed enterprise whose national variety-approval records fall within the
+dataset analysed in this study. This manuscript conducts no analysis at the level of any
+named organisation: all applicant-side quantities are aggregated to entry route or to
+germplasm lineage, and no individual firm or institute is evaluated anywhere in the paper. We
+raise this disclosure proactively, in the interest of full transparency with the editorial
+office, and are glad to provide any further information or accommodate any additional
+safeguard the editorial office considers appropriate. Beyond this disclosure, the authors
+declare no other conflict of interest.
 
 **Suggested reviewers.** We have no specific reviewer suggestions to offer at this time and
 leave this to the editorial office's discretion.
@@ -100,9 +104,9 @@ for considering it.
 
 Sincerely,
 
-[Corresponding author name — author to complete]
-[Affiliation — author to complete]
-[Email — author to complete]
-[ORCID — author to complete]
+Lu Kai
+Institute of Agricultural Economics and Information, Anhui Academy of Agricultural Sciences, Hefei, China
+[Email and postal address — author to complete]
+[ORCID — to be provided]
 
-On behalf of all authors.
+On behalf of all authors (Liu Ning, Lu Kai).

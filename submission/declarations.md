@@ -10,13 +10,22 @@
 
 ## Acknowledgements
 
-[Author to complete: funding sources, reviewer thanks, etc.]
+The authors thank the editors and anonymous reviewers for their time and constructive
+comments on this manuscript. This work was supported by [grant name and number — author to
+provide].
 
 ---
 
 ## Conflict of interest
 
-The authors declare no conflict of interest.
+Liu Ning is an employee of Anhui Winall Hi-Tech Seed Co., Ltd., a seed enterprise whose
+national variety-approval records fall within the dataset analysed in this study. No
+analysis in this paper is conducted at the level of any named organisation, and no
+individual applicant's breeding capability, performance or conduct is evaluated (§4.7,
+Non-claim 10); all applicant-side quantities are aggregated to entry route or to germplasm
+lineage. The authors disclose this affiliation in the interest of full transparency and
+leave it to the editorial office's judgement whether additional safeguards are warranted.
+Beyond this disclosure, the authors declare no other conflict of interest.
 
 ---
 
@@ -32,18 +41,17 @@ can reconstruct it from the cited public announcements using the provided script
 
 ## CRediT author contributions
 
-*(Placeholder — to be completed by the author team before submission. List each named author
-against the CRediT roles that apply; a role may be shared by more than one author.)*
+Both authors jointly share all CRediT roles below.
 
-- **Conceptualization**: [Author(s) to complete]
-- **Methodology**: [Author(s) to complete]
-- **Formal analysis**: [Author(s) to complete]
-- **Investigation**: [Author(s) to complete]
-- **Data curation**: [Author(s) to complete]
-- **Writing – original draft**: [Author(s) to complete]
-- **Writing – review & editing**: [Author(s) to complete]
-- **Visualization**: [Author(s) to complete]
-- **Supervision**: [Author(s) to complete]
+- **Conceptualization**: Liu Ning, Lu Kai
+- **Methodology**: Liu Ning, Lu Kai
+- **Formal analysis**: Liu Ning, Lu Kai
+- **Investigation**: Liu Ning, Lu Kai
+- **Data curation**: Liu Ning, Lu Kai
+- **Writing – original draft**: Liu Ning, Lu Kai
+- **Writing – review & editing**: Liu Ning, Lu Kai
+- **Visualization**: Liu Ning, Lu Kai
+- **Supervision**: Liu Ning, Lu Kai
 
 ---
 
